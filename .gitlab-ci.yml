@@ -1,8 +1,13 @@
+# Gitlab CI
+build:
+  image: maven:3.6.3-openjdk-11
+  services:
+    - mysql:8.0
 
-stages:
-  - build
+  variables:
+    # Configure mysql environment variables (https://hub.docker.com/_/mysql/)
+    MYSQL_DATABASE: "db_movie"
+    MYSQL_ROOT_PASSWORD: "root"
 
-maven-build:
-  image: 3.6.3-jdk-11
-  stage: build
-  script: "mvn test"
+  script:
+    - mvn test
