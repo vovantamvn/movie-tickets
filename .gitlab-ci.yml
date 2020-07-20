@@ -1,0 +1,13 @@
+
+
+
+stages:
+  - build
+
+maven-build:
+  image: 3.6.3-jdk-11
+  stage: build
+  script: "mvn package -B"
+  artifacts:
+    paths:
+      - target/*.jar
