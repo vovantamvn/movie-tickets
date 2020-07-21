@@ -8,23 +8,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "cinemas")
+@Entity(name = "chairs")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class CinemaEntity {
+public class ChairEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false)
     private int id;
-    @Column(nullable = false)
-    private String name;
+    @Column(length = 2, unique = true, nullable = false)
+    private String position;
 
-    @ManyToOne
-    @JoinColumn
-    private CityEntity city;
-
-    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL)
-    private List<RoomEntity> rooms;
+    @OneToMany(mappedBy = "chair", cascade = CascadeType.ALL)
+    private List<RoomChairEntity> roomChairs;
 }
