@@ -23,22 +23,21 @@ public class MovieRepositoryTest {
                 .description("Description")
                 .director("Director")
                 .category("Category")
-                .premiere(LocalDate.now())
+                .premiere(LocalDate.parse("2020-08-08"))
                 .time(120)
                 .language("Viet Nam")
-                .image("http://images").build();
+                .image("Image").build();
 
         MovieEntity result = repository.save(created);
 
-        assertEquals(created.getName(), result.getName());
-        assertEquals(created.getDescription(), result.getDescription());
-        assertEquals(created.getDirector(), result.getDirector());
-        assertEquals(created.getCategory(), result.getCategory());
-        assertEquals(created.getPremiere(), result.getPremiere());
-        assertEquals(created.getTime(), result.getTime());
-        assertEquals(created.getLanguage(), result.getLanguage());
-        assertEquals(created.getImage(), result.getImage());
-
+        assertEquals("Name", result.getName());
+        assertEquals("Description", result.getDescription());
+        assertEquals("Director", result.getDirector());
+        assertEquals("Category", result.getCategory());
+        assertEquals(LocalDate.parse("2020-08-08"), result.getPremiere());
+        assertEquals(120, result.getTime());
+        assertEquals("Viet Nam", result.getLanguage());
+        assertEquals("Image", result.getImage());
     }
 
     @Test

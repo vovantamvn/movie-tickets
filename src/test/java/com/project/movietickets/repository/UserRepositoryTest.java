@@ -1,6 +1,5 @@
 package com.project.movietickets.repository;
 
-import com.project.movietickets.controller.UserRepository;
 import com.project.movietickets.entity.UserEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +22,16 @@ public class UserRepositoryTest {
                 .email("abc@gmail.com")
                 .fullName("Name")
                 .gender(true)
-                .dateOfBirth(LocalDate.now())
+                .dateOfBirth(LocalDate.parse("2020-08-08"))
                 .build();
 
         UserEntity result = repository.save(created);
 
-        assertEquals(created.getUsername(), result.getUsername());
-        assertEquals(created.getPassword(), result.getPassword());
-        assertEquals(created.getEmail(), result.getEmail());
-        assertEquals(created.getFullName(), result.getFullName());
-        assertEquals(created.isGender(), result.isGender());
-        assertEquals(created.getDateOfBirth(), result.getDateOfBirth());
+        assertEquals("abcd123", result.getUsername());
+        assertEquals("abcd123", result.getPassword());
+        assertEquals("abc@gmail.com", result.getEmail());
+        assertEquals("Name", result.getFullName());
+        assertEquals(true, result.isGender());
+        assertEquals(LocalDate.parse("2020-08-08"), result.getDateOfBirth());
     }
 }

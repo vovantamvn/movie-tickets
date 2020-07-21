@@ -1,4 +1,4 @@
-package com.project.movietickets.controller;
+package com.project.movietickets.repository;
 
 import com.project.movietickets.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
