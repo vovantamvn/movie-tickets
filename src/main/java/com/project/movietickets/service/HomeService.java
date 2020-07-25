@@ -20,4 +20,11 @@ public class HomeService {
                 .map(ConvertMovie::toMovieModel)
                 .collect(Collectors.toList());
     }
+
+    public List<MovieModel> getNewMovie(){
+        return repository.getTopMovie()
+                .stream()
+                .map(ConvertMovie::toMovieModel)
+                .collect(Collectors.toList());
+    }
 }

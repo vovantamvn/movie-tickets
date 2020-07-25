@@ -16,6 +16,7 @@ public class ConvertMovie {
                 .time(entity.getTime())
                 .language(entity.getLanguage())
                 .image(entity.getImage())
+                .view(entity.getView())
                 .build();
 
         return model;
@@ -31,6 +32,7 @@ public class ConvertMovie {
                 .time(model.getTime())
                 .language(model.getLanguage())
                 .image(model.getImage())
+                .view(model.getView())
                 .build();
 
         return entity;
