@@ -26,7 +26,9 @@ public class MovieRepositoryTest {
                 .premiere(LocalDate.parse("2020-08-08"))
                 .time(120)
                 .language("Viet Nam")
-                .image("Image").build();
+                .image("Image")
+                .view(70)
+                .build();
 
         MovieEntity result = repository.save(created);
 
@@ -38,6 +40,7 @@ public class MovieRepositoryTest {
         assertEquals(120, result.getTime());
         assertEquals("Viet Nam", result.getLanguage());
         assertEquals("Image", result.getImage());
+        assertEquals(70, result.getView());
     }
 
     @Test

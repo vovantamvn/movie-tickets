@@ -16,8 +16,10 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index(Model model){
-        List<MovieModel> movies = service.getTopMovie();
-        model.addAttribute("movies", movies);
+        List<MovieModel> hotMovies = service.getTopMovie();
+        List<MovieModel> newMovies = service.getTopMovie();
+        model.addAttribute("hotMovies", hotMovies);
+        model.addAttribute("newMovies", newMovies);
         return "index";
     }
 }

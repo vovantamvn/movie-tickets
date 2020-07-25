@@ -34,4 +34,5 @@ public class MovieEntity {
     private String language;
     @Column(nullable = false)
     private String image;
+    private int view = 0;
 }

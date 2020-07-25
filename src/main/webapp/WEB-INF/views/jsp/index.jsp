@@ -1,10 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -45,10 +39,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="nav-wrap">
 				<ul class="group" id="example-one">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
-					<li class="current_page_item"><a href="movies_events.html">Movies & Events</a></li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li class="current_page_item"><a href="/events">Movies & Events</a></li>
+					<li><a href="/contact">Contact</a></li>
 				</ul>
 			</div>
 			<div class="clear"></div>
@@ -58,15 +52,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="content">
 	<div class="wrap">
 		<div class="content-top">
-			<h3>Movies</h3>
-			<c:forEach var="$movie" items="$movies">
+			<h3>New Movies</h3>
+			<c:forEach var="movie" items="${newMovies}">
 				<div class="col_1_of_4 span_1_of_4">
 					<div class="imageRow">
 						<div class="single">
-							<a href="images/pic18.jpg" rel="lightbox"><img src="images/pic18.jpg" alt="" /></a>
+							<a href="${movie.image}" rel="lightbox"><img src="${movie.image}" alt="" /></a>
 						</div>
 						<div class="movie-text">
-							<h4 class="h-text"><a href="#">Anh So Mot</a></h4>
+							<h4 class="h-text"><a href="#">${movie.name}</a></h4>
 						</div>
 						<div>
 							<button type="submit" class="btn btn-info">Chi tiết</button>
@@ -79,51 +73,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 
 		<div class="movie-top">
-			<div class="col_1_of_4 span_1_of_4">
-				<div class="imageRow">
-					<div class="single">
-						<a href="images/pic22.jpg" rel="lightbox"><img src="images/pic22.jpg" alt="" /></a>
-					</div>
-					<div class="movie-text">
-						<h4 class="h-text"><a href="#">Lorem ipsum dolor sit,</a></h4>
-						<p class="h-para">Lorem ipsum dolor sit amet, consectetuer adipiscing elit </p>
-
-					</div>
-				</div>
-			</div>
-			<div class="col_1_of_4 span_1_of_4">
-				<div class="imageRow">
-					<div class="single">
-						<a href="images/pic23.jpg" rel="lightbox"><img src="images/pic23.jpg" alt="" /></a>
-					</div>
-					<div class="movie-text">
-						<h4 class="h-text"><a href="#">Lorem ipsum dolor sit,</a></h4>
-						<p class="h-para">Lorem ipsum dolor sit amet, consectetuer adipiscing elit </p>
+			<h3 style="color: #fcac03;font-size: 2em;padding: 1.5%;">Hot Movies</h3>
+			<c:forEach var="movie" items="${hotMovies}">
+				<div class="col_1_of_4 span_1_of_4">
+					<div class="imageRow">
+						<div class="single">
+							<a href="${movie.image}" rel="lightbox"><img src="${movie.image}" alt="" /></a>
+						</div>
+						<div class="movie-text">
+							<h4 class="h-text"><a href="#">${movie.name}</a></h4>
+							<div>
+								<button type="submit" class="btn btn-info">Chi tiết</button>
+								<button type="button" class="btn btn-primary">Đặt vé</button>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col_1_of_4 span_1_of_4">
-				<div class="imageRow">
-					<div class="single">
-						<a href="images/pic24.jpg" rel="lightbox"><img src="images/pic24.jpg" alt="" /></a>
-					</div>
-					<div class="movie-text">
-						<h4 class="h-text"><a href="#">Lorem ipsum dolor sit,</a></h4>
-						<p class="h-para">Lorem ipsum dolor sit amet, consectetuer adipiscing elit </p>
-					</div>
-				</div>
-			</div>
-			<div class="col_1_of_4 span_1_of_4">
-				<div class="imageRow">
-					<div class="single">
-						<a href="images/pic25.jpg" rel="lightbox"><img src="images/pic25.jpg" alt="" /></a>
-					</div>
-					<div class="movie-text">
-						<h4 class="h-text"><a href="#">Lorem ipsum dolor sit,</a></h4>
-						<p class="h-para">Lorem ipsum dolor sit amet, consectetuer adipiscing elit </p>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
 			<div class="clear"></div>
 		</div>
 	</div>
