@@ -10,7 +10,7 @@ public class HomeController {
     @Autowired
     private HomeService service;
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String index(){
         return "index";
     }
