@@ -18,6 +18,15 @@ public class HomeController {
     public String index(Model model){
         List<MovieModel> hotMovies = service.getTopMovie();
         List<MovieModel> newMovies = service.getTopMovie();
+
+        if (hotMovies.size() > 4){
+            hotMovies = hotMovies.subList(0, 4);
+        }
+
+        if (newMovies.size() > 4){
+            newMovies = newMovies.subList(0, 4);
+        }
+
         model.addAttribute("hotMovies", hotMovies);
         model.addAttribute("newMovies", newMovies);
         return "index";

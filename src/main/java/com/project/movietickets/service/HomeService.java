@@ -18,15 +18,13 @@ public class HomeService {
         return repository.getTopMovie()
                 .stream()
                 .map(ConvertMovie::toMovieModel)
-                .collect(Collectors.toList())
-                .subList(0, 4);
+                .collect(Collectors.toList());
     }
 
     public List<MovieModel> getNewMovie(){
         return repository.getTopMovie()
                 .stream()
                 .map(ConvertMovie::toMovieModel)
-                .collect(Collectors.toList())
-                .subList(0, 4);
+                .collect(Collectors.toList());
     }
 }
