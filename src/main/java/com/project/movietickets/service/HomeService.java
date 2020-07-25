@@ -18,6 +18,7 @@ public class HomeService {
         return repository.getTopMovie()
                 .stream()
                 .map(ConvertMovie::toMovieModel)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList())
+                .subList(0, 4);
     }
 }
