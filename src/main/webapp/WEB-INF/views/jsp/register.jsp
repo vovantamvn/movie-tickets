@@ -64,39 +64,34 @@
         </div>
     </div>
 </div>
-<script>
-    function check() {
-        var name = document.getElementById("user").value;
-        var sex = document.getElementById("sex").value;
-        alert(sex);
 
-    }
-</script>
 <div class="container">
     <h1 class="text-center">ĐĂNG KÍ</h1>
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
             <legend><a href=""><i class="glyphicon glyphicon-globe"></i></a> Đăng ký thành viên!
             </legend>
-            <form action="/register" method="post" class="form" role="form" onsubmit="check()">
+            <form action="/register" method="post" class="form" role="form" id="form-register">
                 <div class="row">
-                    <div class="col-xs-6 col-md-6"> <input class="form-control" name="user" placeholder="User Name" required="" autofocus="" type="text" id="user">
+                    <div class="col-xs-6 col-md-6"> <input class="form-control" name="username" placeholder="User Name" required="" autofocus="" type="text" id="user">
                     </div>
-                    <div class="col-xs-6 col-md-6"> <input class="form-control" name="full" placeholder="Full Name" required="" type="text">
+                    <div class="col-xs-6 col-md-6"> <input class="form-control" name="fullname" placeholder="Full Name" required="" type="text">
                     </div>
-                </div> <input class="form-control" name="youremail" placeholder="Email" type="email" required>
-                <input class="form-control" name="password" placeholder="Mật khẩu" type="password" required>
-                <input class="form-control" name="retypepassword" placeholder="Nhập lại mật khẩu" type="password" required>
-                <label for=""> Ngày sinh</label>
+                </div> <input class="form-control" name="email" placeholder="Email" type="email" required>
+                <input class="form-control" id="password" name="password" placeholder="Mật khẩu" type="password" required>
+                <input class="form-control" id="re-password" name="re-password" placeholder="Nhập lại mật khẩu" type="password" required>
+                <label for="date-of-birth"> Ngày sinh</label>
                 <div class="row">
-                    <div class="col-xs-6 col-md-12"> <input type="date" name="dateOfBirth" class="form-control" required>
+                    <div class="col-xs-6 col-md-12"> <input type="date" id="date-of-birth" name="dateOfBirth" class="form-control" required>
                     </div>
-                </div> <label class="radio-inline">
-                <input name="sex" id="inlineCheckbox1" value="true" type="radio" required id="sex" > Nam </label>
-                <label class="radio-inline"> <input name="sex" id="inlineCheckbox2" value="false" type="radio"  id="sex">          Nữ </label>
+                </div>
+                <label class="radio-inline">
+                <input name="gender" id="inlineCheckbox1" value="true" type="radio" required> Nam </label>
+                <label class="radio-inline"> <input name="gender" id="inlineCheckbox2" value="false" type="radio"> Nữ </label>
                 <br>
                 <br>
-                <button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button>
+                <p>${message}</p>
+                <button id="btn-register" class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button>
             </form>
         </div>
     </div>
@@ -147,6 +142,20 @@
         </div>
     </div>
 </div>
-</body>
 
+<script>
+    $('#form-register').submit(function () {
+        const password = $('#password').val();
+        const rePassword = $('#re-password').val();
+
+        if (password !== null && password === rePassword){
+            return true;
+        }
+
+        alert('Nhập lại mật khẩu không đúng!');
+        return false;
+    });
+</script>
+
+</body>
 </html>
