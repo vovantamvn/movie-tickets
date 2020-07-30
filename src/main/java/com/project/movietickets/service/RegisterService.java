@@ -5,6 +5,7 @@ import com.project.movietickets.entity.UserEntity;
 import com.project.movietickets.model.UserModel;
 import com.project.movietickets.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -13,6 +14,9 @@ import java.time.LocalDate;
 public class RegisterService {
     @Autowired
     private UserRepository repository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      *
@@ -33,19 +37,21 @@ public class RegisterService {
 
         UserEntity user = UserEntity.builder()
                 .username(username)
-                .password(password)
+                .password(passwordEncoder.encode(password))
                 .fullName(fullname)
                 .email(email)
                 .gender(gender)
+                .role("ROLE_USER")
                 .dateOfBirth(LocalDate.parse(dateOfBirth))
                 .build();
 
         try {
             repository.save(user);
+            return true;
         }catch (Exception e){
-            return false;
+            e.printStackTrace();
         }
 
-        return true;
+        return false;
     }
 }

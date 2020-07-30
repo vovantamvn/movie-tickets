@@ -21,6 +21,7 @@ public class UserRepositoryTest {
                 .password("abcd123")
                 .email("abc@gmail.com")
                 .fullName("Name")
+                .role("ROLE_USER")
                 .gender(true)
                 .dateOfBirth(LocalDate.parse("2020-08-08"))
                 .build();
@@ -33,5 +34,6 @@ public class UserRepositoryTest {
         assertEquals("Name", result.getFullName());
         assertEquals(true, result.isGender());
         assertEquals(LocalDate.parse("2020-08-08"), result.getDateOfBirth());
+        assertEquals("ROLE_USER", result.getRole());
     }
 }

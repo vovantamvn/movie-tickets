@@ -28,4 +28,6 @@ public class UserEntity {
     private String fullName;
     private boolean gender;
     private LocalDate dateOfBirth;
+    @Column(nullable = false)
+    private String role;
 }
