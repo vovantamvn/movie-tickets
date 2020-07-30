@@ -21,7 +21,7 @@ public class RegisterServiceTest {
                 "demo",
                 "password",
                 "fullname",
-                "email@gmail",
+                "email@gmail.com",
                 true,
                 "2020-02-02");
 
