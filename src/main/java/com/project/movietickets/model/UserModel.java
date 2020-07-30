@@ -14,4 +14,5 @@ public class UserModel {
     private String fullName;
     private boolean gender;
     private LocalDate dateOfBirth;
+    private String role;
 }
