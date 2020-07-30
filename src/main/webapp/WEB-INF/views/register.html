@@ -70,10 +70,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </div>
     <script>
         function check() {
-            var name = document.getElementById("user").value;
-            var sex = document.getElementById("sex").value;
-            alert(sex);
-
+            var p1 = document.getElementById("p1").value;
+            var p2 = document.getElementById("p2").value;
+            if (p1 == p2) {
+                alert("Bang");
+            }
         }
     </script>
     <div class="container">
@@ -89,8 +90,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="col-xs-6 col-md-6"> <input class="form-control" name="full" placeholder="Full Name" required="" type="text">
                         </div>
                     </div> <input class="form-control" name="youremail" placeholder="Email" type="email" required>
-                    <input class="form-control" name="password" placeholder="Mật khẩu" type="password" required>
-                    <input class="form-control" name="retypepassword" placeholder="Nhập lại mật khẩu" type="password" required>
+                    <input class="form-control" name="password" placeholder="Mật khẩu" type="password" id="p1" required>
+                    <input class="form-control" name="retypepassword" placeholder="Nhập lại mật khẩu" type="password" id="p2" required>
                     <label for=""> Ngày sinh</label>
                     <div class="row">
                         <div class="col-xs-6 col-md-12"> <input type="date" class="form-control" required>

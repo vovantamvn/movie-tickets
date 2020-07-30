@@ -102,6 +102,18 @@
     </div>
 </div>
 
+
+
+
+
+
+
+
+<p>${movie}</p>
+<h5>${movie.name}</h5>
+<h5>${movie.description}</h5>
+
+
 <!-- Footer -->
 <div class="footer">
     <div class="wrap">
