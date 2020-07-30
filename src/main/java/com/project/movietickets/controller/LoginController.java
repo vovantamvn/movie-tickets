@@ -24,8 +24,10 @@ public class LoginController {
                         Model model){
 
         boolean result = service.login(username, password);
-
+        System.out.println(username);
+        System.out.println(password);
         if (result){
+            System.out.println("Success");
             return "redirect:/";
         }
 
