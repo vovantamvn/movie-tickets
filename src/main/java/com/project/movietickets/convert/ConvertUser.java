@@ -14,6 +14,7 @@ public class ConvertUser {
                 .fullName(model.getFullName())
                 .gender(model.isGender())
                 .dateOfBirth(model.getDateOfBirth())
+                .role(model.getRole())
                 .build();
 
         return entity;
@@ -27,6 +28,7 @@ public class ConvertUser {
                 .fullName(entity.getFullName())
                 .gender(entity.isGender())
                 .dateOfBirth(entity.getDateOfBirth())
+                .role(entity.getRole())
                 .build();
 
         return model;
