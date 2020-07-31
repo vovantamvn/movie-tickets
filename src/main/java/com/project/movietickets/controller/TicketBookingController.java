@@ -9,6 +9,6 @@ public class TicketBookingController {
 
     @RequestMapping(value = "/booking", method = RequestMethod.GET)
     public String index(){
-        return "ticketbooking";
+        return "booking";
     }
 }
