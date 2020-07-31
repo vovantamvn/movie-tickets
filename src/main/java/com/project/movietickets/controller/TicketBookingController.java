@@ -20,7 +20,10 @@ public class TicketBookingController {
     private TicketsBookingService service;
 
     @RequestMapping(value = "/booking", method = RequestMethod.GET)
-    public String index(@RequestParam(value = "index", required = false, defaultValue = "0") int index, Model model){
+    public String index(
+            @RequestParam(value = "index", required = false, defaultValue = "0") int index,
+            @RequestParam(value = "movie") int movieId,
+            Model model){
 
         List<CityModel> citys = service.getAllCity();
         model.addAttribute("index", index);
