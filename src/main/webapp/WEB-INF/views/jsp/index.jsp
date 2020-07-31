@@ -55,7 +55,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
                         <div class="single">
-                            <a href="images/pic18.jpg" rel="lightbox"><img src="images/pic18.jpg" alt="" /></a>
+                            <a href="${movie.image}" rel="lightbox"><img src="${movie.image}" alt="" /></a>
                         </div>
                         <div class="movie-text">
                             <h4 class="h-text"><a href="#">${movie.name}</a></h4>
@@ -76,7 +76,7 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
                         <div class="single">
-                            <a href="images/pic18.jpg" rel="lightbox"><img src="images/pic18.jpg" alt="" /></a>
+                            <a href="${movie.image}" rel="lightbox"><img src="${movie.image}" alt="" /></a>
                         </div>
                         <div class="movie-text">
                             <h4 class="h-text"><a href="#">${movie.name}</a></h4>
