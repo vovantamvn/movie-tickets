@@ -4,6 +4,26 @@
 <head>
     <!-- Head -->
     <jsp:include page="template/header.jsp"/>
+    <style>
+        .col-sm-9{
+            font-size: 20px;
+
+
+        }
+        .col-sm-9 h2,form{
+            color: #357ecd;
+            margin-left: 40px;
+            padding-top: 12px;
+        }
+        .col-sm-9 label,form{
+            /*color: #357ecd;*/
+            margin-left: 40px;
+            padding-top: 12px;
+        }
+        .col-sm-9 container{
+            margin-left: 90px;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,27 +32,34 @@
 
 <!-- Content-->
 <div class="container">
-    <h2>Nội dung phim</h2>
+    <h1>NỘI DUNG PHIM </h1>
     <br>
     <div class="row">
         <div class="col-sm-3">
             <img src="${movie.image}">
+
         </div>
+
         <div class="col-sm-9">
-            <span>${movie.name}</span><br>
-            <b>Đạo diễn: </b>${movie.director}<br>
-            <b>Thể loại: </b>${movie.category}<br>
-            <b>Khỏi chiếu: </b>${movie.premiere}<br>
-            <b>Thời lượng: </b>${movie.time} phút<br>
-            <b>Ngôn ngữ: </b>${movie.language}<br>
-            <form method="post" action="#">
-                <button type="submit" class="btn btn-primary" id="btn-submit">Mua vé</button>
-            </form>
+
+
+              <h2>${movie.name}</h2>
+              <hr>
+              <label>Đạo diễn : </label>${movie.director}<br>
+              <label>Thể loại : </label>${movie.category}<br>
+              <label>Khỏi chiếu : </label>${movie.premiere}<br>
+              <label>Thời lượng : </label>${movie.time} phút<br>
+              <label>Ngôn ngữ : </label>${movie.language}<br>
+              <form method="post" action="#">
+                  <button type="submit" class="btn btn-primary" id="btn-submit">Mua vé</button>
+              </form>
+
+
         </div>
     </div>
-    <h2>Chi tiết</h2>
+    <h3 >Chi tiết</h3>
     <br>
-    ${movie.description}
+    ${movie.description}<br><br>
 </div>
 
 <!-- Footer -->
