@@ -5,6 +5,12 @@
 <head>
     <!-- Head -->
     <jsp:include page="template/header.jsp"/>
+    <style>
+        .list-group input{
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +20,8 @@
 <!-- Content-->
 <div class="container">
     <br>
-    <h2>Đặt vé</h2>
+    <h2 style="text-shadow: 2px 2px 2px blue;text-align : center;font-size:70px ; color: #db9603" >ĐẶT VÉ </h2>
+<%--    <h3 style="text-shadow: 2px 2px 2px blue;padding-left:340px;font-size:70px;text-justify: inter-cluster" >New Movies</h3>--%>
     <br>
 
     <ul class="nav nav-tabs">
@@ -26,13 +33,19 @@
     </ul>
 
     <ul class="list-group">
-        <c:forEach var="cinema" items="${citys[index].cinemas}">
-            <li class="list-group-item">${cinema.name}:<br>
+        <c:forEach var="cinema" items="${citys[index].cinemas}"><br>
+                <button class="btn btn-primary">${cinema.name}  </button>
+            <br><br>
+                <input type="radio" name="day"> Thứ Hai <input type="radio" name="day"class="day">Thứ Ba
+            <input type="radio" name="day" class="day">Thứ Tư <input type="radio" name="day"class="day">Thứ Năm
+            <input type="radio" name="day"class="day">Thứ Sáu  <input type="radio" name="day"class="day">Thứ Bảy
+            <input type="radio" name="day"class="day">Chủ Nhật <br>
+            <hr>
                 <ul>
-                    <li>12h</li>
-                    <li>12h</li>
-                    <li>12h</li>
-                    <li>12h</li>
+                    <li><input type="radio" name="hour"> 12h </li>
+                    <li><input type="radio" name="hour"> 12h </li>
+                    <li><input type="radio" name="hour"> 12h </li>
+                    <li><input type="radio" name="hour"> 12h </li>
                 </ul>
             </li>
 
