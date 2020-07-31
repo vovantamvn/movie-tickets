@@ -5,25 +5,26 @@
     <!-- Head -->
     <jsp:include page="template/header.jsp"/>
     <style>
-        .col-sm-9 {
+
+        .col-sm-9{
             font-size: 20px;
 
 
         }
 
-        .col-sm-9 h2, form {
+        .col-sm-9 h2,form{
             color: #357ecd;
             margin-left: 40px;
             padding-top: 12px;
         }
 
-        .col-sm-9 label, form {
+        .col-sm-9 label,form{
             /*color: #357ecd;*/
             margin-left: 40px;
             padding-top: 12px;
         }
 
-        .col-sm-9 container {
+        .col-sm-9 container{
             margin-left: 90px;
         }
     </style>
