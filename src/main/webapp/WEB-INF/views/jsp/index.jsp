@@ -12,7 +12,7 @@
 <div class="content">
     <div class="wrap">
         <div class="content-top">
-            <h3>New Movies</h3>
+            <h3 style="text-shadow: 2px 2px 2px blue;padding-left:340px;font-size:70px;text-justify: inter-cluster" >New Movies</h3>
             <c:forEach var="movie" items="${newMovies}">
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
@@ -33,7 +33,7 @@
         </div>
 
         <div class="movie-top">
-            <h3 style="color: #357ecd;font-size: 4em;padding: 1.5%;">Hot Movies</h3>
+            <h3 style=" color :#fcac03;padding-left:340px;text-shadow: 2px 2px 2px blue;font-size:70px;text-justify: inter-cluster">Hot Movies</h3>
             <c:forEach var="movie" items="${hotMovies}">
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
