@@ -1,17 +1,13 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 
 <head>
     <title>Movie Tickest</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-    <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="style2.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="lightbox.css" type="text/css">
     <script src='js/jquery.color-RGBa-patch.js'></script>
     <script src='js/example.js'></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -19,20 +15,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="js/lightbox.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <style>
-        body {
-            padding-top: 0px;
-        }
-        
-        .form-control {
-            margin-bottom: 10px;
-        }
-        
-        .login-screen-bg {
-            background-color: #EFEFEF;
-        }
-    </style>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
     <script>
         jQuery(document).ready(function($) {
             $('a').smoothScroll({
@@ -68,43 +51,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         </div>
     </div>
-    <script>
-        function check() {
-            var p1 = document.getElementById("p1").value;
-            var p2 = document.getElementById("p2").value;
-            if (p1 == p2) {
-                alert("Bang");
-            }
-        }
-    </script>
-    <div class="container">
-        <h1 class="text-center">ĐĂNG KÍ </h1>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
-                <legend><a href=""><i class="glyphicon glyphicon-globe"></i></a> Đăng ký thành viên!
-                </legend>
-                <form action="" method="post" class="form" role="form" onsubmit="check()">
-                    <div class="row">
-                        <div class="col-xs-6 col-md-6"> <input class="form-control" name="user" placeholder="User Name" required="" autofocus="" type="text" id="user">
-                        </div>
-                        <div class="col-xs-6 col-md-6"> <input class="form-control" name="full" placeholder="Full Name" required="" type="text">
-                        </div>
-                    </div> <input class="form-control" name="youremail" placeholder="Email" type="email" required>
-                    <input class="form-control" name="password" placeholder="Mật khẩu" type="password" id="p1" required>
-                    <input class="form-control" name="retypepassword" placeholder="Nhập lại mật khẩu" type="password" id="p2" required>
-                    <label for=""> Ngày sinh</label>
-                    <div class="row">
-                        <div class="col-xs-6 col-md-12"> <input type="date" class="form-control" required>
-                        </div>
-                    </div> <label class="radio-inline">
-                         <input name="sex" id="inlineCheckbox1" value="male" type="radio" required id="sex" > Nam </label>
-                    <label class="radio-inline"> <input name="sex" id="inlineCheckbox2" value="female" type="radio"  id="sex">          Nữ </label>
-                    <br>
-                    <br>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button>
-                </form>
-            </div>
+
+    <div id="main">
+        <h1>NỘI DUNG BỘ PHIM</h1>
+        <hr>
+        <div class="col-sm-4">
+            <img src="images/pic10.jpg" alt="">
         </div>
+        <div id="right">
+            <h3>BÁN ĐẢO PENINSULA</h3>
+
+            <hr>
+            <label for="">Description : </label>Vì số tiền công hậu hĩnh lên đến 2,5 triệu USD, tay cựu quân nhân Jung Seok quyết định trở lại “Bán Đảo” nhằm thu hồi một kiện hàng nọ. Tuy nhiên, đón đợi Jung Seok và đồng đội trở về là cuộc phục kích của
+            những chiến hữu cũ và sự tấn công của lũ zombie khát máu <br>
+            <label for="">Directo :</label><br>
+            <label for="">Category : </label> Hành động <br>
+            <label for="">premiere : </label>2020-07-22 <br>
+            <label for="">Time : </label>90 phút <br> <label for="">Language : </label>Tiếng Hàn <br>
+            <button class="btn btn-primary"> Đặt vé </button>
+
+        </div>
+
     </div>
 
     <!-- Footer -->

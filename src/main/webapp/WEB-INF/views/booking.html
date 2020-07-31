@@ -19,20 +19,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="js/lightbox.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <style>
-        body {
-            padding-top: 0px;
-        }
-        
-        .form-control {
-            margin-bottom: 10px;
-        }
-        
-        .login-screen-bg {
-            background-color: #EFEFEF;
-        }
-    </style>
     <script>
         jQuery(document).ready(function($) {
             $('a').smoothScroll({
@@ -68,43 +54,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         </div>
     </div>
-    <script>
-        function check() {
-            var p1 = document.getElementById("p1").value;
-            var p2 = document.getElementById("p2").value;
-            if (p1 == p2) {
-                alert("Bang");
-            }
-        }
-    </script>
-    <div class="container">
-        <h1 class="text-center">ĐĂNG KÍ </h1>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
-                <legend><a href=""><i class="glyphicon glyphicon-globe"></i></a> Đăng ký thành viên!
-                </legend>
-                <form action="" method="post" class="form" role="form" onsubmit="check()">
-                    <div class="row">
-                        <div class="col-xs-6 col-md-6"> <input class="form-control" name="user" placeholder="User Name" required="" autofocus="" type="text" id="user">
-                        </div>
-                        <div class="col-xs-6 col-md-6"> <input class="form-control" name="full" placeholder="Full Name" required="" type="text">
-                        </div>
-                    </div> <input class="form-control" name="youremail" placeholder="Email" type="email" required>
-                    <input class="form-control" name="password" placeholder="Mật khẩu" type="password" id="p1" required>
-                    <input class="form-control" name="retypepassword" placeholder="Nhập lại mật khẩu" type="password" id="p2" required>
-                    <label for=""> Ngày sinh</label>
-                    <div class="row">
-                        <div class="col-xs-6 col-md-12"> <input type="date" class="form-control" required>
-                        </div>
-                    </div> <label class="radio-inline">
-                         <input name="sex" id="inlineCheckbox1" value="male" type="radio" required id="sex" > Nam </label>
-                    <label class="radio-inline"> <input name="sex" id="inlineCheckbox2" value="female" type="radio"  id="sex">          Nữ </label>
-                    <br>
-                    <br>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit"> Đăng ký</button>
-                </form>
-            </div>
-        </div>
+
+    <div>
+        <h5>TEST</h5>
     </div>
 
     <!-- Footer -->
