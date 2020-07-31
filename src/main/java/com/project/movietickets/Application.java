@@ -1,6 +1,7 @@
 package com.project.movietickets;
 
 import com.project.movietickets.entity.UserEntity;
+import com.project.movietickets.repository.MovieRepository;
 import com.project.movietickets.repository.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

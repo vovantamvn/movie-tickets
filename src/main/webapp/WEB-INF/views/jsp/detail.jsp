@@ -11,7 +11,29 @@
 <jsp:include page="template/nav.jsp"/>
 
 <!-- Content-->
-<H1>Content</H1>
+<div class="container">
+    <h2>Nội dung phim</h2>
+    <br>
+    <div class="row">
+        <div class="col-sm-3">
+            <img src="${movie.image}">
+        </div>
+        <div class="col-sm-9">
+            <span>${movie.name}</span><br>
+            <b>Đạo diễn: </b>${movie.director}<br>
+            <b>Thể loại: </b>${movie.category}<br>
+            <b>Khỏi chiếu: </b>${movie.premiere}<br>
+            <b>Thời lượng: </b>${movie.time} phút<br>
+            <b>Ngôn ngữ: </b>${movie.language}<br>
+            <form method="post" action="#">
+                <button type="submit" class="btn btn-primary" id="btn-submit">Mua vé</button>
+            </form>
+        </div>
+    </div>
+    <h2>Chi tiết</h2>
+    <br>
+    ${movie.description}
+</div>
 
 <!-- Footer -->
 <jsp:include page="template/footer.jsp"/>

@@ -17,10 +17,10 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
                         <div class="single">
-                            <a href="${movie.image}" rel="lightbox"><img src="${movie.image}" alt="" /></a>
+                            <a href="${movie.image}" rel="lightbox"><img height="300" width="200" src="${movie.image}" alt="" /></a>
                         </div>
                         <div class="movie-text">
-                            <h4 class="h-text"><a href="#">${movie.name}</a></h4>
+                            <h5><a href="/movies?id=${movie.id}">${movie.name}</a></h5>
                         </div>
                         <div>
                             <button type="submit" class="btn btn-info">Chi tiết</button>
@@ -38,10 +38,10 @@
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
                         <div class="single">
-                            <a href="${movie.image}" rel="lightbox"><img src="${movie.image}" alt="" /></a>
+                            <a href="${movie.image}" rel="lightbox"><img height="300" width="200" src="${movie.image}" alt="" /></a>
                         </div>
                         <div class="movie-text">
-                            <h4 class="h-text"><a href="#">${movie.name}</a></h4>
+                            <h5><a href="/movies?id=${movie.id}">${movie.name}</a></h5>
                             <div>
                                 <button type="submit" class="btn btn-info">Chi tiết</button>
                                 <button type="button" class="btn btn-primary">Đặt vé</button>
