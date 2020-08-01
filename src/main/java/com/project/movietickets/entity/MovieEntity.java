@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity(name = "movies")
 @Data
@@ -35,4 +36,7 @@ public class MovieEntity {
     @Column(nullable = false)
     private String image;
     private int view = 0;
+
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    private List<TicketEntity> tickets;
 }

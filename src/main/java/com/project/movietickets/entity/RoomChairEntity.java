@@ -6,8 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Entity(name = "room_chair")
+@Entity(name = "room_chairs")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,4 +28,7 @@ public class RoomChairEntity {
     private RoomEntity room;
 
     private boolean status = false;
+
+    @OneToMany(mappedBy = "roomChair", cascade = CascadeType.ALL)
+    private List<TicketEntity> tickets;
 }

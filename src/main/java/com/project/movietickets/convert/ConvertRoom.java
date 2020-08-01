@@ -16,6 +16,8 @@ public class ConvertRoom {
     }
 
     public static RoomModel toModel(RoomEntity entity){
+        //var r
+
         RoomModel model = RoomModel.builder()
                 .id(entity.getId())
                 .name(entity.getName())

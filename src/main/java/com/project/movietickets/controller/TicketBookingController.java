@@ -1,5 +1,6 @@
 package com.project.movietickets.controller;
 
+import com.project.movietickets.entity.CityEntity;
 import com.project.movietickets.model.CityModel;
 import com.project.movietickets.service.TicketsBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +24,12 @@ public class TicketBookingController {
             @RequestParam(value = "movie") int movieId,
             Model model){
 
-        List<CityModel> cities = service.getAllCity();
+        List<CityEntity> cities = service.getAllCity();
 
         model.addAttribute("index", index);
         model.addAttribute("movie", movieId);
         model.addAttribute("cities", cities);
         return "booking";
-    }
-
-    @RequestMapping(value = "/booking/{id}", method = RequestMethod.GET)
-    public String booking(@PathVariable("id") int cinemaId) {
-        return "map-cinema";
     }
 
 }

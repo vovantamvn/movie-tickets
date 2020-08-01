@@ -1,35 +1,32 @@
 package com.project.movietickets.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.List;
 
-@Entity(name = "tickets")
+@Entity(name = "cinema_schedules")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TicketEntity {
+public class CinemaScheduleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false)
     private int id;
 
-    private LocalDate date;
+    @ManyToOne
+    @JoinColumn
+    private CinemaEntity cinema;
 
     @ManyToOne
     @JoinColumn
-    private MovieEntity movie;
+    private ScheduleEntity schedule;
 
-    @ManyToOne
-    @JoinColumn
-    private CinemaScheduleEntity cinemaSchedule;
-
-    @ManyToOne
-    @JoinColumn
-    private RoomChairEntity roomChair;
+    @OneToMany(mappedBy = "cinemaSchedule", cascade = CascadeType.ALL)
+    private List<TicketEntity> tickets;
 }

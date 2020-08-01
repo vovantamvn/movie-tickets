@@ -15,10 +15,7 @@ public class TicketsBookingService {
     @Autowired
     private CityRepository cityRepository;
 
-    public List<CityModel> getAllCity(){
-        return cityRepository.findAll()
-                .stream()
-                .map(ConverCity::toModel)
-                .collect(Collectors.toList());
+    public List<CityEntity> getAllCity(){
+        return cityRepository.findAll();
     }
 }
