@@ -51,10 +51,11 @@
             <li>
                 <h3>${cinema.name}</h3>
                 <br>
-                <button class="btn btn-primary">12h</button>
-                <button class="btn btn-primary">12h</button>
-                <button class="btn btn-primary">12h</button>
-                <button class="btn btn-primary">12h</button>
+                <c:forEach var="cinemaSchedule" items="${cinema.cinemaSchedules}">
+                    <a href="/room-map?cinemaSchedule=${cinemaSchedule.id}&movie=${movie}">
+                        <button class="btn btn-primary">${cinemaSchedule.schedule.time}</button>
+                    </a>
+                </c:forEach>
                 <hr>
             </li>
 

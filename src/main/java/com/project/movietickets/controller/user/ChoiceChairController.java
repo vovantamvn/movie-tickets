@@ -15,10 +15,11 @@ public class ChoiceChairController {
 
     @RequestMapping(value = "room-map", method = RequestMethod.GET)
     public String index(
-            @RequestParam(value = "id", defaultValue = "1") int id,
-            //@RequestParam(value = "roomSchedule") int roomSchedule,
+            @RequestParam(value = "cinemaSchedule") int cinemaScheduleId,
+            @RequestParam(value = "movie") int movieId,
             Model model){
-        var rooms = service.getAllRoomOfCinema(id);
+
+        var rooms = service.getAllRoomOfCinema(1);
 
         model.addAttribute("rooms", rooms);
 

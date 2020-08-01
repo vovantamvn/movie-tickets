@@ -26,6 +26,6 @@ public class CinemaEntity {
     @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL)
     private List<RoomEntity> rooms;
 
-    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CinemaScheduleEntity> cinemaSchedules;
 }

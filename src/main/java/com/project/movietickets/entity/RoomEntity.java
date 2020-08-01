@@ -24,6 +24,6 @@ public class RoomEntity {
     @JoinColumn
     private CinemaEntity cinema;
 
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<RoomChairEntity> roomChairs;
 }

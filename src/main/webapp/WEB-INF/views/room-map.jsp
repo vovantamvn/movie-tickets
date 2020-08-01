@@ -7,21 +7,23 @@
     <jsp:include page="template/header.jsp"/>
 </head>
 <style>
-    body #button button{
+    body #chair button {
+        width: 50px;
+        height: 50px;
         margin-left: 15px;
         margin-right: 15px;
         margin-top: 10px;
         margin-bottom: 10px;
-        background: #357ecd;
     }
+    /*background: #357ecd;*/
 </style>
 
 <body>
 <!-- Nav -->
 <jsp:include page="template/nav.jsp"/>
 
-<div style="width: 100%;height: 330px;text-align: center ; margin-top: 55px" >
-
+<%--<div style="width: 100%;height: 330px;text-align: center ; margin-top: 55px" >--%>
+<div class="container" style="margin-top: 55px">
     <ul class="nav nav-tabs">
         <c:forEach varStatus="loop" var="room" items="${rooms}">
             <li>
@@ -29,16 +31,19 @@
             </li>
         </c:forEach>
     </ul>
+    <br>
 
-    <div style="width: auto" id="button">
-        <c:forEach var="room" items="${rooms}" varStatus="loop">
-            <button class="btn btn-outline-info">${room}</button>
+    <div style="width: 100%;height: 330px;text-align: center" id="chair">
 
-            <c:if test="${loop.index%7!=0 && loop.index==0}">
+        <c:forEach var="roomChair" items="${rooms[0].roomChairs}" varStatus="loop">
+            <a href="/buy"><button class="btn btn-primary">${roomChair.chair.position}</button></a>
+
+            <c:if test="${(loop.index+1)%8==0}">
                 <br>
             </c:if>
         </c:forEach>
     </div>
+
 </div>
 
 <!-- Footer -->
