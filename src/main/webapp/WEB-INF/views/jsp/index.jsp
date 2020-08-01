@@ -23,8 +23,12 @@
                             <h5><a href="/movies?id=${movie.id}">${movie.name}</a></h5>
                         </div>
                         <div>
-                            <button type="submit" class="btn btn-info">Chi tiết</button>
-                            <button type="button" class="btn btn-primary">Đặt vé</button>
+                            <a href="/movies?id=${movie.id}">
+                                <button type="button" class="btn btn-info">Chi tiết</button>
+                            </a>
+                            <a href="/booking?movie=${movie.id}">
+                                <button type="submit" class="btn btn-primary">Đặt vé</button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -43,8 +47,12 @@
                         <div class="movie-text">
                             <h5><a href="/movies?id=${movie.id}">${movie.name}</a></h5>
                             <div>
-                                <button type="submit" class="btn btn-info">Chi tiết</button>
-                                <button type="button" class="btn btn-primary">Đặt vé</button>
+                                <a href="/movies?id=${movie.id}">
+                                    <button type="button" class="btn btn-info">Chi tiết</button>
+                                </a>
+                                <a href="/booking?movie=${movie.id}">
+                                    <button type="submit" class="btn btn-primary">Đặt vé</button>
+                                </a>
                             </div>
                         </div>
                     </div>
