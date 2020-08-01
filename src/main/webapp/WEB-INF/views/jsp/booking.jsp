@@ -18,7 +18,7 @@
     <br>
 
     <ul class="nav nav-tabs">
-        <c:forEach varStatus="loop" var="city" items="${citys}">
+        <c:forEach varStatus="loop" var="city" items="${cities}">
             <li <c:if test="${loop.index==index}">class="active"</c:if>>
                 <a href="/booking?index=${loop.index}">${city.name}</a>
             </li>
@@ -26,7 +26,7 @@
     </ul>
 
     <ul class="list-group">
-        <c:forEach var="cinema" items="${citys[index].cinemas}">
+        <c:forEach var="cinema" items="${cities[index].cinemas}">
             <li class="list-group-item">${cinema.name}:<br>
                 <ul>
                     <li>12h</li>

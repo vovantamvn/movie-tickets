@@ -1,7 +1,5 @@
 package com.project.movietickets.controller;
 
-import com.project.movietickets.entity.CinemaEntity;
-import com.project.movietickets.entity.CityEntity;
 import com.project.movietickets.model.CityModel;
 import com.project.movietickets.service.TicketsBookingService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +23,9 @@ public class TicketBookingController {
             @RequestParam(value = "movie") int movieId,
             Model model){
 
-        List<CityModel> citys = service.getAllCity();
+        List<CityModel> cities = service.getAllCity();
         model.addAttribute("index", index);
-        model.addAttribute("citys", citys);
+        model.addAttribute("cities", cities);
         return "booking";
     }
 
