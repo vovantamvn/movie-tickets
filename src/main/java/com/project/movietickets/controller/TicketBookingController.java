@@ -26,6 +26,7 @@ public class TicketBookingController {
             Model model){
 
         List<CityModel> citys = service.getAllCity();
+
         model.addAttribute("index", index);
         model.addAttribute("citys", citys);
         return "booking";
@@ -35,4 +36,5 @@ public class TicketBookingController {
     public String booking(@PathVariable("id") int cinemaId) {
         return "map-cinema";
     }
+
 }
