@@ -1,8 +1,6 @@
 package com.project.movietickets.service;
 
-import com.project.movietickets.convert.ConvertUser;
 import com.project.movietickets.entity.UserEntity;
-import com.project.movietickets.model.UserModel;
 import com.project.movietickets.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

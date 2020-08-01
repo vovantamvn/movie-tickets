@@ -1,7 +1,5 @@
 package com.project.movietickets.service;
 
-import com.project.movietickets.entity.UserEntity;
-import com.project.movietickets.model.UserModel;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

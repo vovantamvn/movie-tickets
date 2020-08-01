@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import com.project.movietickets.entity.MovieEntity;
-import com.project.movietickets.model.MovieModel;
 import com.project.movietickets.repository.MovieRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +35,9 @@ public class HomeServiceTest {
                         .image("http://images")
                         .build());
 
-        when(repository.getTopMovie()).thenReturn(models);
+        when(repository.getTopNewMovieLastest()).thenReturn(models);
 
-        List<MovieModel> result = service.getTopMovie();
+        List<MovieEntity> result = service.getListMovieViewHighest();
         assertEquals(1, result.size());
     }
 }

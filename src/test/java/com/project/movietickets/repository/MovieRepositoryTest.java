@@ -56,7 +56,7 @@ public class MovieRepositoryTest {
                 .image("http://images").build();
 
         repository.save(created);
-        List<MovieEntity> movies = repository.getTopMovie();
+        List<MovieEntity> movies = repository.getTopNewMovieLastest();
 
         assertThat(movies.size()).isGreaterThan(0);
     }

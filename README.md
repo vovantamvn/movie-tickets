@@ -2,6 +2,5 @@
 
 ## Trang web bán vé xem phim
 
-- Sử dụng gitlab CI
-- Sử dụng MYSQL
-- JAVA 11
+> - Sử dụng Java 11
+> - MYSQL 8.0

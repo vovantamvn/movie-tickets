@@ -1,18 +1,16 @@
 package com.project.movietickets.entity;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalTime;
 import java.util.List;
 
 @Entity(name = "schedules")
-@Data
-@AllArgsConstructor
+@Setter
+@Getter
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class ScheduleEntity {
     @Id
