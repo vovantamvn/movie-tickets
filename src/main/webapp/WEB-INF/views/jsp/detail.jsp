@@ -41,6 +41,7 @@
     <div class="row">
         <div class="col-sm-3">
             <img src="${movie.image}">
+
         </div>
 
         <div class="col-sm-9">
