@@ -16,22 +16,13 @@ public class RegisterService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    /**
-     *
-     * @param username
-     * @param password
-     * @param fullname
-     * @param email
-     * @param gender
-     * @param dateOfBirth
-     * @return
-     */
-    public boolean registerUser(String username,
-                                String password,
-                                String fullname,
-                                String email,
-                                boolean gender,
-                                String dateOfBirth){
+    public boolean registerUser(
+            String username,
+            String password,
+            String fullname,
+            String email,
+            boolean gender,
+            String dateOfBirth) {
 
         UserEntity user = UserEntity.builder()
                 .username(username)
@@ -46,7 +37,7 @@ public class RegisterService {
         try {
             repository.save(user);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

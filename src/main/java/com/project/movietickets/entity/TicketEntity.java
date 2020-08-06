@@ -19,6 +19,8 @@ public class TicketEntity {
 
     private LocalDate date;
 
+    private String code;
+
     @ManyToOne
     @JoinColumn
     private MovieEntity movie;

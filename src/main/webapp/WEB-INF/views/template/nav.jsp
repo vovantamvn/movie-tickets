@@ -3,7 +3,7 @@
     <div class="header-top">
         <div class="wrap">
             <div class="banner-no">
-                <img src="images/banner-no.png" alt=""/>
+                <img src="/images/banner-no.png" alt=""/>
             </div>
             <div class="nav-wrap">
                 <ul class="group" id="example-one">
