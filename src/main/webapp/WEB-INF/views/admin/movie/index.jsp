@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -31,7 +32,9 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Content -->
-                <!-- Code here -->
+                <c:forEach var="movie" items="${movies}">
+                    ${movie.name} ${movie.id} <br>
+                </c:forEach>
                 <!-- End Content -->
             </div>
         </section>

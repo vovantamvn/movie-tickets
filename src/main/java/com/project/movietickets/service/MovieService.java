@@ -28,7 +28,8 @@ public class MovieService {
             String category,
             String premiere,
             int time,
-            String language) {
+            String language
+    ) {
 
         var movie = MovieEntity.builder()
                 .name(name)
@@ -51,7 +52,8 @@ public class MovieService {
             String category,
             String premiere,
             int time,
-            String language) {
+            String language
+    ) {
 
         var movie = movieRepository.findById(id).get();
 
@@ -66,5 +68,9 @@ public class MovieService {
                 .build();
 
         return movieRepository.save(movie);
+    }
+
+    public MovieEntity findById(int id) {
+        return movieRepository.findById(id).get();
     }
 }
