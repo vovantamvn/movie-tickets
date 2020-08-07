@@ -31,7 +31,20 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Content -->
-                <!-- Code here -->
+
+                <ul>
+                    <li>
+                        Ten phim
+                        <button>Sua</button>
+                        <button>Xoa</button>
+                    </li>
+                    <li>
+                        Ten phim
+                        <button>Sua</button>
+                        <button>Xoa</button>
+                    </li>
+                </ul>
+
                 <!-- End Content -->
             </div>
         </section>
