@@ -64,13 +64,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="/admin/movies" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách các bộ phim</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/movies/create" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm mới bộ phim</p>
                             </a>
@@ -88,13 +88,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="/admin/cinemas" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Danh sách rạp phim</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/cinemas/create" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Thêm mới rạp phim</p>
                             </a>

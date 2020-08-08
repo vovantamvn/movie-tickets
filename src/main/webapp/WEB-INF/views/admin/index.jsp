@@ -31,7 +31,7 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- Content -->
-                <!-- Code here -->
+
                 <!-- End Content -->
             </div>
         </section>

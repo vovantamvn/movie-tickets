@@ -1,18 +1,7 @@
 package com.project.movietickets;
 
-import com.project.movietickets.entity.*;
-import com.project.movietickets.repository.*;
-import com.project.movietickets.seeder.DataSeeder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 
 @SpringBootApplication
 public class Application {

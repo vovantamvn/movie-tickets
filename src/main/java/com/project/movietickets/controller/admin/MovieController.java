@@ -17,6 +17,7 @@ public class MovieController {
         var movies = service.getAllMovie();
         model.addAttribute("movies", movies);
         return "admin/movie/index";
+
     }
 
     /**
@@ -39,9 +40,11 @@ public class MovieController {
             @RequestParam("time") int time,
             @RequestParam("language") String language
     ) {
+
         service.createMovie(
                 name, description, director, category, premiere, time, language
         );
+
 
         return "redirect:/admin/movies";
     }
@@ -63,9 +66,9 @@ public class MovieController {
         return "admin/movie/update";
     }
 
-    @PostMapping("/movies/{id}")
+    @PostMapping("/movies/update")
     public String update(
-            @PathVariable("id") int id,
+            @RequestParam("id") int id,
             @RequestParam("name") String name,
             @RequestParam("description") String description,
             @RequestParam("director") String director,
@@ -74,6 +77,9 @@ public class MovieController {
             @RequestParam("time") int time,
             @RequestParam("language") String language
     ) {
+        System.out.println(id);
+        System.out.println("Update");
+
         service.updateMovie(
                 id, name, description, director, category, premiere, time, language
         );
@@ -91,5 +97,6 @@ public class MovieController {
         service.deleteMovie(id);
 
         return "redirect:/admin/movies";
+
     }
 }

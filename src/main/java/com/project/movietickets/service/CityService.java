@@ -12,7 +12,11 @@ public class CityService {
     @Autowired
     private CityRepository cityRepository;
 
-    public List<CityEntity> findListCityByMovieId(int movieId){
+    public List<CityEntity> findListCityByMovieId(int movieId) {
         return cityRepository.findListCityByMovieId(movieId);
+    }
+
+    public List<CityEntity> getAllCity() {
+        return cityRepository.findAll();
     }
 }
