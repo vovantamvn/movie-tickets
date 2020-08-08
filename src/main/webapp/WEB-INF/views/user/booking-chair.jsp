@@ -20,6 +20,16 @@
 
             $('.room-list a').first().click()
 
+            $('.info-room-chair').each(function (){
+                const sender = $(this)
+                const isSelectd = sender.data('is-selectd')
+                if (isSelectd === true){
+                    sender.removeClass('btn-primary')
+                    sender.addClass('btn-warning')
+                    sender.prop('disabled', true)
+                }
+            })
+
             $('.info-room-chair').click(function (){
                 const sender = $(this)
                 const id = sender.data('room-chair-id')
@@ -46,7 +56,6 @@
 <!-- Nav -->
 <jsp:include page="../template/nav.jsp"/>
 
-<%--<div style="width: 100%;height: 330px;text-align: center ; margin-top: 55px" >--%>
 <div class="container" style="margin-top: 55px">
     <ul class="nav nav-tabs room-list">
         <c:forEach varStatus="loop" var="room" items="${rooms}">
@@ -58,22 +67,19 @@
     <br>
 
     <div style="width: 100%;height: 330px;text-align: center" id="chair">
-        <c:forEach var="room" items="${rooms}">
-            <div class="info-chair-room" id="info-chair-room-${room.id}">
-                <c:forEach var="roomChair" items="${room.roomChairs}" varStatus="loop">
-                    <button data-room-chair-id="${roomChair.id}" class="btn btn-primary info-room-chair">${roomChair.chair.position}</button>
+            <div class="info-chair-room">
+                <c:forEach var="roomChair" items="${roomChairs}" varStatus="loop">
+                    <button data-is-selectd="${roomChair.status}" data-room-chair-id="${roomChair.id}" class="btn btn-primary info-room-chair">${roomChair.chair.position}</button>
                     <c:if test="${(loop.index+1)%8==0}">
                         <br>
                     </c:if>
                 </c:forEach>
             </div>
-        </c:forEach>
     </div>
 
     <form id="booking-chair" class="hide" action="/booking/ticket" method="post">
-        <input name="cinemaScheduleId" value="${cinemaScheduleId}">
         <input name="date" value="${date}">
-        <input name="movieId" value="${movieId}">
+        <input name="scheduleId" value="${scheduleId}">
         <input name="roomChairId" id="room-chair-id">
     </form>
 </div>

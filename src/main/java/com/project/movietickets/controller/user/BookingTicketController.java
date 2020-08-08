@@ -2,6 +2,7 @@ package com.project.movietickets.controller.user;
 
 import com.project.movietickets.service.user.BookingTicketService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,15 @@ public class BookingTicketController {
 
     @RequestMapping(value = "/booking/ticket", method = RequestMethod.POST)
     public String index(
-            @RequestParam("cinemaScheduleId") int cinemaScheduleId,
+            @RequestParam("scheduleId") int scheduleId,
             @RequestParam("date") String date,
-            @RequestParam("movieId") int movieId,
             @RequestParam("roomChairId") int roomChairId,
+            Authentication authentication,
             Model model
     ) {
-        var result = service.buyTicket(cinemaScheduleId, date, movieId, roomChairId);
+        var username = authentication.getName();
+        var result = service.buyTicket(scheduleId, date, roomChairId, username);
+
         model.addAttribute("code", result.getCode());
         return "user/booking-ticket";
     }

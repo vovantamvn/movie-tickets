@@ -5,13 +5,13 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name = "cinema_schedules")
+@Entity(name = "room_movie_schedules")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CinemaScheduleEntity {
+public class RoomMovieScheduleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false)
@@ -19,12 +19,16 @@ public class CinemaScheduleEntity {
 
     @ManyToOne
     @JoinColumn
-    private CinemaEntity cinema;
+    private RoomEntity room;
+
+    @ManyToOne
+    @JoinColumn
+    private MovieEntity movie;
 
     @ManyToOne
     @JoinColumn
     private ScheduleEntity schedule;
 
-    @OneToMany(mappedBy = "cinemaSchedule", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "roomMovieSchedule", cascade = CascadeType.ALL)
     private List<TicketEntity> tickets;
 }

@@ -1,7 +1,7 @@
 package com.project.movietickets.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import com.project.movietickets.entity.MovieEntity;
 import com.project.movietickets.repository.MovieRepository;
@@ -22,22 +22,16 @@ public class HomeServiceTest {
     private HomeService service;
 
     @Test
-    public void testHomeServiceWillReturnValue() throws Exception {
-        List<MovieEntity> models = List.of(
-                MovieEntity.builder()
-                        .name("Name")
-                        .description("Description")
-                        .director("Director")
-                        .category("Category")
-                        .premiere(LocalDate.now())
-                        .time(120)
-                        .language("Viet Nam")
-                        .image("http://images")
-                        .build());
+    public void testServiceWillCallFunctionGetTopNewMovieLastest() {
+        service.getListMovieLastest();
 
-        when(repository.getTopNewMovieLastest()).thenReturn(models);
+        verify(repository).getTopNewMovieLastest();
+    }
 
-        List<MovieEntity> result = service.getListMovieViewHighest();
-        assertEquals(1, result.size());
+    @Test
+    public void testServiceWillCallFunctionGetListMovieViewHighest() {
+        service.getListMovieViewHighest();
+
+        verify(repository).getListMovieViewHighest();
     }
 }
