@@ -39,6 +39,7 @@ public class MovieService {
                 .premiere(LocalDate.parse(premiere))
                 .time(time)
                 .language(language)
+                .image("lol")
                 .build();
 
         return movieRepository.save(movie);

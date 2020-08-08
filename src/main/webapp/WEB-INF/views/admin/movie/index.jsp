@@ -2,21 +2,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
-<head>
-    <jsp:include page="../template/header.jsp"/>
-    <script>
 
+<head>
+    <jsp:include page="../template/header.jsp" />
+    <script>
+        $(function() {
+            $('.movie-list a').click(function() {
+                const sender = $(this)
+                const id = sender.data('movie-id')
+
+                $('.movie-list a').removeClass('active')
+                sender.addClass('active')
+
+                $('.info-movie').hide()
+                $('#info-movie-' + id).show()
+            })
+
+            $('.movie-list a').first().click()
+
+            $('.btn-update-movie').click(function() {
+                const sender = $(this)
+                const id = sender.data('movie-id')
+
+                sender.parent().addClass('hidden')
+                $('#update-movie-' + id).removeClass('hidden')
+            })
+
+            $('.btn-cancel-movie').click(function() {
+                const sender = $(this)
+                const id = sender.data('movie-id')
+
+                $('#detail-movie-' + id).removeClass('hidden')
+                $('#update-movie-' + id).addClass('hidden')
+            })
+        })
     </script>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-    <jsp:include page="../template/menu.jsp"/>
+    <jsp:include page="../template/menu.jsp" />
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Quản lý phim</h1>
+
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -30,31 +66,28 @@
 
         <!-- Main content -->
         <section class="content">
-            <div class="container-fluid">
+            <div class="container">
                 <!-- Content -->
 
-                <ul>
-                    <li>
-                        Ten phim
-                        <button>Sua</button>
-                        <button>Xoa</button>
-                    </li>
-                    <li>
-                        Ten phim
-                        <button>Sua</button>
-                        <button>Xoa</button>
-                    </li>
-                </ul>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="list-group movie-list">
+                            <c:forEach var="movie" items="${movies}">
+                                <a data-movie-id="${movie.id}" class="list-group-item" href="javascript:void(0);"
+                                   style="margin-top: 5px">${movie.name}</a>
+                            </c:forEach>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <jsp:include page="info-movie.jsp" />
+                    </div>
+                </div>
 
-
-                <c:forEach var="movie" items="${movies}">
-                    ${movie.name} ${movie.id} <br>
-                </c:forEach>
                 <!-- End Content -->
             </div>
         </section>
     </div>
 </div>
-<jsp:include page="../template/footer.jsp"/>
 </body>
+
 </html>

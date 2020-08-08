@@ -1,6 +1,7 @@
 package com.project.movietickets.controller.admin;
 
 import com.project.movietickets.service.CinemaService;
+import com.project.movietickets.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +12,17 @@ import org.springframework.web.bind.annotation.*;
 public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
+    @Autowired
+    private CityService cityService;
 
     @GetMapping("/cinemas")
-    public String index() {
+    public String index(Model model) {
+        var cinemas = cinemaService.getAllCinema();
+        var cities = cityService.getAllCity();
+
+        model.addAttribute("cities", cities);
+        model.addAttribute("cinemas", cinemas);
+
         return "admin/cinema/index";
     }
 
@@ -23,7 +32,9 @@ public class CinemaController {
      * @return String
      */
     @GetMapping("/cinemas/create")
-    public String create() {
+    public String create(Model model) {
+        var cities = cityService.getAllCity();
+        model.addAttribute("cities", cities);
         return "admin/cinema/create";
     }
 
@@ -32,6 +43,7 @@ public class CinemaController {
             @RequestParam("name") String name,
             @RequestParam("cityId") int cityId
     ) {
+        System.out.println("Create");
         cinemaService.createCinema(name, cityId);
         return "redirect:/admin/cinemas";
     }
