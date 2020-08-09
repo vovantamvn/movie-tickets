@@ -46,37 +46,42 @@
 <!-- Nav -->
 <jsp:include page="../template/nav.jsp"/>
 
-<%--<div style="width: 100%;height: 330px;text-align: center ; margin-top: 55px" >--%>
-<div class="container" style="margin-top: 55px">
-    <ul class="nav nav-tabs room-list">
-        <c:forEach varStatus="loop" var="room" items="${rooms}">
-            <li>
-                <a href="javascript:void(0);" class="info-room" data-room-id="${room.id}" id="info-room-${room.id}">${room.name}</a>
-            </li>
-        </c:forEach>
-    </ul>
-    <br>
+<div class="content">
+    <div class="container" style="margin-top: 55px">
+        <h2 style="text-align: center">Chọn ghế</h2>
+        <ul class="nav nav-tabs room-list">
+            <c:forEach varStatus="loop" var="room" items="${rooms}">
+                <li>
+                    <a href="javascript:void(0);" class="info-room" data-room-id="${room.id}" id="info-room-${room.id}">${room.name}</a>
+                </li>
+            </c:forEach>
+        </ul>
+        <br>
 
-    <div style="width: 100%;height: 330px;text-align: center" id="chair">
-        <c:forEach var="room" items="${rooms}">
-            <div class="info-chair-room" id="info-chair-room-${room.id}">
-                <c:forEach var="roomChair" items="${room.roomChairs}" varStatus="loop">
-                    <button data-room-chair-id="${roomChair.id}" class="btn btn-primary info-room-chair">${roomChair.chair.position}</button>
-                    <c:if test="${(loop.index+1)%8==0}">
-                        <br>
-                    </c:if>
-                </c:forEach>
-            </div>
-        </c:forEach>
+        <div style="width: 100%;height: 330px;text-align: center" id="chair">
+            <c:forEach var="room" items="${rooms}">
+                <div class="info-chair-room" id="info-chair-room-${room.id}">
+                    <c:forEach var="roomChair" items="${room.roomChairs}" varStatus="loop">
+                        <button data-room-chair-id="${roomChair.id}" class="btn btn-primary info-room-chair">${roomChair.chair.position}</button>
+                        <c:if test="${(loop.index+1)%8==0}">
+                            <br>
+                        </c:if>
+                    </c:forEach>
+                </div>
+            </c:forEach>
+        </div>
+
+
+
+        <form id="booking-chair" class="hide" action="/booking/ticket" method="post">
+            <input name="cinemaScheduleId" value="${cinemaScheduleId}">
+            <input name="date" value="${date}">
+            <input name="movieId" value="${movieId}">
+            <input name="roomChairId" id="room-chair-id">
+        </form>
     </div>
-
-    <form id="booking-chair" class="hide" action="/booking/ticket" method="post">
-        <input name="cinemaScheduleId" value="${cinemaScheduleId}">
-        <input name="date" value="${date}">
-        <input name="movieId" value="${movieId}">
-        <input name="roomChairId" id="room-chair-id">
-    </form>
 </div>
+
 
 <!-- Footer -->
 <jsp:include page="../template/footer.jsp"/>

@@ -1,0 +1,14 @@
+.content{
+    background: #161616;
+    color: #fff;
+}
+.content h1{
+    margin-left: 350px;letter-spacing: 5px;color: #fff
+}
+.content .h1{
+    margin-left: 350px;letter-spacing: 5px;color: #ffdf7e;
+}
+.content .day{
+    margin-right: 10px;
+    margin-left: 10px;
+}

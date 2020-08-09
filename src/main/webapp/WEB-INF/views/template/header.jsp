@@ -6,5 +6,6 @@
 <script src='/js/jquery.color-RGBa-patch.js'></script>
 <script src='/js/example.js'></script>
 <script type="text/javascript" src="/js/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/edit.css" type="text/css" media="all">
 <script src="/js/lightbox.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

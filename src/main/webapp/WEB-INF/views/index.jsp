@@ -11,8 +11,8 @@
 
 <div class="content">
     <div class="wrap">
-        <div class="content-top">
-            <h3 style="text-shadow: 2px 2px 2px blue;padding-left:340px;font-size:70px;text-justify: inter-cluster" >New Movies</h3>
+        <div class="content-top" style="margin-left: 100px">
+            <h1 class="h1">NEW MOVIES</h1>
             <c:forEach var="movie" items="${newMovies}">
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
@@ -24,7 +24,7 @@
                         </div>
                         <div>
                             <a href="/movies?id=${movie.id}">
-                                <button type="button" class="btn btn-info">Chi tiết</button>
+                                <button type="button" class="btn btn-info" style="margin-right: 72px">Chi tiết</button>
                             </a>
                             <a href="/booking?movie=${movie.id}">
                                 <button type="submit" class="btn btn-primary">Đặt vé</button>
@@ -36,8 +36,9 @@
             <div class="clear"></div>
         </div>
 
-        <div class="movie-top">
-            <h3 style=" color :#fcac03;padding-left:340px;text-shadow: 2px 2px 2px blue;font-size:70px;text-justify: inter-cluster">Hot Movies</h3>
+        <div class="movie-top"style="margin-left: 100px">
+
+            <h1 class="h1">HOT MOVIES</h1>
             <c:forEach var="movie" items="${hotMovies}">
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
@@ -48,7 +49,7 @@
                             <h5><a href="/movies?id=${movie.id}">${movie.name}</a></h5>
                             <div>
                                 <a href="/movies?id=${movie.id}">
-                                    <button type="button" class="btn btn-info">Chi tiết</button>
+                                    <button type="button" class="btn btn-info" style="margin-right: 72px">Chi tiết</button>
                                 </a>
                                 <a href="/booking?movie=${movie.id}">
                                     <button type="submit" class="btn btn-primary">Đặt vé</button>

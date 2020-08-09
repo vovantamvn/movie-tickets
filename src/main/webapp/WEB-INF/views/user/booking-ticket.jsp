@@ -11,10 +11,13 @@
 <jsp:include page="../template/nav.jsp"/>
 
 <!-- Content-->
-<div class="container" style="height: 400px">
-    <h2>Đã mua thành công!</h2>
-    <p>Code: ${code}</p>
+<div class="content">
+    <div class="container" style="height: 400px">
+        <h2>Đã mua thành công!</h2>
+        <p>Code: ${code}</p>
+    </div>
 </div>
+
 
 <!-- Footer -->
 <jsp:include page="../template/footer.jsp"/>
