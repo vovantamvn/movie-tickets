@@ -44,6 +44,33 @@ public class MovieRepositoryTest {
     }
 
     @Test
+    public void testUpdateMovie(){
+        final var created = MovieEntity.builder()
+                .name("Name")
+                .description("Description")
+                .director("Director")
+                .category("Category")
+                .premiere(LocalDate.parse("2020-08-08"))
+                .time(120)
+                .language("Viet Nam")
+                .image("Image")
+                .view(70)
+                .build();
+
+        final var movie = repository.save(created);
+        final int id = movie.getId();
+
+        movie.setName("UpdateName");
+        movie.setDirector("UpdateDirector");
+        repository.save(movie);
+
+        final var result = repository.findById(id).get();
+
+        assertEquals("UpdateName", result.getName());
+        assertEquals("UpdateDirector", result.getDescription());
+    }
+
+    @Test
     public void testFunctionGetTopMovie() {
         MovieEntity created = MovieEntity.builder()
                 .name("Name")

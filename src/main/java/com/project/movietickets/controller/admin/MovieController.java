@@ -7,17 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("/admin")
 public class MovieController {
     @Autowired
     private MovieService service;
 
-    @GetMapping(value = {"/movies", "/"})
+    @RequestMapping(value = "/movies", method = RequestMethod.GET)
     public String index(Model model) {
         var movies = service.getAllMovie();
         model.addAttribute("movies", movies);
         return "admin/movie/index";
-
     }
 
     /**
@@ -25,12 +24,12 @@ public class MovieController {
      *
      * @return String
      */
-    @GetMapping("/movies/create")
+    @RequestMapping(value = "/movies/create", method = RequestMethod.GET)
     public String create() {
         return "admin/movie/create";
     }
 
-    @PostMapping("/movies")
+    @RequestMapping(value = "/movies", method = RequestMethod.POST)
     public String createMovie(
             @RequestParam("name") String name,
             @RequestParam("description") String description,
@@ -40,48 +39,8 @@ public class MovieController {
             @RequestParam("time") int time,
             @RequestParam("language") String language
     ) {
-
         service.createMovie(
                 name, description, director, category, premiere, time, language
-        );
-
-
-        return "redirect:/admin/movies";
-    }
-
-    /**
-     * For update movie
-     * @param id
-     * @param model
-     * @return String
-     */
-    @GetMapping("/movies/{id}")
-    public String detail(
-            @PathVariable("id") int id,
-            Model model
-    ) {
-        var movie = service.findById(id);
-        model.addAttribute("movie", movie);
-
-        return "admin/movie/update";
-    }
-
-    @PostMapping("/movies/update")
-    public String update(
-            @RequestParam("id") int id,
-            @RequestParam("name") String name,
-            @RequestParam("description") String description,
-            @RequestParam("director") String director,
-            @RequestParam("category") String category,
-            @RequestParam("premiere") String premiere,
-            @RequestParam("time") int time,
-            @RequestParam("language") String language
-    ) {
-        System.out.println(id);
-        System.out.println("Update");
-
-        service.updateMovie(
-                id, name, description, director, category, premiere, time, language
         );
 
         return "redirect:/admin/movies";
@@ -89,14 +48,15 @@ public class MovieController {
 
     /**
      * For delete movie
+     *
      * @param id
      * @return String
      */
-    @GetMapping("/movies/{id}/delete")
-    public String delete(@PathVariable("id") int id){
+    @GetMapping("movies/{id}/delete")
+    public String delete(@PathVariable("id") int id) {
         service.deleteMovie(id);
 
         return "redirect:/admin/movies";
-
     }
+
 }

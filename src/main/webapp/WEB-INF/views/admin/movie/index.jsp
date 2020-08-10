@@ -20,20 +20,12 @@
 
             $('.movie-list a').first().click()
 
-            $('.btn-update-movie').click(function() {
-                const sender = $(this)
-                const id = sender.data('movie-id')
+            $('#exampleModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var id = button.data('movie-id');
 
-                sender.parent().addClass('hidden')
-                $('#update-movie-' + id).removeClass('hidden')
-            })
-
-            $('.btn-cancel-movie').click(function() {
-                const sender = $(this)
-                const id = sender.data('movie-id')
-
-                $('#detail-movie-' + id).removeClass('hidden')
-                $('#update-movie-' + id).addClass('hidden')
+                const link = "/admin/movies/" + id + "/delete";
+                $('#movie-delete-confirm').attr('href', link)
             })
         })
     </script>
@@ -88,6 +80,7 @@
         </section>
     </div>
 </div>
+<jsp:include page="../template/footer.jsp"/>
 </body>
 
 </html>
