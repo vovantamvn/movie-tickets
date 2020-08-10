@@ -21,6 +21,9 @@ public class CinemaService {
     }
 
     public void deleteCinema(int id) {
+        final var cinema = cinemaRepository.findById(id).get();
+        cinema.setCity(null);
+        cinemaRepository.save(cinema);
         cinemaRepository.deleteById(id);
     }
 

@@ -7,6 +7,8 @@
     <jsp:include page="../template/header.jsp" />
     <script>
         $(function() {
+            $('#menu-cinema').addClass('menu-open')
+
             $('.cinema-list a').click(function() {
                 const sender = $(this)
                 const id = sender.data('cinema-id')
@@ -20,16 +22,13 @@
 
             $('.cinema-list a').first().click()
 
-            $('.btn-update-cinema').click(function() {
-                const sender = $(this)
-                const id = sender.data('cinema-id')
+            $('#exampleModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var id = button.data('cinema-id');
 
-                sender.parent().addClass('hidden')
-                $('#update-cinema-' + id).removeClass('hidden')
+                const link = "/admin/cinemas/" + id + "/delete";
+                $('#cinema-delete-confirm').attr('href', link)
             })
-
-
-
         })
     </script>
 </head>
@@ -54,17 +53,13 @@
             </div>
         </div>
 
-
-
-
-
        <section class="content">
            <div class="container">
                <div class="row">
                    <div class="col-sm-3">
                        <div class="list-group cinema-list">
                            <a:forEach var="cinema" items="${cinemas}">
-                               <a data-cinema-id="${cinema.id}" class="list-group-item" href="#" style="margin-top:
+                               <a data-cinema-id="${cinema.id}" class="list-group-item" href="javascript:void(0);" style="margin-top:
                                 5px">
                                        ${cinema.name}
                                </a>

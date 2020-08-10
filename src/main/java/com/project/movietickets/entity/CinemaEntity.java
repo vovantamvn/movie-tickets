@@ -23,6 +23,6 @@ public class CinemaEntity {
     @JoinColumn
     private CityEntity city;
 
-    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RoomEntity> rooms;
 }

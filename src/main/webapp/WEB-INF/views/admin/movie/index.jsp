@@ -7,6 +7,8 @@
     <jsp:include page="../template/header.jsp" />
     <script>
         $(function() {
+            $('#menu-movie').addClass('menu-open')
+
             $('.movie-list a').click(function() {
                 const sender = $(this)
                 const id = sender.data('movie-id')

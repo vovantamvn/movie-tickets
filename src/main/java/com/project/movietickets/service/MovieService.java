@@ -55,19 +55,14 @@ public class MovieService {
             int time,
             String language
     ) {
-
-        var movie = movieRepository.findById(id).get();
-
-        movie = MovieEntity.builder()
-                .name(name)
-                .description(description)
-                .director(director)
-                .category(category)
-                .premiere(LocalDate.parse(premiere))
-                .time(time)
-                .language(language)
-                .image("LOL")
-                .build();
+        final var movie = movieRepository.findById(id).get();
+        movie.setName(name);
+        movie.setDescription(description);
+        movie.setDirector(director);
+        movie.setCategory(category);
+        movie.setPremiere(LocalDate.parse(premiere));
+        movie.setTime(time);
+        movie.setLanguage(language);
 
         return movieRepository.save(movie);
     }

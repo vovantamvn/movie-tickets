@@ -58,7 +58,8 @@ public class MovieRepositoryTest {
                 .build();
 
         final var movie = repository.save(created);
-        final int id = movie.getId();
+        final var id = movie.getId();
+
 
         movie.setName("UpdateName");
         movie.setDirector("UpdateDirector");
@@ -67,7 +68,7 @@ public class MovieRepositoryTest {
         final var result = repository.findById(id).get();
 
         assertEquals("UpdateName", result.getName());
-        assertEquals("UpdateDirector", result.getDescription());
+        assertEquals("UpdateDirector", result.getDirector());
     }
 
     @Test

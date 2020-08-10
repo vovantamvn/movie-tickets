@@ -5,6 +5,9 @@
 <head>
     <jsp:include page="../template/header.jsp"/>
     <script>
+        $(function (){
+            $('#menu-movie').addClass('menu-open')
+        })
     </script>
 </head>
 

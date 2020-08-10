@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("/admin")
 public class CinemaController {
     @Autowired
     private CinemaService cinemaService;
@@ -43,33 +43,7 @@ public class CinemaController {
             @RequestParam("name") String name,
             @RequestParam("cityId") int cityId
     ) {
-        System.out.println("Create");
         cinemaService.createCinema(name, cityId);
-        return "redirect:/admin/cinemas";
-    }
-
-    /**
-     * For update cinema
-     *
-     * @param id
-     * @param model
-     * @return
-     */
-    @GetMapping("/cinemas/{id}")
-    public String detail(@PathVariable("id") int id, Model model) {
-        var cinema = cinemaService.findById(id);
-        model.addAttribute("cinema", cinema);
-
-        return "admin/cinema/update";
-    }
-
-    @PostMapping("/cinemas/{id}")
-    public String update(
-            @PathVariable("id") int id,
-            @RequestParam("name") String name,
-            @RequestParam("cityId") int cityId
-    ) {
-        cinemaService.updateCinema(id, name, cityId);
         return "redirect:/admin/cinemas";
     }
 
@@ -81,6 +55,7 @@ public class CinemaController {
      */
     @GetMapping("/cinemas/{id}/delete")
     public String delete(@PathVariable("id") int id) {
+        System.out.println("Delete " + id);
         cinemaService.deleteCinema(id);
         return "redirect:/admin/cinemas";
     }

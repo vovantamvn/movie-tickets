@@ -5,7 +5,9 @@
 <head>
     <jsp:include page="../template/header.jsp"/>
     <script>
-
+        $(function (){
+            $('#menu-cinema').addClass('menu-open')
+        })
     </script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -36,7 +38,7 @@
                     <form action="/admin/cinemas" method="post">
                         <div class="row" style="margin-bottom: 15px">
                             <div class="col-sm-2" style="margin-left: 150px">
-                                <labe>Name</labe>
+                                <labe>Tên</labe>
                             </div>
                             <div class="col-sm-4" style="">
                                 <input type="text" name="name" class="form-control">
@@ -44,7 +46,7 @@
                         </div>
                         <div class="row" style="margin-bottom: 15px">
                             <div class="col-sm-2" style="margin-left: 150px">
-                                <labe>City</labe>
+                                <labe>Thành phố</labe>
                             </div>
 
                             <div class="col-sm-4" style="">

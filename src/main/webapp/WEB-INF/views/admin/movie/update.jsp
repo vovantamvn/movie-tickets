@@ -5,6 +5,9 @@
 <head>
     <jsp:include page="../template/header.jsp"/>
     <script>
+        $(function (){
+            $('#menu-movie').addClass('menu-open')
+        })
     </script>
 </head>
 
@@ -75,7 +78,7 @@
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Ngôn ngử</labe>
+                            <labe>Ngôn ngữ</labe>
                         </div>
                         <div class="col-sm-4">
                             <input value="${movie.time}" type="text" class="form-control" name="language">
