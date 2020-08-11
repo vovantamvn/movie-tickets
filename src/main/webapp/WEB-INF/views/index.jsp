@@ -12,7 +12,7 @@
 <div class="content">
     <div class="wrap">
         <div class="content-top" style="margin-left: 100px">
-            <h1 class="h1">NEW MOVIES</h1>
+            <h1 class="h1">NEW MOVIES </h1>
             <c:forEach var="movie" items="${newMovies}">
                 <div class="col_1_of_4 span_1_of_4">
                     <div class="imageRow">
