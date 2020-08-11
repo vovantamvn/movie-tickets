@@ -20,5 +20,5 @@ public class ScheduleEntity {
     private LocalTime time;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL)
-    private List<CinemaScheduleEntity> roomSchedules;
+    private List<RoomMovieScheduleEntity> roomSchedules;
 }

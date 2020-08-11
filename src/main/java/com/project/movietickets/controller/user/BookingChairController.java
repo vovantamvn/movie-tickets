@@ -16,16 +16,13 @@ public class BookingChairController {
     @RequestMapping(value = "booking/chair", method = RequestMethod.POST)
     public String index(
             @RequestParam("date") String date,
-            @RequestParam("schedule_cinema") int cinemaScheduleId,
-            @RequestParam("movie") int movieId,
+            @RequestParam("scheduleId") int scheduleId,
             Model model){
 
-        var rooms = service.getAllRoomOfCinema(1);
-
+        var roomChairs = service.getAllChairOfSchedule(scheduleId);
         model.addAttribute("date", date);
-        model.addAttribute("cinemaScheduleId", cinemaScheduleId);
-        model.addAttribute("movieId", movieId);
-        model.addAttribute("rooms", rooms);
+        model.addAttribute("scheduleId", scheduleId);
+        model.addAttribute("roomChairs", roomChairs);
 
         return "user/booking-chair";
     }

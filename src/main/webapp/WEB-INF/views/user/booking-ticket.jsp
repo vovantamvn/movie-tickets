@@ -11,12 +11,19 @@
 <jsp:include page="../template/nav.jsp"/>
 
 <!-- Content-->
-<div class="content">
-    <div class="container" style="height: 400px">
-        <h2>Đã mua thành công!</h2>
-        <p>Code: ${code}</p>
+<div class="container" style="height: 400px">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-5 well well-sm col-md-offset-4" style="text-align: center;height: 200px;margin-top: 100px">
+
+                    <h2>Đã mua thành công !</h2><br>
+
+                    <p> Mã code của bạn : ${code}</p><br>
+                    <h5>Mời bạn đến gặp nhân viên để nhận vé </h5>
+        </div>
+
     </div>
 </div>
+
 
 
 <!-- Footer -->

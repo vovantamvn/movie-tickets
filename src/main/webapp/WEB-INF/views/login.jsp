@@ -13,7 +13,7 @@
 <!-- Content-->
 <div class="content">
     <div class="container-fluid" style="min-height: 450px;">
-        <h2 class="text-center" style="color: #fff">ĐĂNG NHẬP </h2><br>
+        <h2 class="text-center" style="color:#000000;">ĐĂNG NHẬP </h2><br>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
                 <legend><a href=""></a> Đăng nhập hệ thống !

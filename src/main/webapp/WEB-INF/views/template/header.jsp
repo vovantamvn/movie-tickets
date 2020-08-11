@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<title>Movie Tickets</title>
+<title>HAC Cinema</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link rel="stylesheet" href="/css/style.css" type="text/css" media="all"/>
 <link rel="stylesheet" href="/css/lightbox.css" type="text/css" media="all"/>

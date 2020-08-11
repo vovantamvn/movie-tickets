@@ -16,35 +16,33 @@ public class CinemaService {
     @Autowired
     private CityRepository cityRepository;
 
-    public List<CinemaEntity> getAllCinema(){
+    public List<CinemaEntity> getAllCinema() {
         return cinemaRepository.findAll();
     }
 
-    public void deleteCinema(int id){
+    public void deleteCinema(int id) {
         cinemaRepository.deleteById(id);
     }
 
-    public CinemaEntity createCinema(String name, int cityId){
+    public CinemaEntity createCinema(String name, int cityId) {
+        var city = cityRepository.findById(cityId).get();
         var cinema = new CinemaEntity();
+        cinema.setCity(city);
         cinema.setName(name);
-
-        var optionalCityEntity = cityRepository.findById(cityId);
-        optionalCityEntity.ifPresent( city -> {
-            cinema.setCity(city);
-        });
 
         return cinemaRepository.save(cinema);
     }
 
-    public CinemaEntity updateCinema(int cinemaId, String name, int cityId){
-        var cinema = cinemaRepository.findById(cinemaId).get();
+    public CinemaEntity updateCinema(int id, String name, int cityId) {
+        var city = cityRepository.findById(cityId).get();
+        var cinema = cinemaRepository.findById(id).get();
+        cinema.setCity(city);
         cinema.setName(name);
 
-        var optionalCityEntity = cityRepository.findById(cityId);
-        optionalCityEntity.ifPresent( city -> {
-            cinema.setCity(city);
-        });
-
         return cinemaRepository.save(cinema);
+    }
+
+    public CinemaEntity findById(int id) {
+        return cinemaRepository.findById(id).get();
     }
 }

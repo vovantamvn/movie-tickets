@@ -1,12 +1,12 @@
 .content{
-    background: #161616;
-    color: #fff;
+    background: #fff;
+    color: #000000;
 }
 .content h1{
-    margin-left: 350px;letter-spacing: 5px;color: #fff
+    margin-left: 350px;letter-spacing: 5px;color: #000000;
 }
 .content .h1{
-    margin-left: 350px;letter-spacing: 5px;color: #ffdf7e;
+    margin-left: 350px;letter-spacing: 5px;color: #000000;
 }
 .content .day{
     margin-right: 10px;

@@ -16,6 +16,7 @@ public class ChairEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false)
     private int id;
+
     @Column(length = 2, unique = true, nullable = false)
     private String position;
 

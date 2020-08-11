@@ -4,7 +4,7 @@
         <div class="header-top">
             <div class="wrap">
                 <div class="banner-no">
-                    <h1 STYLE="color: #ec0909;margin-top: 50px;font-weight: bold;letter-spacing: 3px;font-family: tahoma"> LOTTE CINEMA</h1>
+                    <h1 STYLE="color: #ec0909;margin-top: 50px;font-weight: bold;letter-spacing: 3px;font-family: tahoma">HAC CINEMA</h1>
                 </div>
                 <div class="nav-wrap">
                     <ul class="group" id="example-one">

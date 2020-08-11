@@ -1,10 +1,7 @@
 package com.project.movietickets.service.user;
 
 import com.project.movietickets.entity.TicketEntity;
-import com.project.movietickets.repository.CinemaScheduleRepository;
-import com.project.movietickets.repository.MovieRepository;
-import com.project.movietickets.repository.RoomChairRepository;
-import com.project.movietickets.repository.TicketRepository;
+import com.project.movietickets.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,42 +11,35 @@ import java.util.UUID;
 @Service
 public class BookingTicketService {
     @Autowired
-    private TicketRepository ticketRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private RoomChairRepository roomChairRepository;
 
     @Autowired
-    private MovieRepository movieRepository;
+    private RoomMovieScheduleRepository roomMovieScheduleRepository;
 
     @Autowired
-    private CinemaScheduleRepository cinemaScheduleRepository;
+    private TicketRepository ticketRepository;
 
-    public TicketEntity buyTicket(int cinemaScheduleId, String date, int movieId, int roomChairId){
+    public TicketEntity buyTicket(int scheduleId, String date, int roomChairId, String username) {
+        var bookDate = LocalDate.parse(date);
         var roomChair = roomChairRepository.findById(roomChairId).get();
-        var movie = movieRepository.findById(movieId).get();
-        var cinemaSchedule = cinemaScheduleRepository.findById(cinemaScheduleId).get();
+        var roomChairSchedule = roomMovieScheduleRepository.findById(scheduleId).get();
+        var code = UUID.randomUUID().toString().substring(0, 13).toUpperCase();
+        var user = userRepository.findUserEntityByUsername(username).get();
 
-        if (roomChair.isStatus()){
-            throw new RuntimeException("The position not valid");
-        }
+        roomChair.setStatus(true);
+        roomChairRepository.save(roomChair);
 
-        System.out.println(roomChair.getId());
-        //roomChair.setStatus(true);
-        //roomChairRepository.save(roomChair);
+        var ticket = TicketEntity.builder()
+                .date(bookDate)
+                .code(code)
+                .roomChair(roomChair)
+                .roomMovieSchedule(roomChairSchedule)
+                .user(user)
+                .build();
 
-        var ticket = new TicketEntity();
-        ticket.setMovie(movie);
-        ticket.setCinemaSchedule(cinemaSchedule);
-        ticket.setRoomChair(roomChair);
-        //ticket.setDate(LocalDate.parse(date));
-        ticket.setCode(UUID.randomUUID().toString());
-
-
-        //ticketRepository.save(ticket);
-
-        System.out.println(ticket.getId());
-
-        return ticket;
+        return ticketRepository.save(ticket);
     }
 }

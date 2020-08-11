@@ -9,8 +9,12 @@ import java.util.List;
 
 @Service
 public class HomeService {
+    private final MovieRepository repository;
+
     @Autowired
-    private MovieRepository repository;
+    public HomeService(MovieRepository repository) {
+        this.repository = repository;
+    }
 
     public List<MovieEntity> getListMovieViewHighest(){
         return repository.getListMovieViewHighest();

@@ -13,7 +13,7 @@
 <!-- Content-->
 <div class="content" >
     <div class="container-fluid" style="min-height: 550px;;">
-        <h1 class="text-center" style="margin-top: 50px;margin-left: 70px;color: #fff">ĐĂNG KÍ</h1><br>
+        <h1 class="text-center" style="margin-top: 20px;margin-left: 70px;color: #0f1315">ĐĂNG KÍ</h1><br>
         <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-5 well well-sm col-md-offset-4">
                 <legend><a href=""></a> Đăng ký thành viên!
