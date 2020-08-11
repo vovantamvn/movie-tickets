@@ -136,9 +136,9 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="/admin/reports" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sach bo phim</p>
+                                <p>Báo cáo vé theo tháng</p>
                             </a>
                         </li>
                     </ul>
