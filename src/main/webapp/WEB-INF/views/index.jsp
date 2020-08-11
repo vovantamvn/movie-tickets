@@ -11,7 +11,7 @@
 
 <div class="content">
     <div class="wrap">
-        <div class="content-top" style="margin-left: 100px">
+        <div class="content-top" style="margin-left: 100px;">
             <h1 class="h1">NEW MOVIES </h1>
             <c:forEach var="movie" items="${newMovies}">
                 <div class="col_1_of_4 span_1_of_4">
@@ -38,9 +38,9 @@
 
         <div class="movie-top"style="margin-left: 100px">
 
-            <h1 class="h1">HOT MOVIES</h1>
+            <h1 class="h1" >HOT MOVIES</h1>
             <c:forEach var="movie" items="${hotMovies}">
-                <div class="col_1_of_4 span_1_of_4">
+                <div class="col_1_of_4 span_1_of_4"style="margin-right: 20px">
                     <div class="imageRow">
                         <div class="single">
                             <a href="${movie.image}" rel="lightbox"><img height="300" width="200" src="${movie.image}" alt="" /></a>
