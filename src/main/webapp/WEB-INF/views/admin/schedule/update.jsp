@@ -42,7 +42,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-                            <li class="breadcrumb-item active">Thêm mới lịch chiếu</li>
+                            <li class="breadcrumb-item active">Cập nhật lịch chiếu</li>
                         </ol>
                     </div>
                 </div>
@@ -54,14 +54,15 @@
             <div class="container-fluid">
                 <!-- Content -->
 
-                <jsp:include page="info-cinemas.jsp"/>
+                <jsp:include page="update-cinemas.jsp"/>
 
-                <form action="/admin/schedules" method="post">
+                <form action="/admin/schedules/${roomMovieSchedule.id}/update" method="post">
                     <div class="form-group">
                         <label for="select-movie">Chọn phim:</label>
                         <select class="form-control" name="movieId" id="select-movie">
                             <c:forEach var="movie" items="${movies}">
-                                <option value="${movie.id}">${movie.name}</option>
+                                <option <c:if test="${movie.id==roomMovieSchedule.movie.id}">selected</c:if>
+                                        value="${movie.id}">${movie.name}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -70,14 +71,16 @@
                         <label for="select-time">Chọn giờ:</label>
                         <select class="form-control" name="scheduleId" id="select-time">
                             <c:forEach var="schedule" items="${schedules}">
-                                <option value="${schedule.id}">${schedule.time}</option>
+                                <option <c:if test="${schedule.id==roomMovieSchedule.schedule.id}">selected</c:if>
+                                        value="${schedule.id}">${schedule.time}</option>
                             </c:forEach>
                         </select>
                     </div>
 
                     <input hidden name="roomId" id="room-id">
 
-                    <button class="btn btn-primary" type="submit">Thêm lịch</button>
+                    <button class="btn btn-primary" type="submit">Cập nhật</button>
+                    <a role="button" class="btn btn-secondary" href="/admin/schedules">Hủy</a>
                 </form>
 
                 <!-- End Content -->

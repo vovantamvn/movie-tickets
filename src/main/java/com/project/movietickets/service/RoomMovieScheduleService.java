@@ -43,4 +43,29 @@ public class RoomMovieScheduleService {
 
         return roomMovieScheduleRepository.save(roomMovieSchedule);
     }
+
+    @Transactional
+    public void delete(int id) {
+        roomMovieScheduleRepository.deleteById(id);
+
+        assert roomMovieScheduleRepository.findById(id).isEmpty() : new RuntimeException("Cannot delete");
+    }
+
+    public RoomMovieScheduleEntity findById(int id) {
+        return roomMovieScheduleRepository.findById(id).get();
+    }
+
+    @Transactional
+    public RoomMovieScheduleEntity updateRoomMovieSchedule(int id, int roomId, int movieId, int scheduleId) {
+        final var room = roomRepository.findById(roomId).get();
+        final var movie = movieRepository.findById(movieId).get();
+        final var schedule = scheduleRepository.findById(scheduleId).get();
+        final var roomMovieSchedule = roomMovieScheduleRepository.findById(id).get();
+
+        roomMovieSchedule.setRoom(room);
+        roomMovieSchedule.setMovie(movie);
+        roomMovieSchedule.setSchedule(schedule);
+
+        return roomMovieScheduleRepository.save(roomMovieSchedule);
+    }
 }
