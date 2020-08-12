@@ -66,7 +66,7 @@
 <!-- Content-->
 <div class="container">
     <br>
-    <h2 style="text-shadow: 2px 2px 2px blue;text-align : center;font-size:70px ; color: #db9603">ĐẶT VÉ </h2>
+    <h1 style="text-align : center;letter-spacing: 5px; color: #000000">ĐẶT VÉ </h1>
     <br>
 
     <ul class="nav nav-tabs city-list">
@@ -113,7 +113,9 @@
         <button id="booking-cinema-submit" type="submit"/>
     </form>
 
+    </div>
 </div>
+
 
 <!-- Footer -->
 <jsp:include page="../template/footer.jsp"/>

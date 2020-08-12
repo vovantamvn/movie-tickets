@@ -64,10 +64,10 @@
             </li>
         </c:forEach>
     </ul>
-    <br>
 
-    <div style="width: 100%;height: 330px;text-align: center" id="chair">
-            <div class="info-chair-room">
+
+    <div style="width: 100%;height: 450px;text-align: center" id="chair">
+            <div class="info-chair-room"> <h1 style="letter-spacing: 3px">CHỌN GHẾ</h1>
                 <c:forEach var="roomChair" items="${roomChairs}" varStatus="loop">
                     <button data-is-selectd="${roomChair.status}" data-room-chair-id="${roomChair.id}" class="btn btn-primary info-room-chair">${roomChair.chair.position}</button>
                     <c:if test="${(loop.index+1)%8==0}">
@@ -75,6 +75,16 @@
                     </c:if>
                 </c:forEach>
             </div>
+        <br>
+        <div class="col-sm-12">
+            <label for="">Chú thích : </label><br>
+            <button class="btn btn-primary" style="width: 30px;height: 30px;"></button> Ghế trống
+
+
+            <button class="btn btn-primary" style="width: 30px;height: 30px ;background: #f5ca8c"></button> Ghế đã đặt
+
+        </div>
+
     </div>
 
     <form id="booking-chair" class="hide" action="/booking/ticket" method="post">
@@ -82,7 +92,9 @@
         <input name="scheduleId" value="${scheduleId}">
         <input name="roomChairId" id="room-chair-id">
     </form>
+
 </div>
+
 
 <!-- Footer -->
 <jsp:include page="../template/footer.jsp"/>
