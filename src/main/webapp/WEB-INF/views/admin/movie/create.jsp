@@ -35,7 +35,7 @@
         <!-- Main content -->
         <section class="content">
             <div class="container">
-                <form action="/admin/movies" method="post">
+                <form action="/admin/movies" method="post" enctype="multipart/form-data">
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
                             <labe>Name</labe>
@@ -82,6 +82,14 @@
                         </div>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" name="language">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 15px">
+                        <div class="col-sm-2" style="margin-left: 150px">
+                            <labe>Hình ảnh</labe>
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="file" class="form-control-file" name="image">
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">

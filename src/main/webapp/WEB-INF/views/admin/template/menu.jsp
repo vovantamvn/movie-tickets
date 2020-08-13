@@ -45,7 +45,10 @@
                 <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="javascript:void(0);" class="d-block">VOVANTAM</a>
+                <%
+                    String name = (String) session.getAttribute("name");
+                    out.print("<a href=\"javascript:void(0);\" class=\"d-block\">" + name + "</a>");
+                %>
             </div>
         </div>
 

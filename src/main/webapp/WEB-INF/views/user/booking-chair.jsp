@@ -77,11 +77,9 @@
             </div>
         <br>
         <div class="col-sm-12">
-            <label for="">Chú thích : </label><br>
-            <button class="btn btn-primary" style="width: 30px;height: 30px;"></button> Ghế trống
-
-
-            <button class="btn btn-primary" style="width: 30px;height: 30px ;background: #f5ca8c"></button> Ghế đã đặt
+            <label>Chú thích: </label><br>
+            <button disabled class="btn btn-primary" style="width: 30px;height: 30px;"></button> Ghế trống
+            <button disabled class="btn btn-warning" style="width: 30px;height: 30px;"></button> Ghế đã đặt
 
         </div>
 

@@ -8,7 +8,6 @@
 
 <body>
 <jsp:include page="template/nav.jsp"/>
-
 <div class="content">
     <div class="wrap">
         <div class="content-top" style="margin-left: 100px;">
@@ -23,12 +22,8 @@
                             <h5><a href="/movies?id=${movie.id}">${movie.name}</a></h5>
                         </div>
                         <div>
-                            <a href="/movies?id=${movie.id}">
-                                <button type="button" class="btn btn-info" style="margin-right: 72px">Chi tiết</button>
-                            </a>
-                            <a href="/booking?movie=${movie.id}">
-                                <button type="submit" class="btn btn-primary">Đặt vé</button>
-                            </a>
+                            <a role="button" class="btn btn-info" href="/movies?id=${movie.id}">Chi tiết</a>
+                            <a role="button" class="btn btn-primary" href="/booking?movie=${movie.id}">Đặt vé</a>
                         </div>
                     </div>
                 </div>
@@ -48,12 +43,8 @@
                         <div class="movie-text">
                             <h5><a href="/movies?id=${movie.id}">${movie.name}</a></h5>
                             <div>
-                                <a href="/movies?id=${movie.id}">
-                                    <button type="button" class="btn btn-info" style="margin-right: 72px">Chi tiết</button>
-                                </a>
-                                <a href="/booking?movie=${movie.id}">
-                                    <button type="submit" class="btn btn-primary">Đặt vé</button>
-                                </a>
+                                <a role="button" class="btn btn-info" href="/movies?id=${movie.id}">Chi tiết</a>
+                                <a role="button" class="btn btn-primary" href="/booking?movie=${movie.id}">Đặt vé</a>
                             </div>
                         </div>
                     </div>
