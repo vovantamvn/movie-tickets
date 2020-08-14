@@ -7,10 +7,10 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin" class="nav-link">Home</a>
+            <a href="/admin" class="nav-link">Quản lý</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="javascript:void(0);" class="nav-link">Contact</a>
+            <a href="/logout" class="nav-link">Đăng xuất</a>
         </li>
     </ul>
 

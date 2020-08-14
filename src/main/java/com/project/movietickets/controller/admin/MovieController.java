@@ -43,8 +43,7 @@ public class MovieController {
             @RequestParam("premiere") String premiere,
             @RequestParam("time") int time,
             @RequestParam("language") String language,
-            @RequestParam("image") String image,
-            HttpServletRequest request
+            @RequestParam("image") MultipartFile image
     ) {
         service.createMovie(
                 name, description, director, category, premiere, time, language, image

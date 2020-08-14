@@ -13,7 +13,14 @@
             <div class="nav-wrap">
                 <ul class="group" id="example-one">
                     <li><a href="/" style="color: #FFF">Trang chủ</a></li>
-                    <li><a href="/admin" style="color: #FFF">Quản lý</a></li>
+
+                    <%
+                        if(session.getAttribute("isAdmin") != null){
+                            out.print("<li><a href='/admin' style='color: #FFF'>Quản lý</a></li>");
+                        } else {
+                            out.print("<li><a href='/history' style='color: #FFF'>Lịch sử</a></li>");
+                        }
+                    %>
 
                     <%
                         if (session.getAttribute("name") != null){

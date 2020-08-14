@@ -4,6 +4,7 @@ import com.project.movietickets.entity.MovieEntity;
 import com.project.movietickets.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,6 +13,9 @@ import java.util.List;
 public class MovieService {
     @Autowired
     private MovieRepository movieRepository;
+
+    @Autowired
+    private StorageService storageService;
 
     public List<MovieEntity> getAllMovie() {
         return movieRepository.findAll();
@@ -29,10 +33,11 @@ public class MovieService {
             String premiere,
             int time,
             String language,
-            String image
+            MultipartFile image
     ) {
+        final var imagePath = storageService.store(image);
 
-        var movie = MovieEntity.builder()
+        final var movie = MovieEntity.builder()
                 .name(name)
                 .description(description)
                 .director(director)
@@ -40,7 +45,7 @@ public class MovieService {
                 .premiere(LocalDate.parse(premiere))
                 .time(time)
                 .language(language)
-                .image(image)
+                .image(imagePath)
                 .build();
 
         return movieRepository.save(movie);
