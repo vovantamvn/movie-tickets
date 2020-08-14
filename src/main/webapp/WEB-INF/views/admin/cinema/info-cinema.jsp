@@ -24,16 +24,35 @@
 
 <c:forEach var="cinema" items="${cinemas}">
     <div class="info-cinema" id="info-cinema-${cinema.id}">
+        <div class="row">
+            <div class="col-sm-4">
+                <h2>Danh sách phòng</h2>
+                <ul class="list-group">
+                   <c:forEach var="room" items="${cinema.rooms}">
+                       <li class="list-group-item">${room.name}</li>
+                   </c:forEach>
+                </ul>
+                <br>
+                Thêm phòng
+                <form action="/admin/rooms" method="post">
+                    <input name="cinemaId" value="${cinema.id}" hidden>
+                    <input class="form-control" placeholder="Tên" type="text" name="name" required>
+                    <button class="btn btn-primary" type="submit">Thêm</button>
+                </form>
+            </div>
 
-        <div id="detail-cinema-${cinema.id}" style="margin-left: 150px">
-            <h2>${cinema.name}</h2><br>
-            <label>Thuộc thành phố:</label> ${cinema.city.name}<br><br>
-            <a href="/admin/cinemas/${cinema.id}/update" role="button" class="btn-update-cinema btn btn-primary">Cập nhật</a>
-            <button data-toggle="modal"
-                    data-target="#exampleModal"
-                    class="btn btn-danger"
-                    data-cinema-id="${cinema.id}"
-                    type="button">Xóa</button>
+            <div class="col-sm-8">
+                <div id="detail-cinema-${cinema.id}" >
+                    <h2>${cinema.name}</h2><br>
+                    <label>Thuộc thành phố:</label> ${cinema.city.name}<br><br>
+                    <a href="/admin/cinemas/${cinema.id}/update" role="button" class="btn-update-cinema btn btn-primary">Cập nhật</a>
+                    <button data-toggle="modal"
+                            data-target="#exampleModal"
+                            class="btn btn-danger"
+                            data-cinema-id="${cinema.id}"
+                            type="button">Xóa</button>
+                </div>
+            </div>
         </div>
     </div>
 </c:forEach>

@@ -35,10 +35,10 @@
         <!-- Main content -->
         <section class="content">
             <div class="container">
-                <form action="/admin/movies" method="post" enctype="multipart/form-data">
+                <form action="/admin/movies" method="post">
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Name</labe>
+                            <labe>Tên phim</labe>
                         </div>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" name="name">
@@ -46,7 +46,7 @@
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Director</labe>
+                            <labe>Đạo diễn</labe>
                         </div>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" name="director">
@@ -54,7 +54,7 @@
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Category</labe>
+                            <labe>Thể loại</labe>
                         </div>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" name="category">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Premiere</labe>
+                            <labe>Ngày chiếu</labe>
                         </div>
                         <div class="col-sm-4">
                             <input type="date" class="form-control" name="premiere">
@@ -70,7 +70,7 @@
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Time</labe>
+                            <labe>Thời gian</labe>
                         </div>
                         <div class="col-sm-4">
                             <input type="number" class="form-control" name="time">
@@ -78,7 +78,7 @@
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Language</labe>
+                            <labe>Ngôn ngữ</labe>
                         </div>
                         <div class="col-sm-4">
                             <input type="text" class="form-control" name="language">
@@ -89,12 +89,12 @@
                             <labe>Hình ảnh</labe>
                         </div>
                         <div class="col-sm-4">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="text" class="form-control" name="image">
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Description</labe>
+                            <labe>Miêu tả</labe>
                         </div>
                         <div class="col-sm-4">
                             <textarea name="description" cols="30" rows="5" class="form-control"> </textarea>

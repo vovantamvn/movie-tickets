@@ -56,16 +56,15 @@
        <section class="content">
            <div class="container">
                <div class="row">
-                   <div class="col-sm-3">
-                       <div class="list-group cinema-list">
-                           <a:forEach var="cinema" items="${cinemas}">
-                               <a data-cinema-id="${cinema.id}" class="list-group-item" href="javascript:void(0);" style="margin-top:
+                   <div class="col-sm-3 list-group cinema-list">
+                       <a:forEach var="cinema" items="${cinemas}">
+                           <a data-cinema-id="${cinema.id}" class="list-group-item" href="javascript:void(0);" style="margin-top:
                                 5px">
-                                       ${cinema.name}
-                               </a>
-                           </a:forEach>
-                       </div>
+                                   ${cinema.name}
+                           </a>
+                       </a:forEach>
                    </div>
+
                    <div class="col-sm-9">
                        <jsp:include page="info-cinema.jsp" />
                    </div>

@@ -25,33 +25,13 @@ public class BookingCinemaService {
     private RoomMovieScheduleRepository roomMovieScheduleRepository;
 
     public List<LocalDate> getAllDayOfWeek(){
-        var now = LocalDate.now();
-        var subDay = 0;
-        switch (now.getDayOfWeek()){
-            case TUESDAY:
-                subDay = 1;
-                break;
-            case WEDNESDAY:
-                subDay = 2;
-                break;
-            case THURSDAY:
-                subDay = 3;
-                break;
-            case FRIDAY:
-                subDay = 4;
-                break;
-            case SATURDAY:
-                subDay = 5;
-                break;
-            case SUNDAY:
-                subDay = 6;
+        final var now = LocalDate.now();
+
+        final var result = new ArrayList<LocalDate>();
+        for (int i = 0; i < 7; i++) {
+            result.add( now.plusDays(i));
         }
 
-        var startWeek = now.minusDays(subDay);
-        var result = new ArrayList<LocalDate>();
-        for (int i = 0; i < 7; i++) {
-            result.add( startWeek.plusDays(i));
-        }
         return result;
     }
 

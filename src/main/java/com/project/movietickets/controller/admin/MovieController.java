@@ -36,38 +36,19 @@ public class MovieController {
 
     @RequestMapping(value = "admin/movies", method = RequestMethod.POST)
     public String createMovie(
-//            @RequestParam("name") String name,
-//            @RequestParam("description") String description,
-//            @RequestParam("director") String director,
-//            @RequestParam("category") String category,
-//            @RequestParam("premiere") String premiere,
-//            @RequestParam("time") int time,
-//            @RequestParam("language") String language,
-            @RequestParam("image") MultipartFile image,
+            @RequestParam("name") String name,
+            @RequestParam("description") String description,
+            @RequestParam("director") String director,
+            @RequestParam("category") String category,
+            @RequestParam("premiere") String premiere,
+            @RequestParam("time") int time,
+            @RequestParam("language") String language,
+            @RequestParam("image") String image,
             HttpServletRequest request
     ) {
-//        service.createMovie(
-//                name, description, director, category, premiere, time, language
-//        );
-        System.out.println(image.getName());
-        System.out.println(image.getSize());
-
-        final var path = request.getServletContext().getRealPath("images");
-        final var fileName = path + "/" + UUID.randomUUID().toString();
-        final var file = new File(fileName);
-        try {
-            final var stream = new BufferedOutputStream(new FileOutputStream(file));
-            stream.write(image.getBytes());
-            stream.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        System.out.println();
+        service.createMovie(
+                name, description, director, category, premiere, time, language, image
+        );
 
         return "redirect:/admin/movies";
     }

@@ -28,7 +28,8 @@ public class MovieService {
             String category,
             String premiere,
             int time,
-            String language
+            String language,
+            String image
     ) {
 
         var movie = MovieEntity.builder()
@@ -39,7 +40,7 @@ public class MovieService {
                 .premiere(LocalDate.parse(premiere))
                 .time(time)
                 .language(language)
-                .image("lol")
+                .image(image)
                 .build();
 
         return movieRepository.save(movie);

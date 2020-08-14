@@ -79,13 +79,12 @@
     </ul>
 
     <br>
-    <label class="radio-inline"><input value="${dates[0]}" type="radio" name="day" class="day" checked>Thứ Hai</label>
-    <label class="radio-inline"><input value="${dates[1]}" type="radio" name="day" class="day">Thứ Ba</label>
-    <label class="radio-inline"><input value="${dates[2]}" type="radio" name="day" class="day">Thứ Tư</label>
-    <label class="radio-inline"><input value="${dates[3]}" type="radio" name="day" class="day">Thứ Năm</label>
-    <label class="radio-inline"><input value="${dates[4]}" type="radio" name="day" class="day">Thứ Sáu</label>
-    <label class="radio-inline"><input value="${dates[5]}" type="radio" name="day" class="day">Thứ Bảy</label>
-    <label class="radio-inline"><input value="${dates[6]}" type="radio" name="day" class="day">Chủ Nhật</label>
+    <c:forEach var="date" items="${dates}" varStatus="status">
+        <label class="radio-inline">
+            <input <c:if test="${status.index == 0}">checked</c:if>
+                    value="${date}" type="radio" name="day" class="day">${date}
+        </label>
+    </c:forEach>
     <br>
 
     <div class="list-group">
