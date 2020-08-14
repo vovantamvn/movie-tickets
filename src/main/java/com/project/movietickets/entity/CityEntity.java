@@ -19,6 +19,6 @@ public class CityEntity {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL)
     private List<CinemaEntity> cinemas;
 }

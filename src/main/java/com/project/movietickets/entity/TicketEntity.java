@@ -17,17 +17,21 @@ public class TicketEntity {
     @Column(insertable = false)
     private int id;
 
+    @Column(nullable = false)
     private LocalDate date;
 
-    @ManyToOne
-    @JoinColumn
-    private MovieEntity movie;
+    @Column(nullable = false)
+    private String code;
 
     @ManyToOne
     @JoinColumn
-    private CinemaScheduleEntity cinemaSchedule;
+    private RoomMovieScheduleEntity roomMovieSchedule;
 
     @ManyToOne
     @JoinColumn
     private RoomChairEntity roomChair;
+
+    @ManyToOne
+    @JoinColumn
+    private UserEntity user;
 }

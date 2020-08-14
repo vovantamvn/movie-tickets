@@ -35,34 +35,37 @@
 <jsp:include page="template/nav.jsp"/>
 
 <!-- Content-->
-<div class="container">
-    <h1>NỘI DUNG PHIM </h1>
-    <br>
-    <div class="row">
-        <div class="col-sm-3">
-            <img src="${movie.image}">
+<div class="content">
+    <div class="container">
+        <h1>NỘI DUNG PHIM </h1>
+        <br>
+        <div class="row">
+            <div class="col-sm-3">
+                <img src="${movie.image}">
 
+            </div>
+
+            <div class="col-sm-9">
+
+                <h2>${movie.name}</h2>
+                <hr>
+                <label>Đạo diễn:</label> ${movie.director}<br>
+                <label>Thể loại:</label> ${movie.category}<br>
+                <label>Khỏi chiếu:</label> ${movie.premiere}<br>
+                <label>Thời lượng:</label> ${movie.time} phút<br>
+                <label>Ngôn ngữ:</label> ${movie.language}<br>
+                <form method="get" action="/booking">
+                    <input type="hidden" name="movie" value="${movie.id}">
+                    <button type="submit" class="btn btn-primary" id="btn-submit">Mua vé</button>
+                </form>
+
+            </div>
         </div>
-
-        <div class="col-sm-9">
-
-            <h2>${movie.name}</h2>
-            <hr>
-            <label>Đạo diễn:</label> ${movie.director}<br>
-            <label>Thể loại:</label> ${movie.category}<br>
-            <label>Khỏi chiếu:</label> ${movie.premiere}<br>
-            <label>Thời lượng:</label> ${movie.time} phút<br>
-            <label>Ngôn ngữ:</label> ${movie.language}<br>
-            <form method="get" action="/booking">
-                <input type="hidden" name="movie" value="${movie.id}">
-                <button type="submit" class="btn btn-primary" id="btn-submit">Mua vé</button>
-            </form>
-
-        </div>
+        <h3>Chi tiết</h3>
+        <br>
+        ${movie.description}<br><br>
     </div>
-    <h3>Chi tiết</h3>
-    <br>
-    ${movie.description}<br><br>
+
 </div>
 
 <!-- Footer -->

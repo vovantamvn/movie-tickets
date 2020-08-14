@@ -36,6 +36,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/movies/**").permitAll()
                 .antMatchers("/register").permitAll()
+                .antMatchers("/files/**").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -50,6 +52,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
+                .antMatchers("/dist/**", "/plugins/**")
                 .antMatchers("/font/**", "/css/**", "/js/**", "/images/**");
     }
 }
