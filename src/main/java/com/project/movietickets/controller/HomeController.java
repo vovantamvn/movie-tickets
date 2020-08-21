@@ -3,6 +3,7 @@ package com.project.movietickets.controller;
 import com.project.movietickets.entity.MovieEntity;
 import com.project.movietickets.service.HomeService;
 import com.project.movietickets.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -14,12 +15,11 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
-    @Autowired
-    private HomeService service;
 
-    @Autowired
-    private UserService userService;
+    private final HomeService service;
+    private final UserService userService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model, HttpSession session, Authentication authentication){

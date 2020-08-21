@@ -12,8 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class RegisterServiceTest {
+
     @MockBean
     private UserRepository repository;
+
     @Autowired
     private RegisterService service;
 

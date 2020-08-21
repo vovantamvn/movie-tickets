@@ -15,6 +15,7 @@ import java.util.List;
 
 @SpringBootTest
 public class HomeServiceTest {
+
     @MockBean
     private MovieRepository repository;
 
