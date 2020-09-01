@@ -1,6 +1,7 @@
 package com.project.movietickets.service;
 
 import com.project.movietickets.entity.UserEntity;
+import com.project.movietickets.model.Role;
 import com.project.movietickets.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.annotation.Before;
@@ -35,7 +36,7 @@ public class UserServiceTest {
                 .username("username")
                 .gender(true)
                 .password("123456")
-                .role("ROLE_USER")
+                .role(Role.ROLE_USER)
                 .build();
 
         userService.createUser(user);

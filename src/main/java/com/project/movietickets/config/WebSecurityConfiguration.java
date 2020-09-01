@@ -1,6 +1,8 @@
 package com.project.movietickets.config;
 
+import com.project.movietickets.model.Role;
 import com.project.movietickets.service.MyUserDetailsService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -14,12 +16,12 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private MyUserDetailsService userDetailsService;
+    private final PasswordEncoder passwordEncoder;
+
+    private final MyUserDetailsService userDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -37,8 +39,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/movies/**").permitAll()
                 .antMatchers("/register").permitAll()
                 .antMatchers("/files/**").permitAll()
+//                .antMatchers("/manage/**").hasRole("EMPLOYEE")
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")

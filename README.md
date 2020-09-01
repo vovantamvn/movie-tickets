@@ -12,7 +12,7 @@ Trang web được xây dựng trên Spring Boot và MYSQL.
 ### Cách cài đặt
 - Thay đổi username, password và port trong file [application.properties](./src/main/resources/application.properties)
 
-![alt text](./doc/properties.png)
+![alt text](./docs/properties.png)
 
 - Tạo database tên là `db_movie` trong MYSQL
 

@@ -1,5 +1,6 @@
 package com.project.movietickets.entity;
 
+import com.project.movietickets.model.Role;
 import lombok.*;
 
 import javax.persistence.*;
@@ -34,8 +35,9 @@ public class UserEntity {
 
     private LocalDate dateOfBirth;
 
+    @Enumerated(value = EnumType.STRING)
     @Column(nullable = false)
-    private String role;
+    private Role role;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<TicketEntity> tickets;

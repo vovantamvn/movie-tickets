@@ -19,6 +19,7 @@ import java.util.List;
 public class HomeController {
 
     private final HomeService service;
+
     private final UserService userService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -30,9 +31,8 @@ public class HomeController {
             String name = authentication.getName();
             session.setAttribute("name", name);
 
-            if (userService.isAdmin(name)){
-                session.setAttribute("isAdmin", true);
-            }
+            String role = userService.getRole(name);
+            session.setAttribute("role", role);
         }
 
         model.addAttribute("hotMovies", hotMovies);
