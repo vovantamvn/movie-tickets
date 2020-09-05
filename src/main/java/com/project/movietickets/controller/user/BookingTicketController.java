@@ -17,18 +17,16 @@ public class BookingTicketController {
     private final BookingTicketService bookingTicketService;
     private final TicketRepository ticketRepository;
 
-    @RequestMapping(value = "/booking/ticket", method = RequestMethod.GET)
+    @RequestMapping(value = "/booking/ticket", method = RequestMethod.POST)
     public String index(
-//            @RequestParam("scheduleId") int scheduleId,
-//            @RequestParam("date") String date,
-//            @RequestParam("roomChairId") int roomChairId,
+            @RequestParam("scheduleId") int scheduleId,
+            @RequestParam("date") String date,
+            @RequestParam("roomChairId") int roomChairId,
             Authentication authentication,
             Model model
     ) {
-//        var username = authentication.getName();
-//        var ticket = bookingTicketService.buyTicket(scheduleId, date, roomChairId, username);
-
-        var ticket = ticketRepository.findAll().get(0);
+        var username = authentication.getName();
+        var ticket = bookingTicketService.buyTicket(scheduleId, date, roomChairId, username);
 
         model.addAttribute("ticket", ticket);
         return "user/booking-ticket";

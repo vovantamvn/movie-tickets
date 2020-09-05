@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML>
 <html>
@@ -22,7 +23,7 @@
 <!-- Content-->
 <div class="container">
     <div class="row">
-        <div class="checkout-wrapper col-sm-6">
+        <div class="checkout-wrapper col-sm-6 hidden">
             <div class="form-group">
                 <label for="phone">Số điện thoại:</label>
                 <input name="phone" type="number" class="form-control" id="phone" required>
@@ -35,10 +36,17 @@
             <button class="btn btn-primary btn-submit" type="submit">Gửi</button>
         </div>
 
-        <div class="ticket-wrapper hidden">
-            <div class="col-xs-12 col-sm-10 col-md-5 well well-sm col-md-offset-4">
-                <jsp:include page="../template/info-ticket.jsp"/>
-            </div>
+        <div class="ticket-wrapper">
+            <c:choose>
+                <c:when test="${ticket != null}">
+                    <jsp:include page="../template/ticket.jsp"/>
+                </c:when>
+                <c:otherwise>
+                    <div>
+                        <p>Ghế này đã được mua!</p>
+                    </div>
+                </c:otherwise>
+            </c:choose>
         </div>
     </div>
 </div>
@@ -46,7 +54,7 @@
 <script>
     $(function (){
         $('.btn-submit').click(function (event) {
-            event.preventDefault(aof );
+            event.preventDefault();
 
             const result = checkDataInput()
             if (!result){

@@ -6,34 +6,28 @@
 <head>
     <jsp:include page="../template/header.jsp"/>
     <script>
-        $(function (){
+        $(function () {
             $('#foget-password').val('');
 
             const isError = ${message != null};
-            if (isError){
-                setTimeout(function (){
+            if (isError) {
+                setTimeout(function () {
                     $('#user-alert').removeClass('hidden');
                 }, 500);
             }
 
-            $('#form').submit(function (e){
+            $('#form').submit(function (e) {
                 const password = $('#foget-password').val();
                 const username = $('#username').val();
                 const email = $('#email').val();
 
-                if (password == ''){
-                    alert('Mật khẩu không được trống');
-                    e.preventdefault();
-                    return false;
-                }
-
-                if (username == ''){
+                if (username == '') {
                     alert('Username không được trống');
                     e.preventdefault();
                     return;
                 }
 
-                if (email == ''){
+                if (email == '') {
                     alert('Email không được trống');
                     e.preventdefault();
                     return;
@@ -62,7 +56,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-                            <li class="breadcrumb-item active">Thêm mới nhân viên</li>
+                            <li class="breadcrumb-item active">Cập nhật nhân viên</li>
                         </ol>
                     </div>
                 </div>
@@ -78,8 +72,8 @@
                     <strong>Thất bại!</strong> Tên đăng nhập hoặc email đã được sử dụng.
                 </div>
 
-                <%--@elvariable id="user" type="com.project.movietickets.entity.UserEntity"--%>
-                <form:form id="form" action="/admin/employees/create" method="post" modelAttribute="user">
+                <%--@elvariable id="user" type="com.project.movietickets.model.UserModel"--%>
+                <form:form id="form" action="/admin/employees/${user.id}/update" method="post" modelAttribute="user">
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
                             <labe>Họ tên nhân viên</labe>
@@ -99,9 +93,15 @@
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
                             <labe>Mật khẩu</labe>
+                            <br/>
                         </div>
                         <div class="col-sm-4">
-                            <form:input type="text" id="foget-password" class="form-control" path="password"/>
+                            <form:input
+                                    placeholder="Để trống nếu không đổi mật khấu"
+                                    type="text"
+                                    id="foget-password"
+                                    class="form-control"
+                                    path="password"/>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">
@@ -123,18 +123,18 @@
                             </form:select>
                         </div>
                     </div>
+                    <form:hidden path="id"/>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
                         </div>
                         <div class="col-sm-4">
-                            <button id="btn-submit" type="submit" class="btn btn-primary">Thêm</button>
+                            <button id="btn-submit" type="submit" class="btn btn-primary">Cập nhật</button>
                         </div>
                     </div>
 
                 </form:form>
 
             </div>
-            <!-- Content -->
 
             <!-- End Content -->
 

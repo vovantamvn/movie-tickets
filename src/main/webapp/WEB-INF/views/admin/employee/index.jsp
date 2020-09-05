@@ -4,10 +4,10 @@
 <html>
 
 <head>
-    <jsp:include page="../template/header.jsp" />
+    <jsp:include page="../template/header.jsp"/>
     <script>
-        $(function() {
-            $('.delete-employee-action').click(function (){
+        $(function () {
+            $('.delete-employee-action').click(function () {
                 const id = $(this).data('employee-id');
                 const confirm = $('#employee-delete-confirm');
                 const link = '/admin/employees/' + id + '/delete';
@@ -19,7 +19,7 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-    <jsp:include page="../template/menu.jsp" />
+    <jsp:include page="../template/menu.jsp"/>
     <div class="content-wrapper">
         <div class="content-header">
             <div class="container-fluid">
@@ -43,7 +43,8 @@
                 <!-- Content -->
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -79,11 +80,18 @@
                             <td>${employee.fullName}</td>
                             <td>${(employee.gender == true)? "Nam" : "Nữ"}</td>
                             <td>${employee.email}</td>
-                            <td><button
-                                    data-toggle="modal"
-                                    data-target="#exampleModal"
-                                    data-employee-id="${employee.id}"
-                                    class="btn btn-danger delete-employee-action">Xóa</button></td>
+                            <td>
+                                <a
+                                        role="button"
+                                        class="btn-primary btn"
+                                        href="/admin/employees/${employee.id}/update">Sửa</a>
+                                <button
+                                        data-toggle="modal"
+                                        data-target="#exampleModal"
+                                        data-employee-id="${employee.id}"
+                                        class="btn btn-danger delete-employee-action">Xóa
+                                </button>
+                            </td>
                         </tr>
                     </c:forEach>
                     </tbody>

@@ -1,6 +1,7 @@
 package com.project.movietickets.controller.admin;
 
 import com.project.movietickets.entity.UserEntity;
+import com.project.movietickets.model.UserModel;
 import com.project.movietickets.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.view.RedirectView;
 
 @Log4j2
 @Controller
@@ -47,6 +47,22 @@ public class UserController {
             return "admin/employee/create";
         }
 
+        return "redirect:/admin/employees";
+    }
+
+    /**
+     * Update user
+     */
+    @GetMapping("/admin/employees/{id}/update")
+    public String update(@PathVariable("id") int id, Model model){
+        UserModel user = userService.findUserById(id);
+        model.addAttribute("user", user);
+        return "admin/employee/update";
+    }
+
+    @PostMapping("/admin/employees/{id}/update")
+    public String updateUser(@PathVariable("id") int id, @ModelAttribute("user") UserModel user){
+        userService.updateUser(id, user);
         return "redirect:/admin/employees";
     }
 }

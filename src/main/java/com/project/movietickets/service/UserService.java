@@ -2,6 +2,7 @@ package com.project.movietickets.service;
 
 import com.project.movietickets.entity.UserEntity;
 import com.project.movietickets.model.Role;
+import com.project.movietickets.model.UserModel;
 import com.project.movietickets.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -58,5 +59,42 @@ public class UserService {
         var user = userRepository.findUserEntityByUsername(username).get();
         var role = user.getRole().name();
         return role;
+    }
+
+    public UserModel findUserById(int id) {
+        var user = userRepository.getOne(id);
+        var model = new UserModel(
+                user.getId(),
+                user.getUsername(),
+                user.getPassword(),
+                user.getEmail(),
+                user.getFullName(),
+                user.isGender(),
+                user.getDateOfBirth(),
+                user.getRole()
+        );
+
+        return model;
+    }
+
+    public UserEntity updateUser(int id, UserModel model) {
+
+        System.out.println(model);
+
+        var user = userRepository.getOne(id);
+        var password = model.getPassword();
+
+        if (!password.isBlank()){
+            String newPassword = passwordEncoder.encode(model.getPassword());
+            user.setPassword(newPassword);
+        }
+
+        user.setFullName(model.getFullName());
+        user.setUsername(model.getUsername());
+        user.setDateOfBirth(model.getDateOfBirth());
+        user.setEmail(model.getEmail());
+        user.setGender(model.isGender());
+
+        return userRepository.save(user);
     }
 }

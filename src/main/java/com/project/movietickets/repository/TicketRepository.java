@@ -13,4 +13,5 @@ public interface TicketRepository extends JpaRepository<TicketEntity, Integer> {
     List<TicketEntity> getAllByDateGreaterThanOrderByDateAsc(LocalDate date);
     List<TicketEntity> findAllByUserUsernameOrderByDateDesc(String username);
     Optional<TicketEntity> findTicketEntityByCode(String code);
+    List<TicketEntity> findTicketEntitiesByDate(LocalDate date);
 }
