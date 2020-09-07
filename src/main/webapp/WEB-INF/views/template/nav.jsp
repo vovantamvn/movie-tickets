@@ -18,7 +18,7 @@
                         String role = (String) session.getAttribute("role");
 
                         if (role == null){
-                            out.print("<li><a href='/register' style='color: #FFF'>Bạn chưa đăng nhập</a></li>");
+                            out.print("<li><a href='/login' style='color: #FFF'>Bạn chưa đăng nhập</a></li>");
                         } else if (role.equals("ROLE_USER")){
                             out.print("<li><a href='/history' style='color: #FFF'>Lịch sử</a></li>");
                         } else if (role.equals("ROLE_EMPLOYEE")){

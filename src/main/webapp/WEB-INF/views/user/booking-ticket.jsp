@@ -22,33 +22,32 @@
 
 <!-- Content-->
 <div class="container">
-    <div class="row">
-        <div class="checkout-wrapper col-sm-6 hidden">
-            <div class="form-group">
-                <label for="phone">Số điện thoại:</label>
-                <input name="phone" type="number" class="form-control" id="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="code">Mã giao dịch ngân hàng:</label>
-                <input name="code" type="text" class="form-control" id="code" required>
-            </div>
-            <p>Chúng tôi sẽ kiểm tra tài khoản và gọi lại cho bạn ngay khi nhận được tiền.</p>
-            <button class="btn btn-primary btn-submit" type="submit">Gửi</button>
-        </div>
 
-        <div class="ticket-wrapper">
-            <c:choose>
-                <c:when test="${ticket != null}">
-                    <jsp:include page="../template/ticket.jsp"/>
-                </c:when>
-                <c:otherwise>
-                    <div>
-                        <p>Ghế này đã được mua!</p>
-                    </div>
-                </c:otherwise>
-            </c:choose>
-        </div>
-    </div>
+    <c:choose>
+        <c:when test="${ticket == null}">
+            <div class="alert alert-warning" role="alert">
+                <h4 class="alert-heading">Bạn đã mua vé không thành công!</h4>
+                <p>Ghế này đã được mua trước, vui lòng chọn ghế khác!</p>
+                <hr>
+                <p class="mb-0">Chúc bạn một ngày đẹp.</p>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <div class="menu-wrapper">
+                <jsp:include page="menu-option.jsp"/>
+            </div>
+
+            <div class="ticket-wrapper hidden">
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Bạn đã mua vé thành công!</h4>
+                    <p>Mời bạn lấy mã code ${ticket.code} để nhận vé tại quầy thanh toán!</p>
+                    <hr>
+                    <p class="mb-0">Chúc bạn một ngày đẹp.</p>
+                </div>
+            </div>
+        </c:otherwise>
+    </c:choose>
+
 </div>
 
 <script>
@@ -56,10 +55,15 @@
         $('.btn-submit').click(function (event) {
             event.preventDefault();
 
-            const result = checkDataInput()
-            if (!result){
-                alert('Các trường không được để trống!')
-                return;
+            const type = $("input[type='radio']:checked").val();
+
+            if (type === 'type-banking'){
+                const result = checkDataInput()
+
+                if (!result){
+                    alert('Các trường không được để trống!')
+                    return;
+                }
             }
 
             $(this).closest('.checkout-wrapper').addClass('hidden');

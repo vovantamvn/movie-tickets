@@ -3,7 +3,6 @@ package com.project.movietickets.service.user;
 import com.project.movietickets.entity.TicketEntity;
 import com.project.movietickets.repository.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -45,13 +44,13 @@ public class BookingTicketService {
                 .user(user)
                 .build();
 
-        return ticket; //ticketRepository.save(ticket);
+        return ticketRepository.save(ticket);
     }
 
-    private boolean isTicketValid(int scheduleId, LocalDate date, int roomChairId){
+    public boolean isTicketValid(int scheduleId, LocalDate date, int roomChairId){
         List<TicketEntity> tickets = ticketRepository.findTicketEntitiesByDate(date).stream()
                 .filter(ticket -> ticket.getRoomChair().getId() == roomChairId)
-                .filter(ticket -> ticket.getRoomMovieSchedule().getSchedule().getId() == scheduleId)
+                .filter(ticket -> ticket.getRoomMovieSchedule().getId() == scheduleId)
                 .collect(Collectors.toList());
 
         return tickets.size() == 0;
