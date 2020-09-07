@@ -16,11 +16,7 @@
     .container {
         margin-top: 50px;
         padding: 20px;
-    }
-
-    .btn-wrapper {
-        margin-top: 20px;
-        text-align: center;
+        min-height: 400px;
     }
 
 </style>
@@ -30,7 +26,7 @@
 <jsp:include page="../template/nav.jsp"/>
 
 <!-- Content-->
-<div class="container" style="min-height: 400px">
+<div class="container">
 
     <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
         <!-- Search form -->
@@ -42,7 +38,7 @@
 
     <c:choose>
         <c:when test="${isHasValue == true}">
-            <jsp:include page="../template/ticket.jsp"/>
+            <jsp:include page="info-ticket.jsp"/>
         </c:when>
         <c:when test="${isSearched == true}">
             <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">

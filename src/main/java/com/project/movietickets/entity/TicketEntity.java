@@ -25,6 +25,8 @@ public class TicketEntity {
 
     private boolean isPay = false;
 
+    private boolean isReceived = false;
+
     @ManyToOne
     @JoinColumn
     private RoomMovieScheduleEntity roomMovieSchedule;

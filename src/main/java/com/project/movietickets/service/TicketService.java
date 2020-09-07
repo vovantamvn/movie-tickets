@@ -31,7 +31,7 @@ public class TicketService {
 
     @Transactional
     public void deleteTicket(int id) {
-        final var ticket = ticketRepository.findById(id).get();
+        final var ticket = ticketRepository.getOne(id);
         final var roomChair = ticket.getRoomChair();
 
         roomChair.setStatus(false);
@@ -43,5 +43,28 @@ public class TicketService {
 
     public Optional<TicketEntity> findTicketByCode(String code) {
         return ticketRepository.findTicketEntityByCode(code);
+    }
+
+    @Transactional
+    public TicketEntity updateCheckoutTicket(String code){
+        var optTicket = ticketRepository.findTicketEntityByCode(code);
+        var ticket = optTicket.get();
+        ticket.setPay(true);
+
+        return ticketRepository.save(ticket);
+    }
+
+    @Transactional
+    public TicketEntity updateReceiveTicket(String code){
+        var optTicket = ticketRepository.findTicketEntityByCode(code);
+        var ticket = optTicket.get();
+
+        if (!ticket.isPay()){
+            throw new RuntimeException("Checkout before receive!");
+        }
+
+        ticket.setReceived(true);
+
+        return ticketRepository.save(ticket);
     }
 }
