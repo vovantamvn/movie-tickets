@@ -15,11 +15,19 @@
                     <li><a href="/" style="color: #FFF">Trang chủ</a></li>
 
                     <%
-                        if(session.getAttribute("isAdmin") != null){
-                            out.print("<li><a href='/admin' style='color: #FFF'>Quản lý</a></li>");
-                        } else {
+                        String role = (String) session.getAttribute("role");
+
+                        if (role == null){
+                            out.print("<li><a href='/login' style='color: #FFF'>Bạn chưa đăng nhập</a></li>");
+                        } else if (role.equals("ROLE_USER")){
                             out.print("<li><a href='/history' style='color: #FFF'>Lịch sử</a></li>");
+                        } else if (role.equals("ROLE_EMPLOYEE")){
+                            out.print("<li><a href='/manage' style='color: #FFF'>In vé</a></li>");
+                        } else if (role.equals("ROLE_ADMIN")){
+                            out.print("<li><a href='/admin' style='color: #FFF'>Quản lý</a></li>");
                         }
+
+
                     %>
 
                     <%

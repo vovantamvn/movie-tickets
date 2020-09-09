@@ -23,6 +23,10 @@ public class TicketEntity {
     @Column(nullable = false)
     private String code;
 
+    private boolean isPay = false;
+
+    private boolean isReceived = false;
+
     @ManyToOne
     @JoinColumn
     private RoomMovieScheduleEntity roomMovieSchedule;

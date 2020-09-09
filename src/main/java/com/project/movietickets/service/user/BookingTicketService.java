@@ -2,30 +2,34 @@ package com.project.movietickets.service.user;
 
 import com.project.movietickets.entity.TicketEntity;
 import com.project.movietickets.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class BookingTicketService {
-    @Autowired
-    private UserRepository userRepository;
 
-    @Autowired
-    private RoomChairRepository roomChairRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private RoomMovieScheduleRepository roomMovieScheduleRepository;
+    private final RoomChairRepository roomChairRepository;
 
-    @Autowired
-    private TicketRepository ticketRepository;
+    private final RoomMovieScheduleRepository roomMovieScheduleRepository;
+
+    private final TicketRepository ticketRepository;
 
     public TicketEntity buyTicket(int scheduleId, String date, int roomChairId, String username) {
         var bookDate = LocalDate.parse(date);
-        var roomChair = roomChairRepository.findById(roomChairId).get();
-        var roomChairSchedule = roomMovieScheduleRepository.findById(scheduleId).get();
+        if ( !isTicketValid(scheduleId, bookDate, roomChairId)) {
+            return null;
+        }
+
+        var roomChair = roomChairRepository.getOne(roomChairId);
+        var roomChairSchedule = roomMovieScheduleRepository.getOne(scheduleId);
         var code = UUID.randomUUID().toString().substring(0, 13).toUpperCase();
         var user = userRepository.findUserEntityByUsername(username).get();
 
@@ -41,5 +45,14 @@ public class BookingTicketService {
                 .build();
 
         return ticketRepository.save(ticket);
+    }
+
+    public boolean isTicketValid(int scheduleId, LocalDate date, int roomChairId){
+        List<TicketEntity> tickets = ticketRepository.findTicketEntitiesByDate(date).stream()
+                .filter(ticket -> ticket.getRoomChair().getId() == roomChairId)
+                .filter(ticket -> ticket.getRoomMovieSchedule().getId() == scheduleId)
+                .collect(Collectors.toList());
+
+        return tickets.size() == 0;
     }
 }

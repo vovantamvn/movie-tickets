@@ -29,7 +29,7 @@ public class MyUserDetailsService implements UserDetailsService {
         }
 
         UserEntity user = opt.get();
-        List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(user.getRole()));
+        List<GrantedAuthority> authorities = List.of(new SimpleGrantedAuthority(user.getRole().name()));
         return buildUserForAuthentication(user, authorities);
     }
 
