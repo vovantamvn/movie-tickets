@@ -1,23 +1,33 @@
 package com.project.movietickets.service;
 
 import com.project.movietickets.entity.MovieEntity;
+import com.project.movietickets.entity.TicketEntity;
 import com.project.movietickets.model.Report;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.project.movietickets.repository.custom.SearchReportRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class ReportService {
-    @Autowired
-    private TicketService ticketService;
 
-    public List<Report> getReportLastMonth(){
-        final var tickets = ticketService.getAllTicketLastMonth();
+    private final SearchReportRepository searchReportRepository;
+
+    public List<Report> searchReport(String startDate, String endDate, String category){
+
+        List<TicketEntity> tickets = searchReportRepository.searchTicket(
+                startDate,
+                endDate,
+                category);
+
         final var map = new HashMap<MovieEntity, Integer>();
+
         tickets.forEach( ticket -> {
             final var key = ticket.getRoomMovieSchedule().getMovie();
             final var value = map.getOrDefault(key, 0) + 1;
