@@ -130,7 +130,7 @@
                         <li class="nav-item">
                             <a href="/admin/reports" class="nav-link active">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Báo cáo vé theo tháng</p>
+                                <p>Báo cáo số lượng vé</p>
                             </a>
                         </li>
                     </ul>

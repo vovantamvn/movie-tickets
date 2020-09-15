@@ -114,9 +114,6 @@
                 </form>
 
             </div>
-            <!-- Content -->
-
-            <!-- End Content -->
 
         </section>
     </div>

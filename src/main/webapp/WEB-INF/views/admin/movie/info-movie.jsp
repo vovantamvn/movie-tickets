@@ -41,7 +41,7 @@
                     data-toggle="modal"
                     data-target="#exampleModal"
                     data-movie-id="${movie.id}"
-                    class="btn btn-danger movie-delete-action">Xóa</button>
+                    class="btn btn-danger movie-delete-action">Kết thúc phim</button>
         </div>
     </div>
 </c:forEach>
