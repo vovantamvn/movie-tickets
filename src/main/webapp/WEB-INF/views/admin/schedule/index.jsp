@@ -81,7 +81,7 @@
                         <tr>
                             <td>${roomMovieSchedule.room.cinema.city.name}</td>
                             <td>${roomMovieSchedule.room.cinema.name}</td>
-                            <td>${roomMovieSchedule.room.name} - ${roomMovieSchedule.room.id}</td>
+                            <td>${roomMovieSchedule.room.name}</td>
                             <td>${roomMovieSchedule.movie.name}</td>
                             <td>${roomMovieSchedule.schedule.time}</td>
                             <td>

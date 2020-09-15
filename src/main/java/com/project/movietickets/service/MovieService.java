@@ -2,20 +2,23 @@ package com.project.movietickets.service;
 
 import com.project.movietickets.entity.MovieEntity;
 import com.project.movietickets.repository.MovieRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class MovieService {
-    @Autowired
-    private MovieRepository movieRepository;
 
-    @Autowired
-    private StorageService storageService;
+    private final MovieRepository movieRepository;
+
+    private final StorageService storageService;
 
     public List<MovieEntity> getAllMovie() {
         return movieRepository.findAll();
@@ -75,5 +78,11 @@ public class MovieService {
 
     public MovieEntity findById(int id) {
         return movieRepository.findById(id).get();
+    }
+
+    public Set<String> getAllCategories() {
+        return movieRepository.findAll().stream()
+                .map(movie -> movie.getCategory())
+                .collect(Collectors.toSet());
     }
 }

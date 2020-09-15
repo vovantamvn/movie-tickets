@@ -9,6 +9,11 @@
             $('#menu-report').addClass('menu-open')
         })
     </script>
+    <style>
+        .element {
+            margin-right: 20px;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -34,7 +39,35 @@
             <div class="container-fluid">
                 <!-- Content -->
 
-                <p>Danh sách vé của các bộ phim bán chạy trong 30 ngày gần nhất:</p>
+                <div>
+                    <form method="get" action="/admin/reports" class="row">
+                        <div class="form-group element">
+                            <label for="start-date">Ngày bắt đầu:</label>
+                            <input name="startDate" type="date" class="form-control" id="start-date">
+                        </div>
+
+                        <div class="form-group element">
+                            <label for="end-date">Ngày kết thúc:</label>
+                            <input name="endDate" type="date" class="form-control" id="end-date">
+                        </div>
+
+                        <div class="form-group element">
+                            <label for="category">Thể loại:</label>
+                            <select name="category" class="form-control" id="category">
+                                <option value="ALL">Tất cả</option>
+                                <c:forEach var="category" items="${categories}">
+                                    <option value="${category}">${category}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Lọc báo cáo</label>
+                            <button class="btn btn-primary form-control" type="submit">Lọc</button>
+                        </div>
+                    </form>
+                </div>
+
                 <table class="table table-striped">
                     <thead>
                     <tr>
