@@ -12,11 +12,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                Bạn muốn xóa bộ phim này?
+                Bạn muốn kết thúc bộ phim này?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                <a id="movie-delete-confirm" role="button" class="btn btn-primary" href="">Xóa</a>
+                <a id="movie-delete-confirm" role="button" class="btn btn-primary" href="">Kết thúc</a>
             </div>
         </div>
     </div>
