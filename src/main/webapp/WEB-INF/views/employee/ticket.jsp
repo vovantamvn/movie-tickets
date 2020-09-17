@@ -15,16 +15,19 @@
         </div>
     </div>
 
+    <c:set var="roomMovieSchedule" value="${ticket.roomMovieSchedule}"/>
+    <c:set var="chair" value="${ticket.roomChair.chair.position}"/>
+
     <div class="row" style="text-align: center;">
         <div class="col-sm-12">
             <h4>CÔNG TY TNHH HAC VIỆT NAM</h4>
-            <H5>Lầu 10-11 số 2 Phạm Như Xương -Đà Nẵng</H5>
+            <h5>Lầu 10-11 số 2 Phạm Như Xương -Đà Nẵng</h5>
+
+            <br/>
+            <h2>${roomMovieSchedule.movie.name}</h2>
         </div>
     </div>
-
     <br>
-    <c:set var="roomMovieSchedule" value="${ticket.roomMovieSchedule}"/>
-    <c:set var="chair" value="${ticket.roomChair.chair.position}"/>
 
     <div class="row">
         <div class="col-sm-7">
