@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Log4j2
 @Service
@@ -96,5 +97,9 @@ public class UserService {
         user.setGender(model.isGender());
 
         return userRepository.save(user);
+    }
+
+    public Optional<UserEntity> findUserByUsername(String username) {
+        return userRepository.findUserEntityByUsername(username);
     }
 }
