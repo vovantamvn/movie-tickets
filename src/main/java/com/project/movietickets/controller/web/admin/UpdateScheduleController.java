@@ -1,4 +1,4 @@
-package com.project.movietickets.controller.admin;
+package com.project.movietickets.controller.web.admin;
 
 import com.project.movietickets.service.CinemaService;
 import com.project.movietickets.service.MovieService;

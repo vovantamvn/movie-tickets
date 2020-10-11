@@ -5,6 +5,7 @@ import com.project.movietickets.entity.ScheduleEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Getter
@@ -15,7 +16,7 @@ import java.time.LocalTime;
 public class RoomMovieScheduleModel {
 
     private int id;
-    private LocalTime time;
+    private LocalDateTime time;
     private String name;
 
     public RoomMovieScheduleModel(){

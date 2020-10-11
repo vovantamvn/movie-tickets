@@ -1,7 +1,7 @@
-package com.project.movietickets.controller;
+package com.project.movietickets.controller.web.guest;
 
 import com.project.movietickets.service.StorageService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 @Controller
+@RequiredArgsConstructor
 public class ServeFileController {
-    @Autowired
-    private StorageService storageService;
+
+    private final StorageService storageService;
 
     @GetMapping("/files/{filename:.+}")
     @ResponseBody

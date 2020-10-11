@@ -22,11 +22,11 @@ public class BookingTicketService {
 
     private final TicketRepository ticketRepository;
 
-    public TicketEntity buyTicket(int scheduleId, String date, int roomChairId, String username) {
-        var bookDate = LocalDate.parse(date);
-        if ( !isTicketValid(scheduleId, bookDate, roomChairId)) {
-            return null;
-        }
+    public TicketEntity buyTicket(int scheduleId, int roomChairId, String username) {
+//        will check again
+//        if ( !isTicketValid(scheduleId, roomChairId)) {
+//            return null;
+//        }
 
         var roomChair = roomChairRepository.getOne(roomChairId);
         var roomChairSchedule = roomMovieScheduleRepository.getOne(scheduleId);
@@ -37,7 +37,7 @@ public class BookingTicketService {
         roomChairRepository.save(roomChair);
 
         var ticket = TicketEntity.builder()
-                .date(bookDate)
+                .date(LocalDate.now())
                 .code(code)
                 .roomChair(roomChair)
                 .roomMovieSchedule(roomChairSchedule)

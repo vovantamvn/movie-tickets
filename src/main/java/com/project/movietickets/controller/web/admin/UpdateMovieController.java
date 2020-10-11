@@ -1,4 +1,4 @@
-package com.project.movietickets.controller.admin;
+package com.project.movietickets.controller.web.admin;
 
 import com.project.movietickets.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;

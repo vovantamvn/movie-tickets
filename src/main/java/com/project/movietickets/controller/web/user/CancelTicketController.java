@@ -1,6 +1,7 @@
-package com.project.movietickets.controller.user;
+package com.project.movietickets.controller.web.user;
 
 import com.project.movietickets.service.TicketService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -10,14 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
+@RequiredArgsConstructor
 public class CancelTicketController {
-    @Autowired
-    private TicketService ticketService;
+
+    private final TicketService ticketService;
 
     @RequestMapping(value = "/history", method = RequestMethod.GET)
     public String index(Model model, Authentication authentication){
-        final var username = authentication.getName();
-        final var tickets = ticketService.getAllByUser(username);
+        String username = authentication.getName();
+        var tickets = ticketService.getAllByUser(username);
         model.addAttribute("tickets", tickets);
         return "user/history";
     }

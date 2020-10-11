@@ -1,4 +1,4 @@
-package com.project.movietickets.controller.employee;
+package com.project.movietickets.controller.web.employee;
 
 import com.project.movietickets.entity.TicketEntity;
 import com.project.movietickets.service.TicketService;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Controller

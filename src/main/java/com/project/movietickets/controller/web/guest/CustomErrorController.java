@@ -1,4 +1,4 @@
-package com.project.movietickets.controller;
+package com.project.movietickets.controller.web.guest;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;

@@ -14,7 +14,7 @@
             </div>
             <div class="col_1_of_4 span_1_of_4">
                 <div class="textcontact">
-                    <p>Chăm sóc khách hàng<br> Liên hệ theo<br> Phone: 1800 234 529<br> Email : <a href="#">movie.support@movie.com.vn</a><br>
+                    <p>Chăm sóc khách hàng<br> Liên hệ theo<br> Phone: 1800 234 529<br> Email : <a href="#">movie@movie.com</a><br>
                     </p>
                 </div>
             </div>

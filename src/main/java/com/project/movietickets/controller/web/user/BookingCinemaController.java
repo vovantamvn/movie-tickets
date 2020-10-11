@@ -1,8 +1,6 @@
-package com.project.movietickets.controller.user;
+package com.project.movietickets.controller.web.user;
 
-import com.project.movietickets.entity.CityEntity;
 import com.project.movietickets.model.CityModel;
-import com.project.movietickets.service.CityService;
 import com.project.movietickets.service.user.BookingCinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

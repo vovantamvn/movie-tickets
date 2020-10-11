@@ -1,4 +1,4 @@
-package com.project.movietickets.controller;
+package com.project.movietickets.controller.web.guest;
 
 import com.project.movietickets.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
