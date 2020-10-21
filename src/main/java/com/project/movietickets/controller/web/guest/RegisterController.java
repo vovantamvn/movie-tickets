@@ -1,37 +1,46 @@
 package com.project.movietickets.controller.web.guest;
 
+import com.project.movietickets.entity.UserEntity;
 import com.project.movietickets.service.RegisterService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import java.time.LocalDate;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequiredArgsConstructor
 public class RegisterController {
-    @Autowired
-    private RegisterService service;
+    private final RegisterService service;
 
-    @RequestMapping(value = "/register", method = RequestMethod.GET)
+    @GetMapping(value = "/register")
     public String index(){
         return "register";
     }
 
-    @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@RequestParam("username") String username,
-                           @RequestParam("password") String password,
-                           @RequestParam("fullname") String fullname,
-                           @RequestParam("email") String email,
-                           @RequestParam("dateOfBirth") String dateOfBirth,
-                           @RequestParam("gender") boolean gender,
-                           Model model){
+    @PostMapping(value = "/register")
+    public String register(@RequestParam String username,
+                                 @RequestParam String password,
+                                 @RequestParam String fullname,
+                                 @RequestParam String email,
+                                 @RequestParam String phone,
+                                 @RequestParam String zone,
+                                 @RequestParam String cinemaLove,
+                                 @RequestParam String dateOfBirth,
+                                 @RequestParam boolean gender,
+                                 Model model){
+        UserEntity result = service.registerUser(
+                username,
+                password,
+                fullname,
+                email,
+                phone,
+                zone,
+                cinemaLove,
+                gender,
+                dateOfBirth
+        );
 
-        boolean result = service.registerUser(username, password, fullname, email, gender, dateOfBirth);
-
-        if (result) {
+        if (result != null) {
             return "redirect:/login";
         }
 

@@ -32,6 +32,8 @@
             <label>Ra mắt:</label> ${movie.premiere}<br><br>
             <label>Thời gian:</label> ${movie.time}<br><br>
             <label>Ngôn ngữ:</label> ${movie.language}<br><br>
+            <label>Định dạng:</label> ${movie.format}<br><br>
+            <label>Độ tuổi:</label> ${movie.ageLimit}<br><br>
 
             <a href="/admin/movies/${movie.id}/update">
                 <button data-movie-id="${movie.id}" type="button" class="btn btn-primary btn-update-movie">Cập nhật</button>

@@ -3,57 +3,42 @@ package com.project.movietickets.controller.web.admin;
 import com.project.movietickets.service.CinemaService;
 import com.project.movietickets.service.MovieService;
 import com.project.movietickets.service.RoomMovieScheduleService;
-import com.project.movietickets.service.ScheduleService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin")
+@RequiredArgsConstructor
 public class UpdateScheduleController {
-    @Autowired
-    private RoomMovieScheduleService roomMovieScheduleService;
 
-    @Autowired
-    private CinemaService cinemaService;
+    private final RoomMovieScheduleService roomMovieScheduleService;
 
-    @Autowired
-    private MovieService movieService;
+    private final CinemaService cinemaService;
 
-    @Autowired
-    private ScheduleService scheduleService;
+    private final MovieService movieService;
 
-    @RequestMapping(value = "/schedules/{id}/update", method = RequestMethod.GET)
-    public String update(
-            @PathVariable("id") int id,
-            Model model
-    ) {
-        final var cinemas = cinemaService.getAllCinema();
-        final var movies = movieService.getAllMovie();
-        final var schedules = scheduleService.getAllSchedule();
-        final var roomMovieSchedule = roomMovieScheduleService.findById(id);
+    @GetMapping(value = "/schedules/{id}/update")
+    public String update(@PathVariable int id, Model model) {
+        var cinemas = cinemaService.getAllCinema();
+        var movies = movieService.getAllMovie();
+        var roomMovieSchedule = roomMovieScheduleService.findById(id);
 
         model.addAttribute("roomMovieSchedule", roomMovieSchedule);
         model.addAttribute("cinemas", cinemas);
         model.addAttribute("movies", movies);
-        model.addAttribute("schedules", schedules);
+
         return "admin/schedule/update";
     }
 
-    @RequestMapping(value = "/schedules/{id}/update", method = RequestMethod.POST)
-    public String updateRoomMovieSchedule(
-            @PathVariable("id") int id,
-            @RequestParam("roomId") int roomId,
-            @RequestParam("movieId") int movieId,
-            @RequestParam("scheduleId") int scheduleId
-    ) {
-        System.out.println("Update" + id);
-        System.out.println(roomId);
-        roomMovieScheduleService.updateRoomMovieSchedule(id, roomId, movieId, scheduleId);
+    @PostMapping(value = "/schedules/{id}/update")
+    public String updateRoomMovieSchedule(@PathVariable int id,
+                                          @RequestParam int roomId,
+                                          @RequestParam int movieId,
+                                          @RequestParam String time) {
+
+        roomMovieScheduleService.updateRoomMovieSchedule(id, roomId, movieId, time);
         return "redirect:/admin/schedules";
     }
 }

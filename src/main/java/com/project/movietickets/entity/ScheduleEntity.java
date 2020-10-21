@@ -18,6 +18,8 @@ public class ScheduleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false)
     private int id;
+
+    @Basic
     private LocalDateTime time;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL)

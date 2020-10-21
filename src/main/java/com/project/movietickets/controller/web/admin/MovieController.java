@@ -1,22 +1,25 @@
 package com.project.movietickets.controller.web.admin;
 
 import com.project.movietickets.service.MovieService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequiredArgsConstructor
 public class MovieController {
-    @Autowired
-    private MovieService service;
 
-    @RequestMapping(value = {"/admin", "admin/movies"}, method = RequestMethod.GET)
-    public String index(Model model) {
+    private final MovieService service;
+
+    @GetMapping(value = {"/admin", "admin/movies"})
+    public ModelAndView index() {
+        var modelAndView = new ModelAndView("admin/movie/index");
         var movies = service.getAllMovie();
-        model.addAttribute("movies", movies);
-        return "admin/movie/index";
+        modelAndView.addObject("movies", movies);
+        return modelAndView;
     }
 
     /**
@@ -24,24 +27,24 @@ public class MovieController {
      *
      * @return String
      */
-    @RequestMapping(value = "admin/movies/create", method = RequestMethod.GET)
+    @GetMapping(value = "admin/movies/create")
     public String create() {
         return "admin/movie/create";
     }
 
-    @RequestMapping(value = "admin/movies", method = RequestMethod.POST)
-    public String createMovie(
-            @RequestParam("name") String name,
-            @RequestParam("description") String description,
-            @RequestParam("director") String director,
-            @RequestParam("category") String category,
-            @RequestParam("premiere") String premiere,
-            @RequestParam("time") int time,
-            @RequestParam("language") String language,
-            @RequestParam("image") MultipartFile image
-    ) {
+    @PostMapping(value = "admin/movies")
+    public String createMovie(@RequestParam String name,
+                              @RequestParam String description,
+                              @RequestParam String director,
+                              @RequestParam String category,
+                              @RequestParam String premiere,
+                              @RequestParam int time,
+                              @RequestParam String language,
+                              @RequestParam String format,
+                              @RequestParam int ageLimit,
+                              @RequestParam MultipartFile image) {
         service.createMovie(
-                name, description, director, category, premiere, time, language, image
+                name, description, director, category, premiere, time, language, format, ageLimit, image
         );
 
         return "redirect:/admin/movies";
@@ -54,7 +57,7 @@ public class MovieController {
      * @return String
      */
     @GetMapping("admin/movies/{id}/delete")
-    public String delete(@PathVariable("id") int id) {
+    public String delete(@PathVariable int id) {
         service.deleteMovie(id);
 
         return "redirect:/admin/movies";

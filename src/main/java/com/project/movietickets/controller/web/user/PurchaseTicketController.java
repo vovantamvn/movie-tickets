@@ -3,7 +3,6 @@ package com.project.movietickets.controller.web.user;
 import com.project.movietickets.entity.CityEntity;
 import com.project.movietickets.model.custom.Cinema;
 import com.project.movietickets.service.CityService;
-import com.project.movietickets.service.MovieService;
 import com.project.movietickets.service.user.PurchaseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -17,7 +16,6 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@Log4j2
 public class PurchaseTicketController {
     private final PurchaseService purchaseService;
 
@@ -28,10 +26,6 @@ public class PurchaseTicketController {
                                 @PathVariable int cityId,
                                 @PathVariable String date) {
         var modelAndView = new ModelAndView("user/ticket/index");
-
-        log.error(movieId);
-        log.error(cityId);
-        log.error(date);
 
         List<Cinema> cinemas = purchaseService.getAllDate(movieId,cityId,date);
         List<CityEntity> cities = cityService.getAllCity();

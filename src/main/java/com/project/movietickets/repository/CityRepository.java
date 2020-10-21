@@ -19,4 +19,6 @@ public interface CityRepository extends JpaRepository<CityEntity, Integer> {
             "on room_movie_schedules.room_id = rooms.id\n" +
             "where room_movie_schedules.movie_id = :movieId ;", nativeQuery = true)
     List<CityEntity> findListCityByMovieId(@Param("movieId") int movieId);
+
+    CityEntity findFirstByNameNotNull();
 }

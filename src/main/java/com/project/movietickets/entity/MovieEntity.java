@@ -44,6 +44,10 @@ public class MovieEntity {
 
     private int view = 0;
 
+    private String format;
+
+    private int ageLimit;
+
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private List<RoomMovieScheduleEntity> roomMovieSchedules;
 }

@@ -16,14 +16,12 @@ public class BookingTicketController {
     private final BookingTicketService bookingTicketService;
 
     @GetMapping(value = "/booking/ticket")
-    public ModelAndView index(
-            @RequestParam("scheduleId") int scheduleId,
-            @RequestParam("roomChairId") int roomChairId,
-            Authentication authentication
-    ) {
-        ModelAndView modelAndView = new ModelAndView("user/booking-ticket");
+    public ModelAndView index(@RequestParam("scheduleId") int scheduleId,
+                              @RequestParam("roomChairId") int roomChairId,
+                              Authentication authentication) {
+        var modelAndView = new ModelAndView("user/booking-ticket");
 
-        String username = authentication.getName();
+        var username = authentication.getName();
 
         TicketEntity ticket = bookingTicketService.buyTicket(
                 scheduleId,

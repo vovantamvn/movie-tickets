@@ -23,7 +23,7 @@
     <a href="javascript:void(0);" class="brand-link">
         <img src="/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">Admin</span>
+        <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
     <!-- Sidebar -->
@@ -35,7 +35,7 @@
             </div>
             <div class="info">
                 <%
-                    String name = (String) session.getAttribute("name");
+                    String name = request.getRemoteUser();
                     out.print("<a href=\"javascript:void(0);\" class=\"d-block\">" + name + "</a>");
                 %>
             </div>

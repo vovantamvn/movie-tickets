@@ -23,10 +23,9 @@ public class BookingTicketService {
     private final TicketRepository ticketRepository;
 
     public TicketEntity buyTicket(int scheduleId, int roomChairId, String username) {
-//        will check again
-//        if ( !isTicketValid(scheduleId, roomChairId)) {
-//            return null;
-//        }
+        if ( !isTicketValid(scheduleId, roomChairId)) {
+            return null;
+        }
 
         var roomChair = roomChairRepository.getOne(roomChairId);
         var roomChairSchedule = roomMovieScheduleRepository.getOne(scheduleId);
@@ -36,23 +35,34 @@ public class BookingTicketService {
         roomChair.setStatus(true);
         roomChairRepository.save(roomChair);
 
+        // set amount
+        // nguoi lon 60k
+        // tre em 40k
+        int amount = 60;
+
+        if (LocalDate.now().getYear() - user.getDateOfBirth().getYear() < 18) {
+            amount = 40;
+        }
+
         var ticket = TicketEntity.builder()
                 .date(LocalDate.now())
                 .code(code)
                 .roomChair(roomChair)
                 .roomMovieSchedule(roomChairSchedule)
                 .user(user)
+                .amount(amount)
                 .build();
 
         return ticketRepository.save(ticket);
     }
 
-    public boolean isTicketValid(int scheduleId, LocalDate date, int roomChairId){
-        List<TicketEntity> tickets = ticketRepository.findTicketEntitiesByDate(date).stream()
-                .filter(ticket -> ticket.getRoomChair().getId() == roomChairId)
-                .filter(ticket -> ticket.getRoomMovieSchedule().getId() == scheduleId)
-                .collect(Collectors.toList());
+    public boolean isTicketValid(int scheduleId, int roomChairId){
+        var tickets = ticketRepository.findTicketEntitiesByRoomMovieSchedule_Id(scheduleId);
+        for (var ticket : tickets){
+            if (ticket.getRoomChair().getId() == roomChairId)
+                return false;
+        }
 
-        return tickets.size() == 0;
+        return true;
     }
 }

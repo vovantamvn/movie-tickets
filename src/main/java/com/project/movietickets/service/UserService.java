@@ -46,7 +46,7 @@ public class UserService {
         try{
             return userRepository.save(user);
         } catch (Exception e){
-            log.error(e.getMessage());
+            log.error(e);
         }
 
         return null;
@@ -79,9 +79,6 @@ public class UserService {
     }
 
     public UserEntity updateUser(int id, UserModel model) {
-
-        System.out.println(model);
-
         var user = userRepository.getOne(id);
         var password = model.getPassword();
 

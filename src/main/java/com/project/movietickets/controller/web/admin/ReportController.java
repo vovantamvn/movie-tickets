@@ -23,12 +23,10 @@ public class ReportController {
     private final MovieService movieService;
 
     @GetMapping(value = "/reports")
-    public ModelAndView index(
-            @RequestParam(value = "startDate", required = false) String startDate,
-            @RequestParam(value = "endDate", required = false) String endDate,
-            @RequestParam(value = "category", required = false) String category,
-            ModelAndView modelAndView
-    ) {
+    public ModelAndView index(@RequestParam(value = "startDate", required = false) String startDate,
+                              @RequestParam(value = "endDate", required = false) String endDate,
+                              @RequestParam(value = "category", required = false) String category,
+                              ModelAndView modelAndView) {
         modelAndView.setViewName("admin/report/index");
 
         List<Report> reports = reportService.searchReport(startDate, endDate, category);

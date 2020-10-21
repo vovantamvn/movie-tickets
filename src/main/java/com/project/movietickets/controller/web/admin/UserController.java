@@ -7,42 +7,43 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Log4j2
 @Controller
+@RequestMapping("/admin")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/admin/employees")
-    public String index(Model model) {
+    @GetMapping("/employees")
+    public ModelAndView index() {
+        var modelAndView = new ModelAndView("admin/employee/index");
         var employees = userService.getAllEmployees();
-        model.addAttribute("employees", employees);
-        return "admin/employee/index";
+        modelAndView.addObject("employees", employees);
+        return modelAndView;
     }
 
-    @GetMapping("/admin/employees/{id}/delete")
-    public String delete(@PathVariable("id") int id) {
+    @GetMapping("/employees/{id}/delete")
+    public String delete(@PathVariable int id) {
         userService.deleteUser(id);
         return "redirect:/admin/employees";
     }
 
-    @GetMapping("/admin/employees/create")
-    public String create(Model model) {
-        model.addAttribute("user", new UserEntity());
-        return "admin/employee/create";
+    @GetMapping("/employees/create")
+    public ModelAndView create() {
+        var modelAndView = new ModelAndView("admin/employee/create");
+        modelAndView.addObject("user", new UserEntity());
+        return modelAndView;
     }
 
-    @PostMapping("/admin/employees/create")
-    public String store(@ModelAttribute("user") UserEntity user, Model model) {
-        var result = userService.createUser(user);
+    @PostMapping("/employees/create")
+    public String store(@ModelAttribute UserEntity user, Model model) {
+        var userEntity = userService.createUser(user);
 
-        if (result == null) {
+        if (userEntity == null) {
             model.addAttribute("message", "Username hoặc Email đã trùng");
             return "admin/employee/create";
         }
@@ -50,18 +51,17 @@ public class UserController {
         return "redirect:/admin/employees";
     }
 
-    /**
-     * Update user
-     */
-    @GetMapping("/admin/employees/{id}/update")
-    public String update(@PathVariable("id") int id, Model model){
-        UserModel user = userService.findUserById(id);
-        model.addAttribute("user", user);
-        return "admin/employee/update";
+    @GetMapping("/employees/{id}/update")
+    public ModelAndView update(@PathVariable("id") int id, Model model) {
+        var modelAndView = new ModelAndView("admin/employee/update");
+        var userModel = userService.findUserById(id);
+        model.addAttribute("user", userModel);
+        return modelAndView;
     }
 
-    @PostMapping("/admin/employees/{id}/update")
-    public String updateUser(@PathVariable("id") int id, @ModelAttribute("user") UserModel user){
+    @PostMapping("/employees/{id}/update")
+    public String updateUser(@PathVariable("id") int id, @ModelAttribute UserModel user) {
+        log.warn("Update", user);
         userService.updateUser(id, user);
         return "redirect:/admin/employees";
     }

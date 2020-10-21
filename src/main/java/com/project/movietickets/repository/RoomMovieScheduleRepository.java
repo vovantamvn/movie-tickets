@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface RoomMovieScheduleRepository extends JpaRepository<RoomMovieScheduleEntity, Integer> {
-    List<RoomMovieScheduleEntity> findRoomMovieScheduleEntitiesByMovie_Id(int movieId);
+    //List<RoomMovieScheduleEntity> findRoomMovieScheduleEntitiesByMovie_Id(int movieId);
 
     @Query(value = "select room_movie_schedules.*\n" +
             "from room_movie_schedules\n" +
@@ -22,7 +22,7 @@ public interface RoomMovieScheduleRepository extends JpaRepository<RoomMovieSche
             "on rooms.cinema_id = cinemas.id\n" +
             "inner join citys\n" +
             "on cinemas.city_id = citys.id\n" +
-            "where movie_id = :movieId and citys.id = :cityId and schedules.time >= :localDate", nativeQuery = true)
+            "where movie_id = :movieId and citys.id = :cityId and date(schedules.time) = :localDate", nativeQuery = true)
     List<RoomMovieScheduleEntity> findAllByCityAndMovieAndDate(
             @Param("movieId") int movieId,
             @Param("cityId") int cityId,

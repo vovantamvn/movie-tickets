@@ -7,41 +7,28 @@
     <jsp:include page="../template/header.jsp"/>
     <script>
         $(function (){
-            // $('.room-list a').click(function (){
-            //     const sender = $(this)
-            //     const id = sender.data('room-id')
-            //
-            //     $('.room-list li').removeClass('active')
-            //     sender.parent().addClass('active')
-            //
-            //     $('.info-chair-room').hide()
-            //     $('#info-chair-room-' + id).show()
-            // })
-            //
-            // $('.room-list a').first().click()
-
             $('.info-room-chair').each(function (){
                 const sender = $(this)
                 const isSelected = sender.data('is-selected')
                 if (isSelected === true){
                     sender.removeClass('btn-primary')
                     sender.addClass('btn-warning')
-                    sender.prop('disabled', true)
+                    sender.addClass('isDisabled')
                 }
             })
-
-            // $('.info-room-chair').click(function (){
-            //     const sender = $(this)
-            //     const id = sender.data('room-chair-id')
-            //
-            //     $('#room-chair-id').val(id)
-            //     $('#booking-chair').submit()
-            // })
         })
     </script>
 </head>
 
 <style>
+    .isDisabled {
+        color: currentColor;
+        cursor: not-allowed;
+        opacity: 0.5;
+        text-decoration: none;
+        pointer-events: none;
+    }
+
     .info-room-chair {
         width: 50px;
         height: 50px;
@@ -104,12 +91,6 @@
         </div>
 
     </div>
-
-<%--    <form id="booking-chair" class="hide" action="/booking/ticket" method="post">--%>
-<%--        <input name="date" value="${date}">--%>
-<%--        <input name="scheduleId" value="${scheduleId}">--%>
-<%--        <input name="roomChairId" id="room-chair-id">--%>
-<%--    </form>--%>
 
 </div>
 

@@ -2,6 +2,7 @@ package com.project.movietickets.controller.web.admin;
 
 import com.project.movietickets.service.CinemaService;
 import com.project.movietickets.service.CityService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,17 +10,17 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin")
+@RequiredArgsConstructor
 public class CinemaController {
-    @Autowired
-    private CinemaService cinemaService;
 
-    @Autowired
-    private CityService cityService;
+    private final CinemaService cinemaService;
+
+    private final CityService cityService;
 
     @GetMapping("/cinemas")
     public String index(Model model) {
-        final var cinemas = cinemaService.getAllCinema();
-        final var cities = cityService.getAllCity();
+        var cinemas = cinemaService.getAllCinema();
+        var cities = cityService.getAllCity();
 
         model.addAttribute("cities", cities);
         model.addAttribute("cinemas", cinemas);
@@ -34,7 +35,7 @@ public class CinemaController {
      */
     @GetMapping("/cinemas/create")
     public String create(Model model) {
-        final var cities = cityService.getAllCity();
+        var cities = cityService.getAllCity();
         model.addAttribute("cities", cities);
         return "admin/cinema/create";
     }

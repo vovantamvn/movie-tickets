@@ -1,63 +1,63 @@
 package com.project.movietickets.controller.web.admin;
 
 import com.project.movietickets.service.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @Controller
 @RequestMapping("/admin")
+@RequiredArgsConstructor
+@Log4j2
 public class ScheduleController {
-    @Autowired
-    private RoomMovieScheduleService roomMovieScheduleService;
 
-    @Autowired
-    private CinemaService cinemaService;
+    private final RoomMovieScheduleService roomMovieScheduleService;
 
-    @Autowired
-    private MovieService movieService;
+    private final CinemaService cinemaService;
 
-    @Autowired
-    private ScheduleService scheduleService;
+    private final MovieService movieService;
 
-    @RequestMapping(value = "/schedules", method = RequestMethod.GET)
+    @GetMapping(value = "/schedules")
     public String index(Model model) {
-        final var roomMovieSchedules = roomMovieScheduleService.getAllSchedule();
+        var roomMovieSchedules = roomMovieScheduleService.getAllSchedule();
         model.addAttribute("roomMovieSchedules", roomMovieSchedules);
 
         return "admin/schedule/index";
     }
 
-    @RequestMapping(value = "/schedules/create", method = RequestMethod.GET)
+    @GetMapping(value = "/schedules/create")
     public String create(Model model) {
-        final var cinemas = cinemaService.getAllCinema();
-        final var movies = movieService.getAllMovie();
-        final var schedules = scheduleService.getAllSchedule();
+        var cinemas = cinemaService.getAllCinema();
+        var movies = movieService.getAllMovie();
 
         model.addAttribute("cinemas", cinemas);
         model.addAttribute("movies", movies);
-        model.addAttribute("schedules", schedules);
 
         return "admin/schedule/create";
     }
 
-    @RequestMapping(value = "/schedules", method = RequestMethod.POST)
-    public String createSchedule(
-            @RequestParam("roomId") int roomId,
-            @RequestParam("movieId") int movieId,
-            @RequestParam("scheduleId") int scheduleId
-    ) {
-        roomMovieScheduleService.createRoomMovieSchedule(roomId, movieId, scheduleId);
+    @PostMapping(value = "/schedules/create")
+    public String createSchedule(@RequestParam int roomId,
+                                 @RequestParam int movieId,
+                                 @RequestParam String time,
+                                 Model model) {
+        try {
+            roomMovieScheduleService.createRoomMovieSchedule(roomId, movieId, time);
+        } catch (Exception e) {
+            log.error(e);
+            model.addAttribute("error", "Sai định dạng ngày giờ!");
+            return "admin/schedule/create";
+        }
 
         return "redirect:/admin/schedules";
     }
 
-    @RequestMapping(value = "/schedules/{id}/delete", method = RequestMethod.GET)
-    public String delete(@PathVariable("id") int id) {
+    @GetMapping(value = "/schedules/{id}/delete")
+    public String delete(@PathVariable int id) {
         roomMovieScheduleService.delete(id);
 
         return "redirect:/admin/schedules";
