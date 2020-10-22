@@ -14,4 +14,5 @@ public interface TicketRepository extends JpaRepository<TicketEntity, Integer> {
     List<TicketEntity> findAllByUserUsernameOrderByDateDesc(String username);
     Optional<TicketEntity> findTicketEntityByCode(String code);
     List<TicketEntity> findTicketEntitiesByDate(LocalDate date);
+    List<TicketEntity> findTicketEntitiesByRoomMovieSchedule_Id(int id);
 }

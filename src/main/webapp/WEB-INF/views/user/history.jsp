@@ -1,3 +1,5 @@
+<%@ page import="com.project.movietickets.entity.RoomMovieScheduleEntity" %>
+<%@ page import="java.time.LocalDateTime" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE HTML>
@@ -22,7 +24,10 @@
                         <h4>Mã code: ${ticket.code}</h4>
                     </div>
                     <div>
-                        <h4>Ngày chiếu: ${ticket.date}</h4>
+                        <h4>Ngày đặt: ${ticket.date}</h4>
+                    </div>
+                    <div>
+                        <h4>Ngày chiếu: ${ticket.roomMovieSchedule.schedule.time}</h4>
                     </div>
                     <div>
                         <h4>Phòng: ${ticket.roomMovieSchedule.room.name}</h4>

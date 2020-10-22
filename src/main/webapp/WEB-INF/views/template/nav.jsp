@@ -1,3 +1,5 @@
+<%@ page import="org.springframework.security.core.Authentication" %>
+<%@ page import="java.security.Principal" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
@@ -13,31 +15,24 @@
             <div class="nav-wrap">
                 <ul class="group" id="example-one">
                     <li><a href="/" style="color: #FFF">Trang chủ</a></li>
-
+                    <li><a href="/amount" style="color: #FFF">Trang giá</a></li>
                     <%
-                        String role = (String) session.getAttribute("role");
-
-                        if (role == null){
-                            out.print("<li><a href='/login' style='color: #FFF'>Bạn chưa đăng nhập</a></li>");
-                        } else if (role.equals("ROLE_USER")){
+                        if (request.isUserInRole("ROLE_USER")){
                             out.print("<li><a href='/history' style='color: #FFF'>Lịch sử</a></li>");
-                        } else if (role.equals("ROLE_EMPLOYEE")){
+                        } else if (request.isUserInRole("ROLE_EMPLOYEE")){
                             out.print("<li><a href='/manage' style='color: #FFF'>In vé</a></li>");
-                        } else if (role.equals("ROLE_ADMIN")){
+                        } else if (request.isUserInRole("ROLE_ADMIN")) {
                             out.print("<li><a href='/admin' style='color: #FFF'>Quản lý</a></li>");
                         }
-
-
                     %>
 
                     <%
-                        if (session.getAttribute("name") != null){
-                            String name = (String) session.getAttribute("name");
-                            out.print("<li><a href=\"javascript:void(0);\" style=\"color: #FFF\">Chào " + name + "</a></li>");
-                            out.print("<li><a href=\"/logout\" style=\"color: #FFF\">Đăng xuất</a></li>");
+                        if (request.getRemoteUser() != null){
+                            out.print("<li><a href='/information' style='color: #FFF'>Cá nhân</a></li>");
+                            out.print("<li><a href='/logout' style='color: #FFF'>Đăng xuất</a></li>");
                         } else {
-                            out.print("<li><a href=\"/register\" style=\"color: #FFF\">Đăng kí</a></li>");
-                            out.print("<li><a href=\"/login\" style=\"color: #FFF\">Đăng nhập</a></li>");
+                            out.print("<li><a href='/register' style='color: #FFF'>Đăng kí</a></li>");
+                            out.print("<li><a href='/login' style='color: #FFF'>Đăng nhập</a></li>");
                         }
                     %>
                 </ul>

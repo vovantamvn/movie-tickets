@@ -5,8 +5,8 @@
 <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
     <h4 class="card-title">${ticket.roomMovieSchedule.movie.name}</h4>
     <span>Mã code: ${ticket.code}</span><br>
-    <span>Ngày: ${ticket.date}</span><br>
-    <span>Giờ: ${ticket.roomMovieSchedule.schedule.time}</span><br>
+    <span>Ngày đặt: ${ticket.date}</span><br>
+    <span>Ngày chiếu: ${ticket.roomMovieSchedule.schedule.time}</span><br>
     <span>Phòng: ${ticket.roomChair.room.name}</span><br>
     <span>Ghế: ${ticket.roomChair.chair.position}</span><br>
     <c:choose>

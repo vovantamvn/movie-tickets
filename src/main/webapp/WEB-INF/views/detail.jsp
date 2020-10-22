@@ -8,8 +8,6 @@
 
         .col-sm-9{
             font-size: 20px;
-
-
         }
 
         .col-sm-9 h2,form{
@@ -18,8 +16,7 @@
             padding-top: 12px;
         }
 
-        .col-sm-9 label,form{
-            /*color: #357ecd;*/
+        .item {
             margin-left: 40px;
             padding-top: 12px;
         }
@@ -49,16 +46,18 @@
 
                 <h2>${movie.name}</h2>
                 <hr>
-                <label>Đạo diễn:</label> ${movie.director}<br>
-                <label>Thể loại:</label> ${movie.category}<br>
-                <label>Khỏi chiếu:</label> ${movie.premiere}<br>
-                <label>Thời lượng:</label> ${movie.time} phút<br>
-                <label>Ngôn ngữ:</label> ${movie.language}<br>
-                <form method="get" action="/booking">
-                    <input type="hidden" name="movie" value="${movie.id}">
-                    <button type="submit" class="btn btn-primary" id="btn-submit">Mua vé</button>
-                </form>
+                <label class="item">Đạo diễn:</label> ${movie.director}<br>
+                <label class="item">Thể loại:</label> ${movie.category}<br>
+                <label class="item">Khỏi chiếu:</label> ${movie.premiere}<br>
+                <label class="item">Thời lượng:</label> ${movie.time} phút<br>
+                <label class="item">Ngôn ngữ:</label> ${movie.language}<br>
+                <label class="item">Định dạng:</label> ${movie.format}<br>
+                <label class="item">Độ tuổi:</label> ${movie.ageLimit}<br>
 
+                <a role="button"
+                   href="/purchase/${movie.id}/${cityId}/${date}"
+                   class="btn btn-primary item"
+                   id="btn-submit">Mua vé</a>
             </div>
         </div>
         <h3>Chi tiết</h3>

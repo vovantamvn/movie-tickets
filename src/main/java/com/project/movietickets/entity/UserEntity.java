@@ -39,6 +39,14 @@ public class UserEntity {
     @Column(nullable = false)
     private Role role;
 
+    private String phone;
+
+    private String zone;
+
+    private String cinemaLove;
+
+    private String imageUrl;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<TicketEntity> tickets;
 }

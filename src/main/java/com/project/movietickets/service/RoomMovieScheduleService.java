@@ -1,41 +1,47 @@
 package com.project.movietickets.service;
 
 import com.project.movietickets.entity.RoomMovieScheduleEntity;
+import com.project.movietickets.entity.ScheduleEntity;
 import com.project.movietickets.repository.MovieRepository;
 import com.project.movietickets.repository.RoomMovieScheduleRepository;
 import com.project.movietickets.repository.RoomRepository;
 import com.project.movietickets.repository.ScheduleRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class RoomMovieScheduleService {
-    @Autowired
-    private RoomMovieScheduleRepository roomMovieScheduleRepository;
 
-    @Autowired
-    private RoomRepository roomRepository;
+    private final RoomMovieScheduleRepository roomMovieScheduleRepository;
 
-    @Autowired
-    private MovieRepository movieRepository;
+    private final RoomRepository roomRepository;
 
-    @Autowired
-    private ScheduleRepository scheduleRepository;
+    private final MovieRepository movieRepository;
+
+    private final ScheduleRepository scheduleRepository;
 
     public List<RoomMovieScheduleEntity> getAllSchedule() {
         return roomMovieScheduleRepository.findAll();
     }
 
     @Transactional
-    public RoomMovieScheduleEntity createRoomMovieSchedule(int roomId, int movieId, int scheduleId) {
-        final var room = roomRepository.findById(roomId).get();
-        final var movie = movieRepository.findById(movieId).get();
-        final var schedule = scheduleRepository.findById(scheduleId).get();
+    public RoomMovieScheduleEntity createRoomMovieSchedule(int roomId, int movieId, String time) {
+        var localDateTime = LocalDateTime.parse(time);
+        var room = roomRepository.getOne(roomId);
+        var movie = movieRepository.getOne(movieId);
+        var schedule = scheduleRepository.save(
+                ScheduleEntity.builder()
+                        .time(localDateTime)
+                        .build()
+        );
 
-        final var roomMovieSchedule = RoomMovieScheduleEntity.builder()
+        var roomMovieSchedule = RoomMovieScheduleEntity.builder()
                 .room(room)
                 .schedule(schedule)
                 .movie(movie)
@@ -52,15 +58,20 @@ public class RoomMovieScheduleService {
     }
 
     public RoomMovieScheduleEntity findById(int id) {
-        return roomMovieScheduleRepository.findById(id).get();
+        return roomMovieScheduleRepository.getOne(id);
     }
 
     @Transactional
-    public RoomMovieScheduleEntity updateRoomMovieSchedule(int id, int roomId, int movieId, int scheduleId) {
-        final var room = roomRepository.findById(roomId).get();
-        final var movie = movieRepository.findById(movieId).get();
-        final var schedule = scheduleRepository.findById(scheduleId).get();
-        final var roomMovieSchedule = roomMovieScheduleRepository.findById(id).get();
+    public RoomMovieScheduleEntity updateRoomMovieSchedule(int id, int roomId, int movieId, String time) {
+        var localDateTime = LocalDateTime.parse(time);
+        var room = roomRepository.getOne(roomId);
+        var movie = movieRepository.getOne(movieId);
+        var schedule = scheduleRepository.save(
+                ScheduleEntity.builder()
+                        .time(localDateTime)
+                        .build()
+        );
+        var roomMovieSchedule = roomMovieScheduleRepository.getOne(id);
 
         roomMovieSchedule.setRoom(room);
         roomMovieSchedule.setMovie(movie);

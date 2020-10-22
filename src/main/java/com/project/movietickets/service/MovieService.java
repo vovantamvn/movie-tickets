@@ -1,9 +1,9 @@
 package com.project.movietickets.service;
 
 import com.project.movietickets.entity.MovieEntity;
+import com.project.movietickets.entity.RoomMovieScheduleEntity;
 import com.project.movietickets.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class MovieService {
-
     private final MovieRepository movieRepository;
 
     private final StorageService storageService;
@@ -28,19 +27,19 @@ public class MovieService {
         movieRepository.deleteById(id);
     }
 
-    public MovieEntity createMovie(
-            String name,
-            String description,
-            String director,
-            String category,
-            String premiere,
-            int time,
-            String language,
-            MultipartFile image
-    ) {
-        final var imagePath = storageService.store(image);
+    public MovieEntity createMovie(String name,
+                                   String description,
+                                   String director,
+                                   String category,
+                                   String premiere,
+                                   int time,
+                                   String language,
+                                   String format,
+                                   int ageLimit,
+                                   MultipartFile image) {
+        var imagePath = storageService.store(image);
 
-        final var movie = MovieEntity.builder()
+        var movie = MovieEntity.builder()
                 .name(name)
                 .description(description)
                 .director(director)
@@ -48,23 +47,25 @@ public class MovieService {
                 .premiere(LocalDate.parse(premiere))
                 .time(time)
                 .language(language)
+                .format(format)
+                .ageLimit(ageLimit)
                 .image(imagePath)
                 .build();
 
         return movieRepository.save(movie);
     }
 
-    public MovieEntity updateMovie(
-            int id,
-            String name,
-            String description,
-            String director,
-            String category,
-            String premiere,
-            int time,
-            String language
-    ) {
-        final var movie = movieRepository.findById(id).get();
+    public MovieEntity updateMovie(int id,
+                                   String name,
+                                   String description,
+                                   String director,
+                                   String category,
+                                   String premiere,
+                                   int time,
+                                   String language,
+                                   String format,
+                                   int ageLimit) {
+        var movie = movieRepository.getOne(id);
         movie.setName(name);
         movie.setDescription(description);
         movie.setDirector(director);
@@ -72,17 +73,28 @@ public class MovieService {
         movie.setPremiere(LocalDate.parse(premiere));
         movie.setTime(time);
         movie.setLanguage(language);
+        movie.setFormat(format);
+        movie.setAgeLimit(ageLimit);
 
         return movieRepository.save(movie);
     }
 
     public MovieEntity findById(int id) {
-        return movieRepository.findById(id).get();
+        return movieRepository.getOne(id);
     }
 
     public Set<String> getAllCategories() {
-        return movieRepository.findAll().stream()
+        return movieRepository.findAll()
+                .stream()
                 .map(movie -> movie.getCategory())
                 .collect(Collectors.toSet());
+    }
+
+    public List<MovieEntity> getListMovieViewHighest(){
+        return movieRepository.getListMovieViewHighest();
+    }
+
+    public List<MovieEntity> getListMovieLastest(){
+        return movieRepository.getTopNewMovieLastest();
     }
 }

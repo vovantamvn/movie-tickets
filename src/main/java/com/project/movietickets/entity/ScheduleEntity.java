@@ -3,6 +3,7 @@ package com.project.movietickets.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -17,7 +18,9 @@ public class ScheduleEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(insertable = false)
     private int id;
-    private LocalTime time;
+
+    @Basic
+    private LocalDateTime time;
 
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL)
     private List<RoomMovieScheduleEntity> roomSchedules;

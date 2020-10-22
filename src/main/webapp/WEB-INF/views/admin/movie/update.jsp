@@ -41,7 +41,7 @@
                             <labe>Tên</labe>
                         </div>
                         <div class="col-sm-4">
-                            <input value="${movie.name}" type="text" class="form-control" name="name">
+                            <input value="${movie.name}" type="text" class="form-control" name="name" required>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">
@@ -49,7 +49,7 @@
                             <labe>Đạo diễn</labe>
                         </div>
                         <div class="col-sm-4">
-                            <input value="${movie.director}" type="text" class="form-control" name="director">
+                            <input value="${movie.director}" type="text" class="form-control" name="director" required>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">
@@ -57,7 +57,7 @@
                             <labe>Thể loại</labe>
                         </div>
                         <div class="col-sm-4">
-                            <input value="${movie.category}" type="text" class="form-control" name="category">
+                            <input value="${movie.category}" type="text" class="form-control" name="category" required>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">
@@ -65,7 +65,7 @@
                             <labe>Ra mắt</labe>
                         </div>
                         <div class="col-sm-4">
-                            <input value="${movie.premiere}" type="date" class="form-control" name="premiere">
+                            <input value="${movie.premiere}" type="date" class="form-control" name="premiere" required>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">
@@ -73,7 +73,7 @@
                             <labe>Thời gian</labe>
                         </div>
                         <div class="col-sm-4">
-                            <input value="${movie.time}" type="number" class="form-control" name="time">
+                            <input value="${movie.time}" type="number" class="form-control" name="time" required>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">
@@ -81,7 +81,23 @@
                             <labe>Ngôn ngữ</labe>
                         </div>
                         <div class="col-sm-4">
-                            <input value="${movie.time}" type="text" class="form-control" name="language">
+                            <input value="${movie.time}" type="text" class="form-control" name="language" required>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 15px">
+                        <div class="col-sm-2" style="margin-left: 150px">
+                            <labe>Định dạng</labe>
+                        </div>
+                        <div class="col-sm-4">
+                            <input value="${movie.format}" type="text" class="form-control" name="format" required>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 15px">
+                        <div class="col-sm-2" style="margin-left: 150px">
+                            <labe>Độ tuổi</labe>
+                        </div>
+                        <div class="col-sm-4">
+                            <input value="${movie.ageLimit}" type="number" class="form-control" name="ageLimit" required>
                         </div>
                     </div>
                     <div class="row" style="margin-bottom: 15px">

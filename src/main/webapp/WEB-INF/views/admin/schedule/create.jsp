@@ -55,10 +55,10 @@
 
                 <jsp:include page="info-cinemas.jsp"/>
 
-                <form action="/admin/schedules" method="post">
+                <form action="/admin/schedules/create" method="post">
                     <div class="form-group">
                         <label for="select-movie">Chọn phim:</label>
-                        <select class="form-control" name="movieId" id="select-movie">
+                        <select class="form-control col-sm-6" name="movieId" id="select-movie">
                             <c:forEach var="movie" items="${movies}">
                                 <option value="${movie.id}">${movie.name}</option>
                             </c:forEach>
@@ -67,11 +67,7 @@
 
                     <div class="form-group">
                         <label for="select-time">Chọn giờ:</label>
-                        <select class="form-control" name="scheduleId" id="select-time">
-                            <c:forEach var="schedule" items="${schedules}">
-                                <option value="${schedule.id}">${schedule.time}</option>
-                            </c:forEach>
-                        </select>
+                        <input name="time" class="form-control col-sm-6" id="select-time" type="datetime-local" required>
                     </div>
 
                     <input hidden name="roomId" id="room-id">
