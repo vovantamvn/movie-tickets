@@ -72,7 +72,7 @@
                     <strong>Thất bại!</strong> Tên đăng nhập hoặc email đã được sử dụng.
                 </div>
 
-                <%--@elvariable id="user" type="com.project.movietickets.model.UserModel"--%>
+                <%--@elvariable id="user" type="com.project.movietickets.entity.UserEntity"--%>
                 <form:form id="form" action="/admin/employees/${user.id}/update" method="post" modelAttribute="user">
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
@@ -90,20 +90,7 @@
                             <form:input id="username" type="text" class="form-control" path="username"/>
                         </div>
                     </div>
-                    <div class="row" style="margin-bottom: 15px">
-                        <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Mật khẩu</labe>
-                            <br/>
-                        </div>
-                        <div class="col-sm-4">
-                            <form:input
-                                    placeholder="Để trống nếu không đổi mật khấu"
-                                    type="text"
-                                    id="foget-password"
-                                    class="form-control"
-                                    path="password"/>
-                        </div>
-                    </div>
+
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
                             <labe>Email</labe>
@@ -114,15 +101,16 @@
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Giới tính</labe>
+                            <labe>Chức vụ</labe>
                         </div>
                         <div class="col-sm-4">
-                            <form:select path="gender" class="form-control">
-                                <form:option value="true">Nam</form:option>
-                                <form:option value="false">Nữ</form:option>
+                            <form:select path="role" class="form-control">
+                                <form:option value="ROLE_ADMIN">Admin</form:option>
+                                <form:option value="ROLE_EMPLOYEE">Nhân viên</form:option>
                             </form:select>
                         </div>
                     </div>
+                    <form:hidden path="gender" value="true"/>
                     <form:hidden path="id"/>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">

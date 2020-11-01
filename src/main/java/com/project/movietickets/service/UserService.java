@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Log4j2
 @Service
@@ -25,7 +26,7 @@ public class UserService {
     public boolean isAdmin(String name) {
         var user = userRepository.findUserEntityByUsername(name).get();
 
-        return user.getRole().equals("ROLE_ADMIN");
+        return user.getRole().equals(Role.ROLE_ADMIN);
     }
 
     public boolean deleteUser(int id){
@@ -41,7 +42,6 @@ public class UserService {
 
         var passwordEncode = passwordEncoder.encode(user.getPassword());
         user.setPassword(passwordEncode);
-        user.setRole(Role.ROLE_EMPLOYEE);
 
         try{
             return userRepository.save(user);
@@ -53,7 +53,9 @@ public class UserService {
     }
 
     public List<UserEntity> getAllEmployees() {
-        return userRepository.findAllByRoleEquals(Role.ROLE_EMPLOYEE);
+        return userRepository.findAll().stream()
+                .filter(userEntity -> !userEntity.getRole().equals(Role.ROLE_USER))
+                .collect(Collectors.toList());
     }
 
     public String getRole(String username) {
@@ -62,36 +64,17 @@ public class UserService {
         return role;
     }
 
-    public UserModel findUserById(int id) {
-        var user = userRepository.getOne(id);
-        var model = new UserModel(
-                user.getId(),
-                user.getUsername(),
-                user.getPassword(),
-                user.getEmail(),
-                user.getFullName(),
-                user.isGender(),
-                user.getDateOfBirth(),
-                user.getRole()
-        );
-
-        return model;
+    public UserEntity findUserById(int id) {
+        return userRepository.getOne(id);
     }
 
     public UserEntity updateUser(int id, UserModel model) {
         var user = userRepository.getOne(id);
-        var password = model.getPassword();
-
-        if (!password.isBlank()){
-            String newPassword = passwordEncoder.encode(model.getPassword());
-            user.setPassword(newPassword);
-        }
 
         user.setFullName(model.getFullName());
         user.setUsername(model.getUsername());
-        user.setDateOfBirth(model.getDateOfBirth());
         user.setEmail(model.getEmail());
-        user.setGender(model.isGender());
+        user.setRole(model.getRole());
 
         return userRepository.save(user);
     }

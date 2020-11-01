@@ -114,12 +114,12 @@
                     </div>
                     <div class="row" style="margin-bottom: 15px">
                         <div class="col-sm-2" style="margin-left: 150px">
-                            <labe>Giới tính</labe>
+                            <labe>Chức vụ</labe>
                         </div>
                         <div class="col-sm-4">
-                            <form:select path="gender" class="form-control">
-                                <form:option value="true">Nam</form:option>
-                                <form:option value="false">Nữ</form:option>
+                            <form:select path="role" class="form-control">
+                                <form:option value="ROLE_EMPLOYEE">Nhân viên</form:option>
+                                <form:option value="ROLE_ADMIN">Admin</form:option>
                             </form:select>
                         </div>
                     </div>

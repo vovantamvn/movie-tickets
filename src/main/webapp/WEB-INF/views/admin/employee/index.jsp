@@ -69,7 +69,7 @@
                     <thead>
                     <tr>
                         <th>Tên nhân viên</th>
-                        <th>Giới tính</th>
+                        <th>Chức vụ</th>
                         <th>Email</th>
                         <th>Hành động</th>
                     </tr>
@@ -78,7 +78,7 @@
                     <c:forEach var="employee" items="${employees}">
                         <tr>
                             <td>${employee.fullName}</td>
-                            <td>${(employee.gender == true)? "Nam" : "Nữ"}</td>
+                            <td><span class="badge badge-primary">${employee.role}</span></td>
                             <td>${employee.email}</td>
                             <td>
                                 <a

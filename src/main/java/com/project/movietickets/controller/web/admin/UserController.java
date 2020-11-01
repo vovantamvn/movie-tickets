@@ -54,14 +54,13 @@ public class UserController {
     @GetMapping("/employees/{id}/update")
     public ModelAndView update(@PathVariable("id") int id, Model model) {
         var modelAndView = new ModelAndView("admin/employee/update");
-        var userModel = userService.findUserById(id);
-        model.addAttribute("user", userModel);
+        UserEntity user = userService.findUserById(id);
+        model.addAttribute("user", user);
         return modelAndView;
     }
 
     @PostMapping("/employees/{id}/update")
     public String updateUser(@PathVariable("id") int id, @ModelAttribute UserModel user) {
-        log.warn("Update", user);
         userService.updateUser(id, user);
         return "redirect:/admin/employees";
     }
