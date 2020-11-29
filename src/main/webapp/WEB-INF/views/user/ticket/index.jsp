@@ -18,10 +18,6 @@
         margin-bottom: 10px;
     }
 
-    .container {
-        margin-top: 50px;
-        min-height: 400px;
-    }
 </style>
 
 <body>
@@ -30,6 +26,7 @@
 
 <div class="container">
     <div>
+
         <ul class="pagination">
             <%
                 LocalDate now = LocalDate.now();

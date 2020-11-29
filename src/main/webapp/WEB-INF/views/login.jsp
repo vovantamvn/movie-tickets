@@ -11,28 +11,32 @@
 <jsp:include page="template/nav.jsp"/>
 
 <!-- Content-->
-<div class="content">
-    <div class="container-fluid" style="min-height: 450px;">
-        <h2 class="text-center" style="color:#000000;">ĐĂNG NHẬP </h2><br>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
-                <legend><a href=""></a> Đăng nhập hệ thống !
-                </legend>
-                <form method="post" class="form" role="form" action="/login">
-                    <input class="form-control" name="username" placeholder="Tên đăng nhập" type="text" id="name" required><br>
-                    <input class="form-control" name="password" placeholder="Mật khẩu" type="password" id="password" required>
-                    <span class="help-block"><p>${message}</p></span><br>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit" style="letter-spacing: 7px"> ĐĂNG NHẬP </button>
-                    <br>
-                    <h5 style="color: #0f1315">Bạn chưa có tài khoản ?
-                        <a href="/register">Đăng kí</a>
-                    </h5>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+<form id="login-form" class="login" method='post' novalidate='' action="/login">
+    <p class="login__title">sign in <br><span class="login-edition">welcome to A.Movie</span></p>
 
+    <div class="social social--colored">
+        <a href='#' class="social__variant fa fa-facebook"></a>
+        <a href='#' class="social__variant fa fa-twitter"></a>
+        <a href='#' class="social__variant fa fa-tumblr"></a>
+    </div>
+
+    <p class="login__tracker">or</p>
+
+    <div class="field-wrap">
+        <input type='text' placeholder='Username' name='username' class="login__input">
+        <input type='password' placeholder='Password' name='password' class="login__input">
+
+        <input type='checkbox' id='#informed' class='login__check styled'>
+        <label for='#informed' class='login__check-info'>remember me</label>
+    </div>
+
+    <div class="login__control">
+        <button type='submit' class="btn btn-md btn--warning btn--wider">sign in</button>
+        <a href="#" class="login__tracker form__tracker">Forgot password?</a>
+    </div>
+</form>
+
+<div class="clearfix"></div>
 
 <!-- Footer -->
 <jsp:include page="template/footer.jsp"/>

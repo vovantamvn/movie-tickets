@@ -13,12 +13,6 @@
         height: 30px;
     }
 
-    .container {
-        margin-top: 50px;
-        padding: 20px;
-        min-height: 400px;
-    }
-
     .avatar {
         vertical-align: middle;
         width: 150px;
@@ -153,6 +147,8 @@
         </form>
     </div>
 </div>
+
+<div class="clearfix"></div>
 
 <script>
     $(function () {

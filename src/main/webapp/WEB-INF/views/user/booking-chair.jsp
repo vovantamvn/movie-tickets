@@ -38,10 +38,6 @@
         margin-bottom: 10px;
     }
 
-    .container {
-        margin-top: 55px
-    }
-
     .chair-container {
         width: 100%;
         height: 450px;

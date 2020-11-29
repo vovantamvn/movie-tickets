@@ -7,11 +7,6 @@
     <jsp:include page="../template/header.jsp"/>
 </head>
 <style>
-    .container {
-        margin-top: 100px;
-        min-height: 400px;
-    }
-
     .hidden {
         display: none;
     }
