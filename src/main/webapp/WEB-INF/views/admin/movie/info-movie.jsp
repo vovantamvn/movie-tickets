@@ -26,6 +26,7 @@
     <div class="info-movie" id="info-movie-${movie.id}">
         <div id="detail-movie-${movie.id}" style="margin-left: 150px">
             <h2>${movie.name}</h2><br>
+            <img width="120" height="160" src="${movie.image}"><br><br>
             <label>Tác giả:</label> ${movie.director}<br><br>
             <label>Miêu tả:</label> ${movie.description}<br><br>
             <label>Thể loại:</label> ${movie.category}<br><br>

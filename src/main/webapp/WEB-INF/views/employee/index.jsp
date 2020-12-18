@@ -13,11 +13,6 @@
         height: 30px;
     }
 
-    .container {
-        margin-top: 50px;
-        padding: 20px;
-        min-height: 400px;
-    }
 
 </style>
 
@@ -26,7 +21,7 @@
 <jsp:include page="../template/nav.jsp"/>
 
 <!-- Content-->
-<div class="container">
+<div class="container" style="margin-top: 50px">
 
     <div class="col-xs-12 col-sm-12 col-md-4 well well-sm col-md-offset-4">
         <!-- Search form -->

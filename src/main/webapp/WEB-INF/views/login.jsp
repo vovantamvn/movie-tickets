@@ -12,7 +12,7 @@
 
 <!-- Content-->
 <form id="login-form" class="login" method='post' novalidate='' action="/login">
-    <p class="login__title">sign in <br><span class="login-edition">welcome to A.Movie</span></p>
+    <p class="login__title">ĐĂNG NHẬP<br><span class="login-edition">Chào mừng bạn đến HAC Cinema</span></p>
 
     <div class="social social--colored">
         <a href='#' class="social__variant fa fa-facebook"></a>
@@ -27,12 +27,12 @@
         <input type='password' placeholder='Password' name='password' class="login__input">
 
         <input type='checkbox' id='#informed' class='login__check styled'>
-        <label for='#informed' class='login__check-info'>remember me</label>
+        <label for='#informed' class='login__check-info'>lưu đăng nhập</label>
     </div>
 
     <div class="login__control">
-        <button type='submit' class="btn btn-md btn--warning btn--wider">sign in</button>
-        <a href="#" class="login__tracker form__tracker">Forgot password?</a>
+        <button type='submit' class="btn btn-md btn--warning btn--wider">Đăng nhập</button>
+        <a href="#" class="login__tracker form__tracker">Quên mật khẩu?</a>
     </div>
 </form>
 

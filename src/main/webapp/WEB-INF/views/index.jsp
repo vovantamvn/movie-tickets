@@ -99,15 +99,15 @@
 
                 <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
                     <a href='/movies?id=${movie.id}' class="movie__title link--huge">${movie.name}</a>
-
                     <p class="movie__time">${movie.time} phút</p>
-                    <p class="movie__option"><strong>Ngôn ngữ: </strong>${movie.language}</p>
-                    <p class="movie__option"><strong>Thể loại: </strong>${movie.category}</p>
-                    <p class="movie__option"><strong>Ngày chiếu: </strong>${movie.premiere}</p>
-                    <p class="movie__option"><strong>Đạo diễn: </strong>${movie.director}</p>
-                    <p class="movie__option"><strong>Định dạng: </strong>${movie.format}</p>
-                    <p class="movie__option"><strong>Lượt xem: </strong>${movie.view}</p>
-                    <p class="movie__option"><strong>Giới hạn tuổi: </strong>${movie.ageLimit == 0 ? 13 : movie.ageLimit}</p>
+
+<%--                    <p class="movie__option"><strong>Ngôn ngữ: </strong>${movie.language}</p>--%>
+<%--                    <p class="movie__option"><strong>Thể loại: </strong>${movie.category}</p>--%>
+<%--                    <p class="movie__option"><strong>Ngày chiếu: </strong>${movie.premiere}</p>--%>
+<%--                    <p class="movie__option"><strong>Đạo diễn: </strong>${movie.director}</p>--%>
+<%--                    <p class="movie__option"><strong>Định dạng: </strong>${movie.format}</p>--%>
+<%--                    <p class="movie__option"><strong>Lượt xem: </strong>${movie.view}</p>--%>
+<%--                    <p class="movie__option"><strong>Giới hạn tuổi: </strong>${movie.ageLimit == 0 ? 13 : movie.ageLimit}</p>--%>
 
                     <div class="movie__btns">
                         <a href="/movies?id=${movie.id}" class="btn btn-md btn--warning">Xem chi tiết <span
@@ -116,7 +116,7 @@
                     </div>
 
                     <div class="preview-footer">
-                        <hr/>
+<%--                        <hr/>--%>
                     </div>
                 </div>
 

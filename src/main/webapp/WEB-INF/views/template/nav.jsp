@@ -7,7 +7,8 @@
     <div class="container">
         <!-- Logo link-->
         <a href='/' class="logo">
-            <img alt='logo' src="/images/logo.png">
+            <img alt='logo' width="210" height="120" src="/images/logo.png">
+<%--            <span width="210" height="80" class="btn btn--sign">HAC Cinema</span>--%>
         </a>
 
         <!-- Main website navigation-->
