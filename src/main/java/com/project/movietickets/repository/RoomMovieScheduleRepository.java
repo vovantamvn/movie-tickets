@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface RoomMovieScheduleRepository extends JpaRepository<RoomMovieScheduleEntity, Integer> {
-    //List<RoomMovieScheduleEntity> findRoomMovieScheduleEntitiesByMovie_Id(int movieId);
 
     @Query(value = "select room_movie_schedules.*\n" +
             "from room_movie_schedules\n" +
