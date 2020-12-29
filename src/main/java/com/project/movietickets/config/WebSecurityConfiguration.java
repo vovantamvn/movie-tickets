@@ -43,7 +43,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/restore-password", "/confirm-password").permitAll()
                 .antMatchers("/manage/**").hasRole("EMPLOYEE")
                 .antMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().permitAll()
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")

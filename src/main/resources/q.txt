@@ -1,0 +1,11 @@
+select chairs.position from chairs
+inner join room_chairs
+on room_chairs.chair_id = chairs.id
+where room_chairs.id in
+(
+	select tickets.room_chair_id from tickets
+	inner join room_movie_schedules
+	on room_movie_schedules.id = tickets.room_movie_schedule_id
+	where room_movie_schedules.movie_id = 1
+    and
+);

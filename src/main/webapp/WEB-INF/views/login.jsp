@@ -14,20 +14,20 @@
 <form id="login-form" class="login" method='post' novalidate='' action="/login">
     <p class="login__title">ĐĂNG NHẬP<br><span class="login-edition">Chào mừng bạn đến HAC Cinema</span></p>
 
-    <div class="social social--colored">
-        <a href='#' class="social__variant fa fa-facebook"></a>
-        <a href='#' class="social__variant fa fa-twitter"></a>
-        <a href='#' class="social__variant fa fa-tumblr"></a>
-    </div>
+<%--    <div class="social social--colored">--%>
+<%--        <a href='#' class="social__variant fa fa-facebook"></a>--%>
+<%--        <a href='#' class="social__variant fa fa-twitter"></a>--%>
+<%--        <a href='#' class="social__variant fa fa-tumblr"></a>--%>
+<%--    </div>--%>
 
-    <p class="login__tracker">or</p>
+<%--    <p class="login__tracker">or</p>--%>
 
     <div class="field-wrap">
         <input type='text' placeholder='Username' name='username' class="login__input">
         <input type='password' placeholder='Password' name='password' class="login__input">
 
-        <input type='checkbox' id='#informed' class='login__check styled'>
-        <label for='#informed' class='login__check-info'>lưu đăng nhập</label>
+<%--        <input type='checkbox' id='#informed' class='login__check styled'>--%>
+<%--        <label for='#informed' class='login__check-info'>lưu đăng nhập</label>--%>
     </div>
 
     <div class="login__control">

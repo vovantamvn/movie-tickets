@@ -93,8 +93,8 @@
                     <p class="movie__option"><strong>Giới hạn tuổi: </strong>${movie.ageLimit == 0 ? 13 : movie.ageLimit}</p>
 
                     <div class="movie__btns">
-                        <a href="/movies?id=${movie.id}" class="btn btn-md btn--warning">Xem chi tiết <span
-                                class="hidden-sm">phim</span></a>
+<%--                        <a href="/movies?id=${movie.id}" class="btn btn-md btn--warning">Xem chi tiết <span--%>
+<%--                                class="hidden-sm">phim</span></a>--%>
                         <a href="/purchase/${movie.id}/${cityId}/${date}" class="watchlist">Mua vé</a>
                     </div>
 
